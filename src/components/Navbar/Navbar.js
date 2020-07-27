@@ -1,19 +1,27 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => (
-  <nav className="main-nav flex flex-wrap justify-between container mx-auto h-8 content-center">
+  <nav className="main-nav flex flex-wrap justify-between  w-4/5 mx-auto h-8 py-8 content-center cursor-pointer text-green-900 font-light">
     <div className="logo flex flex-1">
-      <h1 className="font-semibold ">GROCEASY</h1>
+      <NavLink to="/" className="text-xl p-0">
+        GROCEASY
+      </NavLink>
     </div>
-    <ul className="nav-links flex justify-around flex-1 capitalize">
-      <li className="nav-link">contact</li>
-      <li className="nav-link">shop</li>
-    </ul>
+    <div className="nav-links flex justify-around flex-1 capitalize">
+      <NavLink to="/contact" className="nav-link">
+        contact
+      </NavLink>
+      <NavLink to="/shop" className="nav-link">
+        shop
+      </NavLink>
+    </div>
     <div className="nav-cta flex flex-1 justify-around capitalize">
-      <button className="bg-transparent py-1 px-2 border-teal-400 border rounded font-semibold hover:text-white hover:bg-teal-500">
-        Sign up
-      </button>
-      <nav-link className="">cart</nav-link>
+      <NavLink to="/sign-up">Sign up</NavLink>
+
+      <NavLink to="/cart" className="">
+        cart
+      </NavLink>
     </div>
   </nav>
 );
