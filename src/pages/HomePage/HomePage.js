@@ -1,10 +1,10 @@
 import React from "react";
-import Hero from "../components/Hero/Hero";
+import Hero from "../../components/Hero/Hero";
 
-import Browse from "../assets/img/browse.svg";
-import Choose from "../assets/img/choose.svg";
-import Checkout from "../assets/img/checkout.svg";
-import ProductPreview from "../components/ProductPreview/ProductPreview";
+import Browse from "../../assets/img/browse.svg";
+import Choose from "../../assets/img/choose.svg";
+import Checkout from "../../assets/img/checkout.svg";
+import ProductPreview from "../../components/ProductPreview/ProductPreview";
 
 const HomePage = () => (
   <>
