@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextInput from "../TextInput/TextInput";
+import Button from "../Button/Button";
 
 export default class signUp extends Component {
   constructor(props) {
@@ -67,20 +68,24 @@ export default class signUp extends Component {
                   onChange={this.handleChange}
                 />
                 <p className="text-grey text-xs mt-1">At least 6 characters</p>
-                <div className="flex content-center justify-between md:mt-8">
-                  <button
+                <div className="content-center justify-between md:mt-8">
+                  {/* <button
                     className="bg-transparent border border-teal-400 py-2 px-8 hover:bg-teal-500 rounded-full hover:text-white mb-4"
                     type="submit"
                   >
                     Sign In
-                  </button>
+                  </button> */}
 
+                  <Button>Sign In</Button>
+                  {/* 
                   <button
                     className="bg-transparent border border-teal-400 py-2 px-8 hover:bg-teal-500 rounded-full hover:text-white mb-4"
                     type="submit"
                   >
                     Sign In With Google
-                  </button>
+                  </button> */}
+
+                  <Button>Sign In with Google</Button>
                 </div>
               </form>
             </div>

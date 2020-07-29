@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextInput from "../TextInput/TextInput";
+import { signInWithGoogle } from "../../firebase/firebase.utils";
 
 class SignIn extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class SignIn extends Component {
                   <button
                     className="bg-transparent border border-teal-400 py-2 px-8 hover:bg-teal-500 rounded-full hover:text-white mb-4"
                     type="submit"
+                    onClick={signInWithGoogle}
                   >
                     Sign In With Google
                   </button>
