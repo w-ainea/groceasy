@@ -11,25 +11,28 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 
 class App extends Component {
   state = {
-    userRole: "",
-    currentUser: "",
+    currentUser: null,
   };
 
+  unsubscribeFromAuth = null;
+
   componentDidMount() {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        this.setState({ currentUser: user });
-      }
+    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
+      this.setState({ currentUser: user });
 
       console.log(user);
     });
+  }
+
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
   }
 
   render() {
     return (
       <div className="font-display text-gray-800">
         {window.location.pathname !== "/" ? (
-          <Navbar currentUser={this.currentUser} />
+          <Navbar currentUser={this.state.currentUser} />
         ) : null}
         <Switch>
           <Route path="/" exact component={LandingPage} />

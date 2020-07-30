@@ -1,9 +1,11 @@
 import React from "react";
+import { auth } from "../../firebase/firebase.utils";
+
 import { NavLink } from "react-router-dom";
 
-const Navbar = () => (
-  <nav className="main-nav flex flex-wrap justify-between  w-4/5 mx-auto h-8 py-8 content-center cursor-pointer text-green-900 font-light">
-    <div className="logo flex flex-1">
+const Navbar = ({ currentUser }) => (
+  <nav className="main-nav flex flex-wrap justify-around  w-4/5 mx-auto h-8 py-8 content-center cursor-pointer text-green-900 font-light">
+    <div className="logo flex flex-1 items-center">
       <NavLink to="/home" className="text-xl p-0">
         GROCEASY
       </NavLink>
@@ -22,11 +24,7 @@ const Navbar = () => (
           </NavLink>
         </div>
       ) : (
-        <div className="flex justify-between flex-1">
-          <NavLink to="/contact" className="nav-link">
-            contact
-          </NavLink>
-
+        <div className="flex justify-around flex-1">
           <NavLink to="/shop" className="nav-link">
             shop
           </NavLink>
@@ -38,7 +36,14 @@ const Navbar = () => (
       )}
     </div>
     <div className="nav-cta flex flex-1 justify-around capitalize">
-      <NavLink to="/sign-up">Sign up</NavLink>
+      {currentUser ? (
+        <div className="cursor-pointer" onClick={() => auth.signOut()}>
+          {" "}
+          Sign Out{" "}
+        </div>
+      ) : (
+        <NavLink to="/sign-up">Sign In</NavLink>
+      )}
     </div>
   </nav>
 );
