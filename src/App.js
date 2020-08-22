@@ -1,50 +1,28 @@
-import React, { Component } from "react";
-import { auth } from "./firebase/firebase.utils";
-
-import HomePage from "./pages/HomePage/HomePage";
-import Navbar from "./components/Navbar/Navbar";
+import React from "react";
+import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
-import ShopPage from "./pages/ShopPage/ShopPage";
-import AuthenticationPage from "./pages/AuthenticationPage/AuthenticationPage";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import Dashboard from "./pages/Dashboard/Dashboard";
 
-class App extends Component {
-  state = {
-    currentUser: null,
-  };
+import HomePage from "./pages/HomePage";
+import SignUp from "./components/SignUp";
+import SignIn from "./components/SignIn";
 
-  unsubscribeFromAuth = null;
+const App = () => {
+  return (
+    <div className="h-screen mx-auto sm:grid grid-cols-3 text-gray-800">
+      {window.location.pathname === "/signup" ||
+      window.location.pathname === "/signin" ? null : (
+        <Navbar className="sm:col-span-1" />
+      )}
 
-  componentDidMount() {
-    this.unsubscribeFromAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-
-      console.log(user);
-    });
-  }
-
-  componentWillUnmount() {
-    this.unsubscribeFromAuth();
-  }
-
-  render() {
-    return (
-      <div className="font-display text-gray-800">
-        {window.location.pathname !== "/" ? (
-          <Navbar currentUser={this.state.currentUser} />
-        ) : null}
+      <div className="content col-span-2 px-4 bg-gray-100">
         <Switch>
-          <Route path="/" exact component={LandingPage} />
-          <Route path="/home" exact component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/sign-up" component={AuthenticationPage} />
-          <Route path="/sign-in" component={AuthenticationPage} />
-          <Route path="/dashboad" component={Dashboard} />
+          <Route exact path="/" component={HomePage} />
+          <Route path="/signup" component={SignUp} />
+          <Route path="/signin" component={SignIn} />
         </Switch>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default App;

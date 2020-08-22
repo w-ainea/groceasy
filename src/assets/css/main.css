@@ -6048,7 +6048,7 @@ video {
 }
 
 .font-display {
-  font-family: Poppins, sans-serif;
+  font-family: Nunito, sans-serif;
 }
 
 .font-hairline {
@@ -14346,6 +14346,16 @@ video {
   transition-delay: 1000ms;
 }
 
+.navlink {
+  display: flex;
+}
+
+.lead-title {
+  --text-opacity: 1;
+  color: #2d3748;
+  color: rgba(45, 55, 72, var(--text-opacity));
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
@@ -19818,7 +19828,7 @@ video {
   }
 
   .sm\:font-display {
-    font-family: Poppins, sans-serif;
+    font-family: Nunito, sans-serif;
   }
 
   .sm\:font-hairline {
@@ -33589,7 +33599,7 @@ video {
   }
 
   .md\:font-display {
-    font-family: Poppins, sans-serif;
+    font-family: Nunito, sans-serif;
   }
 
   .md\:font-hairline {
@@ -47360,7 +47370,7 @@ video {
   }
 
   .lg\:font-display {
-    font-family: Poppins, sans-serif;
+    font-family: Nunito, sans-serif;
   }
 
   .lg\:font-hairline {
@@ -61131,7 +61141,7 @@ video {
   }
 
   .xl\:font-display {
-    font-family: Poppins, sans-serif;
+    font-family: Nunito, sans-serif;
   }
 
   .xl\:font-hairline {
