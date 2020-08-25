@@ -6,7 +6,7 @@ const Input = ({ id, value, required, ...otherProps }) => {
       <input
         id={id}
         value={value}
-        className="bg-gray-200 rounded-lg my-2 py-2 px-4"
+        className="bg-gray-200 rounded-lg my-2 py-2 px-4 sm:w-64"
         {...otherProps}
         required
       />

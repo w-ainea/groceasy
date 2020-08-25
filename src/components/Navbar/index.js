@@ -3,13 +3,13 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="px-4 fixed bottom-0 flex justify-between h-12 items-center bg-white w-screen sm:relative sm:grid sm:bg-white max-w-sm mx-auto text font-light text-green-500 sm:w-6/12">
-      <NavLink to="/" className="navlink sm:p-2">
+    <nav className="px-4 fixed bottom-0 flex justify-between h-12 items-center bg-white w-screen sm:relative sm:grid sm:bg-white max-w-sm mx-auto font-light text-green-500 sm:w-6/12">
+      <NavLink to="/" className="sm:flex sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="home w-6 h-6"
+          className="home w-6 h-6 mx-auto"
         >
           <path
             strokeLinecap="round"
@@ -20,12 +20,12 @@ const Navbar = () => {
         </svg>
         Home
       </NavLink>
-      <NavLink to="/shop" className="navlink sm:p-2">
+      <NavLink to="/shop" className="sm:flex sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="shopping-bag w-6 h-6"
+          className="shopping-bag w-6 h-6 mx-auto"
         >
           <path
             strokeLinecap="round"
@@ -36,12 +36,12 @@ const Navbar = () => {
         </svg>
         Shop
       </NavLink>
-      <NavLink to="/contact" className="navlink sm:p-2">
+      <NavLink to="/contact" className="sm:flex sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="support w-6 h-6"
+          className="support w-6 h-6 mx-auto"
         >
           <path
             strokeLinecap="round"
@@ -52,12 +52,12 @@ const Navbar = () => {
         </svg>
         Contact
       </NavLink>
-      <NavLink to="/account" className="navlink sm:p-2">
+      <NavLink to="/account" className="sm:flex sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="user w-6 h-6"
+          className="user w-6 h-6 mx-auto"
         >
           <path
             strokeLinecap="round"

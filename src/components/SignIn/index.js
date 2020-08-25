@@ -67,7 +67,7 @@ class SignIn extends Component {
           </button>
         </form>
         <p className="font-light uppercase mt-4">Or</p>
-        <button className="rounded-full mt-4 w-11/12 bg-blue-600 py-2 text-white uppercase">
+        <button className="rounded-full mt-4 w-64 bg-blue-600 py-2 text-white uppercase">
           sign in with google
         </button>
       </div>

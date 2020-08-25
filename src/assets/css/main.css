@@ -14346,10 +14346,6 @@ video {
   transition-delay: 1000ms;
 }
 
-.navlink {
-  display: flex;
-}
-
 .lead-title {
   --text-opacity: 1;
   color: #2d3748;

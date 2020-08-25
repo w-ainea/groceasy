@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Input from "../Input/";
+import Input from "../Input";
 
 class SignUp extends Component {
   constructor(props) {
@@ -37,8 +37,11 @@ class SignUp extends Component {
 
     return (
       <div className="p-10 h-screen mx-auto text-center">
-        <h1 className="text-xl mb-6 text-center">Sign Up</h1>
-        <form onSubmit={this.handleSubmit} className="max-w-md text-center">
+        <h1 className="text-xl mb-6">Sign Up</h1>
+        <form
+          onSubmit={this.handleSubmit}
+          className="max-w-md text-center sm:max-w-lg"
+        >
           <Input
             type="text"
             id="firstName"
@@ -81,19 +84,19 @@ class SignUp extends Component {
           />
           <Link
             to="/recover-password"
-            className="text-sm font-light text-green-500 underline cursor-pointer"
+            className="block text-sm font-light text-green-500 underline cursor-pointer"
           >
             Forgot password?
           </Link>
           <button
             type="submit"
-            className="rounded-full mt-10 w-11/12 bg-green-500 py-2 text-white uppercase"
+            className="rounded-full mt-10 w-64 bg-green-500 py-2 text-white uppercase"
           >
             Sign Up
           </button>
         </form>
         <p className="font-light uppercase mt-4">Or</p>
-        <button className="rounded-full mt-4 w-11/12 bg-blue-600 py-2 text-white uppercase">
+        <button className="rounded-full mt-4 sm:w-64 bg-blue-600 py-2 text-white uppercase">
           sign up with google
         </button>
       </div>
