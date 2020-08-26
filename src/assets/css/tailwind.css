@@ -5,3 +5,17 @@
 .lead-title {
   @apply text-gray-800;
 }
+
+.header-link {
+  @apply relative;
+  @apply top-0;
+  @apply right-0;
+  @apply py-3;
+}
+
+.header-icon {
+  @apply absolute;
+  @apply top-0;
+  @apply right-0;
+  @apply text-pink-500;
+}
