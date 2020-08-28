@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Input from "../Input";
+import { Input } from "..";
 
 class SignUp extends Component {
   constructor(props) {

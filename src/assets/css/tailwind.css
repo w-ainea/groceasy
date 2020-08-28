@@ -6,6 +6,16 @@
   @apply text-gray-800;
 }
 
+.main-header {
+  @apply mx-auto;
+  @apply flex;
+  @apply justify-between;
+  @apply items-center;
+  @apply h-16;
+  @apply cursor-pointer;
+  @apply px-10;
+}
+
 .header-link {
   @apply relative;
   @apply top-0;

@@ -14352,6 +14352,18 @@ video {
   color: rgba(45, 55, 72, var(--text-opacity));
 }
 
+.main-header {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4rem;
+  cursor: pointer;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+}
+
 .header-link {
   position: relative;
   top: 0;

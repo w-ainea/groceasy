@@ -3,8 +3,8 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="px-4 fixed bottom-0 flex justify-between h-12 items-center bg-white w-screen sm:relative sm:grid sm:bg-white max-w-sm mx-auto font-light text-green-500 sm:w-6/12">
-      <NavLink to="/" className="sm:flex sm:p-2">
+    <nav className="px-4 fixed bottom-0 flex justify-between h-12 items-center w-screen sm:top-0 mt-24 sm:grid sm:h-56 sm:max-w-sm mx-auto text-sm sm:text-base font-light text-green-500 sm:w-64 sm:shadow-md sm:rounded-lg bg-white z-10">
+      <NavLink to="/" className="sm:flex pt-3 sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
@@ -20,7 +20,7 @@ const Navbar = () => {
         </svg>
         Home
       </NavLink>
-      <NavLink to="/shop" className="sm:flex sm:p-2">
+      <NavLink to="/shop" className="sm:flex pt-3 sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
@@ -36,23 +36,23 @@ const Navbar = () => {
         </svg>
         Shop
       </NavLink>
-      <NavLink to="/contact" className="sm:flex sm:p-2">
+      <NavLink to="/contact" className="sm:flex pt-3 sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
-          className="support w-6 h-6 mx-auto"
+          className="question-mark-circle w-6 h-6 mx-auto"
         >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
             strokeWidth={2}
-            d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"
+            d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
         Contact
       </NavLink>
-      <NavLink to="/account" className="sm:flex sm:p-2">
+      <NavLink to="/account" className="sm:flex pt-3 sm:p-2">
         <svg
           fill="none"
           viewBox="0 0 24 24"

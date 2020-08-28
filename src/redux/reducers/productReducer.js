@@ -6,10 +6,10 @@ const productReducer = (state = productState, action) => {
     case types.LOAD_PRODUCTS:
       return state;
 
-    case types.ADD_PRODUCTS:
+    case types.ADD_PRODUCT:
       return state;
 
-    case types.DELETE_PRODUCTS:
+    case types.DELETE_PRODUCT:
       return state;
 
     default:
@@ -18,3 +18,7 @@ const productReducer = (state = productState, action) => {
 };
 
 export default productReducer;
+
+// const numbers = [1, 2, 3];
+
+// numbers.map((number) => console.log(number));

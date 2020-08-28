@@ -1,10 +1,13 @@
 import React from "react";
-import { ShopItem } from "../../components";
+import { ShopItem } from "..";
 
 const ShopItemList = () => (
-  <div className="p-10 mx-auto mb-10 sm:mb-0">
+  <div className=" mx-auto mb-10 sm:mb-0 w-full">
     Category Title
-    <div className="grid md:grid-cols-3 lg:grid-cols-4 pt-4 pb-2 gap-6">
+    <div className="grid sm:grid-cols-2 gap-6">
+      <ShopItem />
+      <ShopItem />
+      <ShopItem />
       <ShopItem />
       <ShopItem />
       <ShopItem />
