@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import { Switch, Route } from "react-router-dom";
 
-import { HomePage, ShopPage } from "./pages/";
+import { HomePage, ShopPage, Dashboard } from "./pages/";
 import { Header, Cart } from "./components";
 // import { SignUp, SignIn } from "./components";
 
@@ -18,6 +18,7 @@ const App = () => {
             <Route exact path="/" component={HomePage} />
             <Route exact path="/shop" component={ShopPage} />
             <Route exact path="/cart" component={Cart} />
+            <Route exact path="/dashboard" component={Dashboard} />
             {/* <Route path="/signup" component={SignUp} />
           <Route path="/signin" component={SignIn} /> */}
           </Switch>
