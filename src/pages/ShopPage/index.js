@@ -2,7 +2,7 @@ import React from "react";
 import { ShopItemList } from "../../components";
 
 const ShopPage = () => (
-  <div className="h-screen">
+  <div className="h-screen w-full grid justify-center">
     <h1 className="text-2xl">Shop Page</h1>
     <ShopItemList />
   </div>

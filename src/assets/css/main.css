@@ -14358,7 +14358,6 @@ video {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 4rem;
   cursor: pointer;
   padding-left: 2.5rem;
   padding-right: 2.5rem;

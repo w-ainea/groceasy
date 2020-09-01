@@ -1,7 +1,7 @@
-import { products as productState } from "./initialState";
 import * as types from "../actions/actionTypes";
+import initialState from "./initialState";
 
-const productReducer = (state = productState, action) => {
+const productReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.LOAD_PRODUCTS:
       return state;

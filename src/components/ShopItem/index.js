@@ -3,7 +3,7 @@ import Fruits from "../../assets/img/fruits.jpg";
 
 const ShopItem = () => {
   return (
-    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden w-64">
+    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden w-64 flex flex-col">
       <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />
       <div className="flex justify-between mt-4 px-2">
         <h1 className="text-base font-medium">Orange</h1>

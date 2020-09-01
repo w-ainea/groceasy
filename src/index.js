@@ -6,11 +6,16 @@ import App from "./App";
 import "./assets/css/main.css";
 import "typeface-nunito";
 
+import store from "./redux";
+import { Provider as ReduxProvider } from "react-redux";
+
 render(
-  <Router>
-    <div className="font-display">
-      <App />
-    </div>
-  </Router>,
+  <ReduxProvider store={store}>
+    <Router>
+      <div className="font-display">
+        <App />
+      </div>
+    </Router>
+  </ReduxProvider>,
   document.getElementById("root")
 );

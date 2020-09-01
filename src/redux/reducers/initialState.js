@@ -1,4 +1,8 @@
-const products = [];
-const sellers = [];
+const initialState = {
+  products: [],
+  sellers: [],
+  cartItems: [],
+  hidden: true,
+};
 
-export { products, sellers };
+export default initialState;

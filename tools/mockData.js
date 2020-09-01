@@ -27,6 +27,20 @@ const products = [
     sellerId: 4,
     categoryId: 2,
   },
+  {
+    id: 5,
+    name: "Onions",
+    price: 10,
+    sellerId: 1,
+    categoryId: 2,
+  },
+  {
+    id: 6,
+    name: "Tomatoes",
+    price: 10,
+    sellerId: 3,
+    categoryId: 2,
+  },
 ];
 
 const categories = [
@@ -37,6 +51,10 @@ const categories = [
   {
     title: "Fruits",
     categoryId: 2,
+  },
+  {
+    title: "Spices",
+    categoryId: 3,
   },
 ];
 
