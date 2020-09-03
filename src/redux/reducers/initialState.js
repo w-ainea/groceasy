@@ -1,8 +1,5 @@
-const initialState = {
+export default {
   products: [],
   sellers: [],
   cartItems: [],
-  hidden: true,
 };
-
-export default initialState;

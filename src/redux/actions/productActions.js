@@ -1,23 +1,27 @@
 import * as types from "./actionTypes";
+import * as productsApi from "../../api/productsApi";
 
-const loadProducts = (products) => ({
-  type: types.LOAD_PRODUCTS,
-  payload: products,
+export function fetchProducts() {
+  return function (dispatch) {
+    return productsApi
+      .getProducts()
+      .then((products) => {
+        dispatch(receiveProducts(products));
+      })
+      .catch((err) => {
+        throw err;
+      });
+  };
+}
+
+export function fetchProductsError(error) {
+  return {
+    type: types.FETCH_PRODUCTS_ERROR,
+    payload: error,
+  };
+}
+
+export const receiveProducts = (products) => ({
+  type: types.RECEIVE_PRODUCTS,
+  products,
 });
-
-const addProduct = (product) => ({
-  type: types.ADD_PRODUCT,
-  payload: product,
-});
-
-const deleteProduct = (product) => ({
-  type: types.DELETE_PRODUCT,
-  payload: product,
-});
-
-const modifyProduct = (product) => ({
-  type: types.MODIFY_PRODUCT,
-  payload: product,
-});
-
-export { loadProducts, addProduct, deleteProduct, modifyProduct };

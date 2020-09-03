@@ -1,16 +1,10 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-const productReducer = (state = initialState, action) => {
+const productReducer = (state = initialState.products, action) => {
   switch (action.type) {
-    case types.LOAD_PRODUCTS:
-      return state;
-
-    case types.ADD_PRODUCT:
-      return state;
-
-    case types.DELETE_PRODUCT:
-      return state;
+    case types.RECEIVE_PRODUCTS:
+      return action.products;
 
     default:
       return state;
@@ -18,7 +12,3 @@ const productReducer = (state = initialState, action) => {
 };
 
 export default productReducer;
-
-// const numbers = [1, 2, 3];
-
-// numbers.map((number) => console.log(number));

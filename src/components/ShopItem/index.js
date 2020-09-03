@@ -1,18 +1,18 @@
 import React from "react";
-import Fruits from "../../assets/img/fruits.jpg";
+// import Fruits from "../../assets/img/fruits.jpg";
 
-const ShopItem = () => {
+const ShopItem = ({ product }) => {
   return (
-    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden w-64 flex flex-col">
-      <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />
+    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-36 flex flex-col">
+      <img src={product.imgUrl} alt="fruits" className="w-100 bg-cover" />
       <div className="flex justify-between mt-4 px-2">
-        <h1 className="text-base font-medium">Orange</h1>
-        <h1 className="text-base font-medium">Ksh. 20</h1>
+        <h1 className="text-base font-medium">{product.name}</h1>
+        <h1 className="text-base font-medium">{product.price}</h1>
       </div>
       <div className="px-2 py-2">
         <h1>Seller Name</h1>
       </div>
-      <button className="w-40 uppercase text-green-500 rounded-full border border-green-600 px-4 py-1 mb-4">
+      <button className="btn-primary hover:border-green-500  hover:bg-white  hover:text-green-500 ">
         buy
       </button>
     </div>

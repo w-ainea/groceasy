@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
-const Header = ({ hidden }) => {
+const Header = () => {
   return (
     <div className="shadow-md fixed w-full top-0 z-10 bg-white">
-      <header className="main-header container sm:px-0 h-12">
+      <header className="main-header container sm:px-4 h-12">
         <div className="uppercase font-bold text-green-800">Groceasy</div>
         <ul className="flex text-green-500">
           <li className="header-link mx-12">
@@ -46,8 +46,4 @@ const Header = ({ hidden }) => {
   );
 };
 
-const mapStateToProps = (state) => ({
-  hidden: state.cart.hidden,
-});
-
-export default connect(mapStateToProps)(Header);
+export default Header;

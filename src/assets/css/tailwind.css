@@ -28,3 +28,23 @@
   @apply right-0;
   @apply text-pink-500;
 }
+/* 
+.active {
+  @apply bg-gray-300;
+  @apply text-white;
+  @apply w-64;
+} */
+
+.btn-primary {
+  @apply bg-green-500;
+  @apply text-white;
+  @apply w-40;
+  @apply uppercase;
+  @apply rounded-full;
+  @apply px-4;
+  @apply py-1;
+  @apply mb-4;
+  @apply h-8;
+  @apply mx-auto;
+  @apply border;
+}

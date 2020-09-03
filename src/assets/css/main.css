@@ -14380,6 +14380,34 @@ video {
   color: rgba(237, 100, 166, var(--text-opacity));
 }
 
+/* 
+.active {
+  @apply bg-gray-300;
+  @apply text-white;
+  @apply w-64;
+} */
+
+.btn-primary {
+  --bg-opacity: 1;
+  background-color: #48bb78;
+  background-color: rgba(72, 187, 120, var(--bg-opacity));
+  --text-opacity: 1;
+  color: #fff;
+  color: rgba(255, 255, 255, var(--text-opacity));
+  width: 10rem;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+  height: 2rem;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;
