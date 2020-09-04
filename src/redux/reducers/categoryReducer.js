@@ -1,7 +1,7 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
 
-export const categoryReducer = (state = initialState.categories, action) => {
+const categoryReducer = (state = initialState.categories, action) => {
   switch (action.type) {
     case types.RECEIVE_CATEGORIES:
       return action.categories;
@@ -10,3 +10,5 @@ export const categoryReducer = (state = initialState.categories, action) => {
       return state;
   }
 };
+
+export default categoryReducer;
