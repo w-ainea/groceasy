@@ -67,19 +67,19 @@ const categories = [
 const sellers = [
   {
     name: "Gladys",
-    sellerId: 1,
+    id: 1,
   },
   {
     name: "Josephine",
-    sellerId: 2,
+    id: 2,
   },
   {
     name: "Ann",
-    sellerId: 3,
+    id: 3,
   },
   {
     name: "Jaque",
-    sellerId: 4,
+    id: 4,
   },
 ];
 

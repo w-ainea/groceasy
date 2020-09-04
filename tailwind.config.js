@@ -4,7 +4,7 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
-      fontFamily: { display: ["Nunito", "sans-serif"] },
+      fontFamily: { display: ["Poppins", "sans-serif"] },
     },
   },
   variants: {},

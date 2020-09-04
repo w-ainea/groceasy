@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
 import "./assets/css/main.css";
-import "typeface-nunito";
+import "typeface-poppins";
 
 import store from "./redux";
 import { Provider as ReduxProvider } from "react-redux";

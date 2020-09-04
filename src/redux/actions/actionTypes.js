@@ -1,8 +1,11 @@
 // network requests
 export const REQUEST_PRODUCTS = "REQUEST_PRODUCTS";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
-// export const FETCH_PRODUCTS = "FETCH_PRODUCTS";
 export const FETCH_PRODUCTS_ERROR = "FETCH_PRODUCTS_ERROR";
+
+export const RECEIVE_SELLERS = "RECEIVE_SELLERS";
+
+export const RECEIVE_CATEGORIES = "RECEIVE_CATEGORIES";
 
 // application interactions
 

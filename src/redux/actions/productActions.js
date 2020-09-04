@@ -23,5 +23,5 @@ export function fetchProductsError(error) {
 
 export const receiveProducts = (products) => ({
   type: types.RECEIVE_PRODUCTS,
-  products,
+  payload: products,
 });
