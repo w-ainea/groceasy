@@ -43,7 +43,7 @@ const Categories = ({ categories }) => (
     <div className="grid md:grid-cols-2 gap-6">
       {categories.map((category) => (
         <div
-          key={category.categoryId}
+          key={category.id}
           className="shadow-lg rounded-md bg-white object-cover overflow-hidden"
         >
           <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />

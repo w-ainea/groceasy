@@ -1,44 +1,23 @@
 import React from "react";
+import { AddIcon, SubtractIcon } from "..";
 
-const CartItem = () => {
+const CartItem = ({ cartItem }) => {
   return (
     <div className="cart-item flex justify-evenly p-4 items-center">
-      <div className="cart-img rounded-full bg-gray-100 p-12"></div>
+      <div className="cart-img">
+        <img className="rounded-full w-10 h-10" src={cartItem.imgUrl} alt="" />
+      </div>
       <div className="product-details">
-        <h1>Product Name</h1>
-        <span>Product Price</span>
+        <h1>{cartItem.name}</h1>
+        <span>{cartItem.price * cartItem.quantity}</span>
       </div>
       <div className="quantity flex items-center">
         <span>
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="minus w-4 h-6 text-gray-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M18 12H6"
-            />
-          </svg>
+          <AddIcon />
         </span>
-        <span className="p-4">1</span>
+        <span className="p-4">{cartItem.quantity}</span>
         <span>
-          <svg
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            className="plus w-4 h-4 text-gray-500"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-            />
-          </svg>
+          <SubtractIcon />
         </span>
       </div>
     </div>

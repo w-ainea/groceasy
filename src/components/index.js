@@ -8,10 +8,16 @@ import Header from "./Header";
 import CartItem from "./CartItem";
 import Cart from "./Cart";
 import Overview from "./Overview";
-import HomeIcon from "./Icons/HomeIcon";
-import ShopIcon from "./Icons/ShopIcon";
-import ContactIcon from "./Icons/ContactIcon";
-import AccountIcon from "./Icons/AccountIcon";
+import CustomButton from "./CustomButton";
+
+import {
+  HomeIcon,
+  ShopIcon,
+  ContactIcon,
+  AccountIcon,
+  AddIcon,
+  SubtractIcon,
+} from "./Icons";
 
 export {
   Input,
@@ -28,4 +34,7 @@ export {
   ShopIcon,
   ContactIcon,
   AccountIcon,
+  AddIcon,
+  SubtractIcon,
+  CustomButton,
 };

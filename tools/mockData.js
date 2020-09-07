@@ -52,15 +52,15 @@ const products = [
 const categories = [
   {
     title: "Vegetables",
-    categoryId: 1,
+    id: 1,
   },
   {
     title: "Fruits",
-    categoryId: 2,
+    id: 2,
   },
   {
     title: "Spices",
-    categoryId: 3,
+    id: 3,
   },
 ];
 
