@@ -26,9 +26,6 @@ class ShopItemList extends React.Component {
   render() {
     return (
       <div className=" mx-auto mb-10 sm:mb-0 w-full">
-        {/* {this.props.categories.map((category) =>
-          
-        )} */}
         <div className="grid md:grid-cols-3 justify-center gap-6">
           {this.props.products.map((product) => (
             <ShopItem key={product.id} product={product} />

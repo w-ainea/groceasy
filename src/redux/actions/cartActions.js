@@ -1,5 +1,11 @@
 import * as types from "./actionTypes";
 
-export const showCart = () => ({
-  type: types.SHOW_CART,
+export const addProductToCart = (product) => ({
+  type: types.ADD_ITEM_TO_CART,
+  payload: product,
+});
+
+export const showCartItems = (products) => ({
+  type: types.SHOW_CART_ITEMS,
+  payload: products,
 });

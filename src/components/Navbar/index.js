@@ -11,7 +11,7 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/shop" className="sm:flex sm:p-2 py-4">
         <ShopIcon />
-        Categories
+        Shop
       </NavLink>
       <NavLink to="/contact" className="sm:flex sm:p-2 py-4">
         <ContactIcon />

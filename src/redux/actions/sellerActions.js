@@ -16,5 +16,5 @@ export function fetchSellers() {
 
 export const receiveSellers = (sellers) => ({
   type: types.RECEIVE_SELLERS,
-  sellers,
+  payload: sellers,
 });

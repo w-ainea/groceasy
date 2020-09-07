@@ -4,7 +4,7 @@ import initialState from "./initialState";
 const sellerReducer = (state = initialState.sellers, action) => {
   switch (action.type) {
     case types.RECEIVE_SELLERS:
-      return action.sellers;
+      return action.payload;
 
     default:
       return state;

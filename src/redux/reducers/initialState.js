@@ -1,6 +1,6 @@
 export default {
   products: [],
   sellers: [],
-  cart: [],
+  cartItems: [],
   categories: [],
 };

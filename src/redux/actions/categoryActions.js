@@ -17,6 +17,13 @@ export function fetchCategories() {
 export function receiveCategories(categories) {
   return {
     type: types.RECEIVE_CATEGORIES,
-    categories,
+    payload: categories,
+  };
+}
+
+export function loadCategoryItems(items) {
+  return {
+    type: types.LOAD_CATEGORY_ITEMS,
+    items,
   };
 }
