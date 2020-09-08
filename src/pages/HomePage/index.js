@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Fruits from "../../assets/img/fruits.jpg";
 
 import { connect } from "react-redux";
 import * as categoryActions from "../../redux/actions/categoryActions";
 
-const HomePage = (props) => {
-  const [categories, setCategories] = useState([]);
+const HomePage = ({ categories, fetchCategories }) => {
+  // const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    props.fetchCategories().then((_categories) => setCategories(_categories));
+    fetchCategories();
   }, []);
   return (
     <>
       <Hero />
-      <Categories categories={props.categories} />
+      <Categories categories={categories} />
     </>
   );
 };
@@ -40,7 +40,7 @@ const Categories = ({ categories }) => (
     <h1 className="font-medium text-xl md:font-semibold md:text-2xl py-4">
       Categories
     </h1>
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map((category) => (
         <div
           key={category.id}

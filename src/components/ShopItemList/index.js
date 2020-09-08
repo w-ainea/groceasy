@@ -25,8 +25,8 @@ class ShopItemList extends React.Component {
 
   render() {
     return (
-      <div className=" mx-auto mb-10 sm:mb-0 w-full">
-        <div className="grid md:grid-cols-3 justify-center gap-6">
+      <div className=" mx-auto mb-10 md:mb-0 w-full">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 justify-center gap-6">
           {this.props.products.map((product) => (
             <ShopItem key={product.id} product={product} />
           ))}
@@ -37,7 +37,17 @@ class ShopItemList extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  products: state.products,
+  products:
+    state.sellers.length === 0
+      ? []
+      : state.products.map((product) => {
+          return {
+            ...product,
+            sellerName: state.sellers.find(
+              (seller) => seller.id === product.sellerId
+            ).name,
+          };
+        }),
   sellers: state.sellers,
   categories: state.categories,
 });

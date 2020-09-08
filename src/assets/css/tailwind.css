@@ -27,6 +27,7 @@
   @apply top-0;
   @apply right-0;
   @apply text-pink-500;
+  @apply text-xs;
 }
 /* 
 .active {

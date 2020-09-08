@@ -1,6 +1,8 @@
 import React from "react";
-import * as cartActions from "../../redux/actions/cartActions";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+
+import * as cartActions from "../../redux/actions/cartActions";
 
 const ShopItem = ({ product, addItemToCart }) => {
   const { name, price, sellerName, imgUrl } = product;
@@ -13,7 +15,7 @@ const ShopItem = ({ product, addItemToCart }) => {
         <h1 className="text-base font-medium">{price}</h1>
       </div>
       <div className="px-2 py-2">
-        <h1>{sellerName}</h1>
+        <Link to="shop/sellerId">Seller: {sellerName}</Link>
       </div>
       <button
         onClick={() => addItemToCart(product)}

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Overview = () => {
+const Card = () => {
   return (
     <div className="p-4 rounded-md shadow-md grid justify-center">
       <h1>Title</h1>
@@ -9,4 +9,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default Card;
