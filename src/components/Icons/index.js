@@ -6,6 +6,7 @@ import ShopIcon from "./ShopIcon";
 import SubtractIcon from "./SubtractIcon";
 import CartIcon from "./CartIcon";
 import NotificationIcon from "./NotificationsIcon";
+import RemoveIcon from "./RemoveIcon";
 
 export {
   AccountIcon,
@@ -16,4 +17,5 @@ export {
   SubtractIcon,
   CartIcon,
   NotificationIcon,
+  RemoveIcon,
 };

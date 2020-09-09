@@ -1,6 +1,6 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
-import { loadProducts } from "../actions/categoryUtils";
+import { loadProducts } from "./categoryUtils";
 
 const categoryReducer = (state = initialState.categories, action) => {
   switch (action.type) {

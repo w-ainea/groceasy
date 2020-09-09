@@ -15,7 +15,7 @@ const ShopItem = ({ product, addItemToCart }) => {
         <h1 className="text-base font-medium">{price}</h1>
       </div>
       <div className="px-2 py-2">
-        <Link to="shop/sellerId">Seller: {sellerName}</Link>
+        <Link to="shop/:sellerId">Seller: {sellerName}</Link>
       </div>
       <button
         onClick={() => addItemToCart(product)}

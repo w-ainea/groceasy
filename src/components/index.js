@@ -7,8 +7,9 @@ import ShopItemList from "./ShopItemList";
 import Header from "./Header";
 import CartItem from "./CartItem";
 import Cart from "./Cart";
-import Overview from "./Overview";
+import Card from "./Card";
 import CustomButton from "./CustomButton";
+import Hero from "./Hero";
 
 import {
   HomeIcon,
@@ -17,6 +18,7 @@ import {
   AccountIcon,
   AddIcon,
   SubtractIcon,
+  RemoveIcon,
 } from "./Icons";
 
 export {
@@ -29,7 +31,7 @@ export {
   Header,
   CartItem,
   Cart,
-  Overview,
+  Card,
   HomeIcon,
   ShopIcon,
   ContactIcon,
@@ -37,4 +39,6 @@ export {
   AddIcon,
   SubtractIcon,
   CustomButton,
+  RemoveIcon,
+  Hero,
 };
