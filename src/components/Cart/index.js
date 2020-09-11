@@ -6,8 +6,10 @@ import { createStructuredSelector } from "reselect";
 import { CartItem, CustomButton } from "..";
 import { BackIcon } from "..";
 
-import { cartItemsSelector } from "../../redux/selectors/cartSelector";
-import { cartItemPriceSelector } from "../../redux/selectors/cartSelector";
+import {
+  selectCartItems,
+  selectCartTotal,
+} from "../../redux/selectors/cartSelector";
 
 const Cart = ({ cartItems, history, total }) => {
   return (
@@ -51,8 +53,8 @@ const Cart = ({ cartItems, history, total }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: cartItemsSelector,
-  total: cartItemPriceSelector,
+  cartItems: selectCartItems,
+  total: selectCartTotal,
 });
 
 // const mapDispatchToProps = {};

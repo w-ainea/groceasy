@@ -3,7 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { cartItemTotalSelector } from "../../redux/selectors/cartSelector";
+import { selectCartItemsCount } from "../../redux/selectors/cartSelector";
 import { CartIcon, NotificationIcon } from "../Icons";
 
 const Header = ({ itemCount }) => {
@@ -27,7 +27,7 @@ const Header = ({ itemCount }) => {
 };
 
 const mapStateToProps = (state) => ({
-  itemCount: cartItemTotalSelector(state),
+  itemCount: selectCartItemsCount(state),
 });
 
 export default connect(mapStateToProps)(Header);

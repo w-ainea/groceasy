@@ -11,8 +11,8 @@ import {
 import * as cartActions from "../../redux/actions/cartActions";
 import { createStructuredSelector } from "reselect";
 import {
-  cartItemsSelector,
-  cartItemPriceSelector,
+  selectCartItems,
+  selectCartTotal,
 } from "../../redux/selectors/cartSelector";
 import { Link } from "react-router-dom";
 
@@ -81,8 +81,8 @@ const CheckOutPage = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  cartItems: cartItemsSelector,
-  total: cartItemPriceSelector,
+  cartItems: selectCartItems,
+  total: selectCartTotal,
 });
 
 const mapDispatchToProps = (dispatch) => {
