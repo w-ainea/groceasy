@@ -1,9 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 
 import { CartItem, CustomButton } from "..";
-import { createStructuredSelector } from "reselect";
+import { BackIcon } from "..";
+
 import { cartItemsSelector } from "../../redux/selectors/cartSelector";
 import { cartItemPriceSelector } from "../../redux/selectors/cartSelector";
 
@@ -12,7 +14,7 @@ const Cart = ({ cartItems, history, total }) => {
     <div className="flex flex-col px-10 justify-center">
       {cartItems.length === 0 ? (
         <div className="flex justify-center">
-          <h1 className="fixed">Your cart is currently empty</h1>
+          <h1>Your cart is currently empty</h1>
         </div>
       ) : (
         <>
@@ -22,9 +24,17 @@ const Cart = ({ cartItems, history, total }) => {
           ))}
         </>
       )}
-      <h1 className="uppercase text-center font-medium top-auto pt-10">
-        total:<span>kes {total}</span>{" "}
-      </h1>
+      <div className="checkout-footer top-auto pt-12 flex justify-between items-center">
+        <Link to="/shop" className=" flex text-green-500">
+          <span>
+            <BackIcon />
+          </span>
+          Continue Shopping
+        </Link>
+        <h1 className="capitalize text-right">
+          total: <span className="font-semibold">KES {total}</span>
+        </h1>
+      </div>
 
       {cartItems.length === 0 ? (
         " "

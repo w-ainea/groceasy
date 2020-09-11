@@ -12,6 +12,11 @@ export const showCartItems = (products) => ({
   payload: products,
 });
 
+export const subtractCartItem = (product) => ({
+  type: types.SUBTRACT_CART_ITEM,
+  payload: product,
+});
+
 export const removeCartItem = (product) => ({
   type: types.REMOVE_ITEM_FROM_CART,
   payload: product,

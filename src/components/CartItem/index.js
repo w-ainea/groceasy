@@ -1,27 +1,32 @@
 import React from "react";
-import { AddIcon, SubtractIcon } from "..";
+import { RemoveIcon } from "..";
+import { connect } from "react-redux";
+import { removeCartItem } from "../../redux/actions/cartActions";
 
-const CartItem = ({ cartItem }) => {
+const CartItem = ({ cartItem, removeItem }) => {
   return (
-    <div className="cart-item flex justify-evenly p-4 items-center">
-      <div className="cart-img">
-        <img className="rounded-full w-10 h-10" src={cartItem.imgUrl} alt="" />
+    <div className="cart-item flex justify-between items-center py-4 border-b-2">
+      <div>
+        <img
+          src={cartItem.imgUrl}
+          alt="item"
+          className="w-20 h-20 rounded-full"
+        />
       </div>
-      <div className="product-details">
-        <h1>{cartItem.name}</h1>
-        <span>{cartItem.price * cartItem.quantity}</span>
+      <h4 className="font-semibold">{cartItem.name}</h4>
+
+      <div>
+        {cartItem.quantity} X {cartItem.price}
       </div>
-      <div className="quantity flex items-center">
-        <span>
-          <AddIcon />
-        </span>
-        <span className="p-4">{cartItem.quantity}</span>
-        <span>
-          <SubtractIcon />
-        </span>
-      </div>
+      <span>
+        <RemoveIcon onClick={() => removeItem(cartItem)} />
+      </span>
     </div>
   );
 };
 
-export default CartItem;
+const mapDispatchToProps = (dispatch) => ({
+  removeItem: (cartItem) => dispatch(removeCartItem(cartItem)),
+});
+
+export default connect(null, mapDispatchToProps)(CartItem);

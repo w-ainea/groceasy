@@ -19,6 +19,7 @@ import {
   AddIcon,
   SubtractIcon,
   RemoveIcon,
+  BackIcon,
 } from "./Icons";
 
 export {
@@ -41,4 +42,5 @@ export {
   CustomButton,
   RemoveIcon,
   Hero,
+  BackIcon,
 };

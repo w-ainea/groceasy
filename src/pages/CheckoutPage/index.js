@@ -1,6 +1,12 @@
 import React from "react";
 import { connect } from "react-redux";
-import { RemoveIcon } from "../../components";
+import {
+  RemoveIcon,
+  AddIcon,
+  SubtractIcon,
+  BackIcon,
+  CustomButton,
+} from "../../components";
 
 import * as cartActions from "../../redux/actions/cartActions";
 import { createStructuredSelector } from "reselect";
@@ -8,44 +14,68 @@ import {
   cartItemsSelector,
   cartItemPriceSelector,
 } from "../../redux/selectors/cartSelector";
+import { Link } from "react-router-dom";
 
-const CheckOutPage = ({ cartItems, removeItem, total }) => {
+const CheckOutPage = ({
+  cartItems,
+  removeItem,
+  total,
+  addItem,
+  subtractItem,
+}) => {
   return (
-    <div className="container w-9/12 px-10">
-      <h1 className="font-semibold text-xl text-center">Your Order Summary</h1>
-      <table className="table-auto">
-        <thead>
-          <tr className="flex justify-between">
-            <td className="md:px-8 py-2">Product </td>
-            <td className="md:px-8 py-2">Price</td>
-            <td className="md:px-8 py-2">Quantity</td>
-            <td className="md:px-8 py-2">Remove</td>
-          </tr>
-        </thead>
-        <tbody>
-          {cartItems.map((cartItem) => (
-            <tr key={cartItem.id} className="flex justify-between item py-4">
-              <td>
+    <div className="p-10">
+      <div className="checkout-header">
+        <h1 className="py-6 font-semibold">Your Order Summary</h1>
+      </div>
+      <div className="checkout-content">
+        {cartItems.map((cartItem) => {
+          const { id, imgUrl, name, quantity, price } = cartItem;
+
+          return (
+            <div
+              key={id}
+              className="cart-item flex justify-between items-center py-4 border-b-2"
+            >
+              <div>
                 <img
-                  className="w-16 h-16 rounded-full"
-                  src={cartItem.imgUrl}
+                  src={imgUrl}
+                  className="w-20 h-20 rounded-full"
                   alt="item"
                 />
-              </td>
-              <span>{cartItem.name}</span>
-              <td>{cartItem.quantity}</td>
-              <td>{cartItem.price}</td>
-              <td>
+              </div>
+              <h4 className="font-semibold">{name}</h4>
+              <div className="flex items-center">
+                <SubtractIcon onClick={() => subtractItem(cartItem)} />
+                <span className="px-2 text-sm">{quantity}</span>
+                <AddIcon onClick={() => addItem(cartItem)} />
+              </div>
+              <div>{price}</div>
+              <span>
                 <RemoveIcon onClick={() => removeItem(cartItem)} />
-              </td>
-            </tr>
-          ))}
+              </span>
+            </div>
+          );
+        })}
+      </div>
 
-          <h1 className="uppercase text-right font-medium top-auto pt-6">
-            total:<span>kes {total}</span>{" "}
+      <div className="checkout-footer top-auto py-6 flex justify-between items-center">
+        <div className="footer-link ">
+          <Link to="/shop" className=" flex text-green-500">
+            <span>
+              <BackIcon />
+            </span>
+            Continue Shopping
+          </Link>
+        </div>
+        <div className="footer-total">
+          <h1 className="capitalize text-right">
+            total: <span className="font-semibold">KES {total}</span>
           </h1>
-        </tbody>
-      </table>
+        </div>
+      </div>
+
+      <CustomButton>checkout</CustomButton>
     </div>
   );
 };
@@ -58,6 +88,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => {
   return {
     removeItem: (cartItem) => dispatch(cartActions.removeCartItem(cartItem)),
+    addItem: (cartItem) => dispatch(cartActions.addProductToCart(cartItem)),
+    subtractItem: (cartItem) =>
+      dispatch(cartActions.subtractCartItem(cartItem)),
   };
 };
 
