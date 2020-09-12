@@ -20,5 +20,3 @@ const store = createStore(persistedReducer, applyMiddleware(...middleware));
 
 const persistor = persistStore(store);
 export { persistor, store };
-
-export default store;
