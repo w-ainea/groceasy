@@ -10,6 +10,11 @@ import Cart from "./Cart";
 import Card from "./Card";
 import CustomButton from "./CustomButton";
 import Hero from "./Hero";
+import Chart from "./Chart";
+import Pie3D from "./Pie3D";
+import Column3D from "./Column3D";
+import Analytics from "./Analytics";
+import Overview from "./Overview";
 
 import {
   HomeIcon,
@@ -43,4 +48,9 @@ export {
   RemoveIcon,
   Hero,
   BackIcon,
+  Chart,
+  Pie3D,
+  Column3D,
+  Analytics,
+  Overview,
 };

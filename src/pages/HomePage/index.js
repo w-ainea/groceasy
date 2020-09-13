@@ -8,6 +8,7 @@ import { Hero } from "../../components";
 
 import { allCategoriesSelector } from "../../redux/selectors/categorySelector";
 import * as categoryActions from "../../redux/actions/categoryActions";
+import LoginButton from "../../components/LoginButton";
 
 const HomePage = ({ fetchCategories, categories }) => {
   useEffect(() => {
@@ -17,6 +18,7 @@ const HomePage = ({ fetchCategories, categories }) => {
   return (
     <>
       <Hero />
+      <LoginButton />
       <Categories categories={categories} />
     </>
   );
