@@ -15,7 +15,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        {window.location.pathname !== "/dashboard" ? <Header /> : null}
         {window.location.pathname === "/dashboard" ? (
           <Route path="/dashboard" component={Dashboard} />
         ) : (

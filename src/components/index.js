@@ -7,14 +7,19 @@ import ShopItemList from "./ShopItemList";
 import Header from "./Header";
 import CartItem from "./CartItem";
 import Cart from "./Cart";
-import Card from "./Card";
+
 import CustomButton from "./CustomButton";
 import Hero from "./Hero";
 import Chart from "./Chart";
 import Pie3D from "./Pie3D";
 import Column3D from "./Column3D";
 import Analytics from "./Analytics";
-import Overview from "./Overview";
+import Profile from "./Profile";
+import DashboardNav from "./DashboardNav";
+import ProfileSummary from "./ProfileSummary";
+import AverageSales from "./AverageSales";
+import TotalSales from "./TotalSales";
+import NewCustomers from "./NewCustomers";
 
 import {
   HomeIcon,
@@ -25,6 +30,11 @@ import {
   SubtractIcon,
   RemoveIcon,
   BackIcon,
+  MenuIcon,
+  DashboardIcon,
+  AnalyticsIcon,
+  CartIcon,
+  StockIcon,
 } from "./Icons";
 
 export {
@@ -37,7 +47,6 @@ export {
   Header,
   CartItem,
   Cart,
-  Card,
   HomeIcon,
   ShopIcon,
   ContactIcon,
@@ -52,5 +61,15 @@ export {
   Pie3D,
   Column3D,
   Analytics,
-  Overview,
+  DashboardNav,
+  ProfileSummary,
+  Profile,
+  MenuIcon,
+  DashboardIcon,
+  AnalyticsIcon,
+  CartIcon,
+  StockIcon,
+  AverageSales,
+  TotalSales,
+  NewCustomers,
 };

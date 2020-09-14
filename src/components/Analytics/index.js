@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Pie3D } from "..";
 
 const Analytics = ({ products, categories }) => {
-  const chartData = [
+  /* const chartData = [
     {
       label: "Fruits",
       value: "290",
@@ -21,7 +21,7 @@ const Analytics = ({ products, categories }) => {
       value: "140",
     },
   ];
-
+ */
   let sortedProducts = products.map((product) => ({
     ...product,
     categoryName: categories.find(

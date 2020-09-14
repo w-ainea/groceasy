@@ -29,12 +29,6 @@
   @apply text-pink-500;
   @apply text-xs;
 }
-/* 
-.active {
-  @apply bg-gray-300;
-  @apply text-white;
-  @apply w-64;
-} */
 
 .btn-primary {
   @apply bg-green-500;

@@ -14381,13 +14381,6 @@ video {
   font-size: 0.75rem;
 }
 
-/* 
-.active {
-  @apply bg-gray-300;
-  @apply text-white;
-  @apply w-64;
-} */
-
 .btn-primary {
   --bg-opacity: 1;
   background-color: #48bb78;
