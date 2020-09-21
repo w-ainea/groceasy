@@ -1,11 +1,11 @@
 import React from "react";
-import { CustomButton } from "../../components";
+import { LoginButton } from "../../components";
 
-const LandingPage = (props) => {
+const LandingPage = () => {
   return (
     <div>
       <h1>LandingPage</h1>
-      <CustomButton onClick={props.auth.login}>Login</CustomButton>
+      <LoginButton />
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import { Switch, Route } from "react-router-dom";
+import { Switch } from "react-router-dom";
 
 import {
   HomePage,
@@ -8,8 +8,9 @@ import {
   Dashboard,
   Accountsettings,
   CheckOutPage,
+  LandingPage,
 } from "./pages/";
-import { Header, Cart } from "./components";
+import { Header, Cart, PrivateRoute } from "./components";
 
 class App extends React.Component {
   render() {
@@ -17,18 +18,19 @@ class App extends React.Component {
       <>
         {window.location.pathname !== "/dashboard" ? <Header /> : null}
         {window.location.pathname === "/dashboard" ? (
-          <Route path="/dashboard" component={Dashboard} />
+          <PrivateRoute path="/dashboard" component={Dashboard} />
         ) : (
           <div className="container mx-auto h-full md:grid grid-cols-4 text-gray-800 md:gap-24 absolute mt-20 md:ml-8">
             <Navbar className="md:col-span-1" />
 
             <div className="content col-span-3 mx-auto md:px-16 h-full md:ml-64 w-full">
               <Switch>
-                <Route exact path="/" component={HomePage} />
-                <Route path="/shop" component={ShopPage} />
-                <Route path="/cart" component={Cart} />
-                <Route path="/account" component={Accountsettings} />
-                <Route path="/checkout" component={CheckOutPage} />
+                <PrivateRoute exact path="/" component={HomePage} />
+                <PrivateRoute path="/shop" component={ShopPage} />
+                <PrivateRoute path="/cart" component={Cart} />
+                <PrivateRoute path="/account" component={Accountsettings} />
+                <PrivateRoute path="/checkout" component={CheckOutPage} />
+                <PrivateRoute path="/landing" component={LandingPage} />
               </Switch>
             </div>
           </div>

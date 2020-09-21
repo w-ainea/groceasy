@@ -20,6 +20,9 @@ import ProfileSummary from "./ProfileSummary";
 import AverageSales from "./AverageSales";
 import TotalSales from "./TotalSales";
 import NewCustomers from "./NewCustomers";
+import PrivateRoute from "./PrivateRoute";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 import {
   HomeIcon,
@@ -72,4 +75,7 @@ export {
   AverageSales,
   TotalSales,
   NewCustomers,
+  PrivateRoute,
+  LoginButton,
+  LogoutButton,
 };

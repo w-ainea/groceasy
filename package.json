@@ -29,7 +29,7 @@
   },
   "scripts": {
     "start": "run-p watch:css start:api start:dev",
-    "start:dev": "cross-env REACT_APP_API_URL=http://localhost:3001 react-scripts start",
+    "start:dev": "cross-env REACT_APP_MOCK_API_URL=http://localhost:3001 react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

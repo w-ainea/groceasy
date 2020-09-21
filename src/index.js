@@ -9,7 +9,8 @@ import "typeface-nunito";
 import { store, persistor } from "./redux";
 import { Provider as ReduxProvider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
-import { Auth0Provider } from "@auth0/auth0-react";
+
+import Auth0ProviderWithHistory from "./Auth0ProviderWithHistory";
 // import store from "./redux";
 
 render(
@@ -17,16 +18,16 @@ render(
     <Router>
       <div className="font-display">
         <PersistGate persistor={persistor}>
-          <Auth0Provider
-            domain="dev-66wkr248.us.auth0.com"
-            clientId="rI99LJA2vBIgQ7DRUqTslgyHXu8l3Lm7"
-            redirectUri={window.location.origin}
-          >
+          <Auth0ProviderWithHistory>
             <App />
-          </Auth0Provider>
+          </Auth0ProviderWithHistory>
         </PersistGate>
       </div>
     </Router>
   </ReduxProvider>,
   document.getElementById("root")
 );
+
+if (module.hot) {
+  module.hot.accept();
+}
