@@ -1,34 +1,45 @@
 import React from "react";
 
-import { Link, withRouter } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { selectCartItemsCount } from "../../redux/selectors/cartSelector";
-import { CartIcon, NotificationIcon } from "../Icons";
-import { useAuth0 } from "@auth0/auth0-react";
-// import { LoginButton, LogoutButton } from "..";
+
+import { NotificationIcon, CartIcon } from "../Icons";
 
 const Header = ({ itemCount, history }) => {
-  const { isAuthenticated, user } = useAuth0();
   return (
     <div className="shadow-md fixed w-full top-0 z-10 bg-white">
-      <header className="main-header container sm:px-4 h-12">
-        <div className="uppercase font-bold text-green-800">Groceasy</div>
-        <ul className="flex flex-auto justify-center text-green-500">
-          <li className="header-link mx-12">
-            <span className="header-icon">0</span>
+      <header className="main-header container sm:px-4 h-16 flex justify-around items-center text-gray-700">
+        <div>
+          <NavLink to="/shop" className="flex px-2 py-4">
+            <span>
+              <h1 className="font-semibold hover:text-yellow-500 transition-all duration-200 md:text-lg">
+                Shop
+              </h1>
+            </span>
+          </NavLink>
+        </div>
+
+        <div className="font-bold capitalize">Groceasy</div>
+        <div className="flex relative">
+          <NavLink
+            to="/notifications"
+            className="header-link mx-12 hover:text-yellow-400"
+          >
+            <span className="header-icon bg-yellow-400 rounded-full px-1 top-0 right-0">
+              0
+            </span>
+
             <NotificationIcon />
-          </li>
-          <Link to="/cart" className="header-link">
-            <span className="header-icon">{itemCount}</span>
+          </NavLink>
+          <NavLink to="/cart" className="header-link hover:text-yellow-400">
+            <span className="header-icon text-gray-800 bg-yellow-400 rounded-full px-1 top-0 right-0">
+              {itemCount}
+            </span>
             <CartIcon />
-          </Link>
-        </ul>
-        {isAuthenticated && (
-          <div>
-            <span onClick={() => history.push("/account")}>{user.name}</span>
-          </div>
-        )}
+          </NavLink>
+        </div>
       </header>
     </div>
   );

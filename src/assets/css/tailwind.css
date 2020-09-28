@@ -11,7 +11,6 @@
   @apply flex;
   @apply justify-between;
   @apply items-center;
-  @apply cursor-pointer;
   @apply px-10;
 }
 
@@ -24,14 +23,12 @@
 
 .header-icon {
   @apply absolute;
-  @apply top-0;
-  @apply right-0;
   @apply text-pink-500;
   @apply text-xs;
 }
 
 .btn-primary {
-  @apply bg-green-500;
+  @apply bg-yellow-500;
   @apply text-white;
   @apply w-40;
   @apply uppercase;

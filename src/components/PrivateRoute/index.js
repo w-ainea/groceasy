@@ -1,12 +1,12 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-import { LandingPage } from "../../pages";
+// import { LandingPage } from "../../pages";
 
 const PrivateRoute = ({ component, ...args }) => (
   <Route
     component={withAuthenticationRequired(component, {
-      onRedirecting: () => <LandingPage />,
+      onRedirecting: () => <h1>Redirecting to the login page</h1>,
     })}
     {...args}
   />

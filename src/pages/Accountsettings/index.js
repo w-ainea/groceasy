@@ -28,7 +28,6 @@ const AccountSettingsPage = () => {
               </div>
               <hr />
               {}
-
               <div>
                 <div>{}</div>
               </div>

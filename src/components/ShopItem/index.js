@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import * as cartActions from "../../redux/actions/cartActions";
 
-const ShopItem = ({ product, addItemToCart }) => {
+const ShopItem = ({ product, addItemToCart, history }) => {
   const { name, price, sellerName, imgUrl } = product;
 
   return (
@@ -14,12 +14,14 @@ const ShopItem = ({ product, addItemToCart }) => {
         <h1 className="text-base font-medium">{name}</h1>
         <h1 className="text-base font-medium">{price}</h1>
       </div>
-      <div className="px-2 py-2">
-        <Link to="shop/:sellerId">Seller: {sellerName}</Link>
+      <div className="px-2 py-2 cursor-pointer">
+        <h1 onClick={() => history.push("/shop/:sellerId")}>
+          Seller: {sellerName}
+        </h1>
       </div>
       <button
         onClick={() => addItemToCart(product)}
-        className="btn-primary hover:border-green-500  hover:bg-white  hover:text-green-500 "
+        className="btn-primary hover:border-yellow-400 hover:bg-white hover:text-gray-700"
       >
         buy
       </button>
@@ -33,4 +35,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(ShopItem);
+export default withRouter(connect(null, mapDispatchToProps)(ShopItem));

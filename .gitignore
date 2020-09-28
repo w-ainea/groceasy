@@ -25,6 +25,7 @@ yarn-error.log*
 
 # tailwind css build
 /src/assets/css/main.css
+/src/assets/css/tailwind.css
 
 # mock database
 /tools/db.json

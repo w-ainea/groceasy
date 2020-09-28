@@ -3,9 +3,11 @@ import { LoginButton } from "../../components";
 
 const LandingPage = () => {
   return (
-    <div>
-      <h1>LandingPage</h1>
-      <LoginButton />
+    <div className="justify-center align center">
+      <h1>Landing page</h1>
+      <button>Do shopping</button>
+      <button>Sell</button>
+      <LoginButton>Login/SignUp</LoginButton>
     </div>
   );
 };

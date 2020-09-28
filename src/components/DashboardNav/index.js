@@ -1,12 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  MenuIcon,
-  DashboardIcon,
-  AnalyticsIcon,
-  CartIcon,
-  StockIcon,
-} from "..";
+import { DashboardIcon, AnalyticsIcon, CartIcon, StockIcon } from "..";
 
 const DashboardNav = () => {
   return (
