@@ -1,14 +1,16 @@
 import React from "react";
-import { LoginButton } from "../../components";
+
+import "./index.css";
 
 const LandingPage = () => {
   return (
-    <div className="justify-center align center">
-      <h1>Landing page</h1>
-      <button>Do shopping</button>
-      <button>Sell</button>
-      <LoginButton>Login/SignUp</LoginButton>
-    </div>
+    <section className="landing items-center min-h-screen">
+      <div className="flex justify-center py-64">
+        <h1 className="cta uppercase mx-8 px-4 py-2 rounded-md">buy</h1>
+        <h1 className="cta uppercase mx-8 px-4 py-2 rounded-md">sell</h1>
+        <h1 className="cta uppercase mx-8 px-4 py-2 rounded-md">login</h1>
+      </div>
+    </section>
   );
 };
 

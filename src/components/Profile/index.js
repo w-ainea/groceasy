@@ -1,17 +1,21 @@
 import React from "react";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Profile = () => {
+  const { isAuthenticated, user } = useAuth0();
   return (
-    <div className=" profile-container">
-      <div className="profile-img-wrapper w-24 h-24 rounded-full bg-gray-200  mx-auto">
-        <img src="" alt="profile" />
-      </div>
+    isAuthenticated && (
+      <div className=" profile-container flex justify-center items-center bg-white w-6/12 mx-auto">
+        <div className="profile-img-wrapper w-12 h-12">
+          <img src={user.picture} alt="profile" className="rounded-full" />
+        </div>
 
-      <div className="profile-footer pt-8 text-center">
-        <h1 className="font-semibold text-gray-800">Jane Doe</h1>
-        <span className="font-light text-gray-600">jane.doe@mail.com</span>
+        <div className="px-8">
+          <h1 className="font-semibold text-gray-800">{user.name}</h1>
+          <span className="font-light text-gray-600">{user.email}</span>
+        </div>
       </div>
-    </div>
+    )
   );
 };
 

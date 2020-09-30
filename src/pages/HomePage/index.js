@@ -11,10 +11,10 @@ import * as categoryActions from "../../redux/actions/categoryActions";
 const HomePage = ({ fetchCategories, categories }) => {
   useEffect(() => {
     fetchCategories();
-  }, []);
+  }, [fetchCategories]);
 
   return (
-    <div className="mt-4">
+    <div className="flex justify-center mt-8 mb-4">
       <Categories categories={categories} />
     </div>
   );
@@ -22,15 +22,15 @@ const HomePage = ({ fetchCategories, categories }) => {
 
 const Categories = ({ categories }) => {
   return (
-    <div className="p-10 mx-auto mb-10 sm:mb-0">
-      <h1 className="font-medium text-xl md:font-semibold md:text-2xl py-8">
+    <div className="px-10 mx-auto mb-10 sm:mb-0">
+      <h1 className="font-medium text-xl md:font-semibold md:text-2xl mb-4">
         Categories
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {categories.map((category) => (
           <div
             key={category.id}
-            className="hover:shadow-lg rounded-md bg-white object-cover overflow-hidden"
+            className="shadow-lg rounded-md bg-white object-cover overflow-hidden"
           >
             <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />
             <div className="text-center my-4">

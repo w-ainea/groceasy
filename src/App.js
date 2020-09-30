@@ -17,7 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
+        {window.location.pathname === "/landing" ? null : <Header />}
 
         <div className="">
           <Switch>
@@ -26,7 +26,7 @@ class App extends React.Component {
             <PrivateRoute path="/cart" component={Cart} />
             <PrivateRoute path="/account" component={Accountsettings} />
             <PrivateRoute path="/checkout" component={CheckOutPage} />
-            <PrivateRoute path="/landing" component={LandingPage} />
+            <Route path="/landing" component={LandingPage} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route path="/dashboard/analytics" component={AnalyticsPage} />
           </Switch>

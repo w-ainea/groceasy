@@ -16,10 +16,10 @@ import Column3D from "./Column3D";
 import Analytics from "./Analytics";
 import Profile from "./Profile";
 import DashboardNav from "./DashboardNav";
-import ProfileSummary from "./ProfileSummary";
+import UserInfo from "./UserInfo";
 import AverageSales from "./AverageSales";
 import TotalSales from "./TotalSales";
-import NewCustomers from "./NewCustomers";
+import UserItem from "./UserItem";
 import PrivateRoute from "./PrivateRoute";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
@@ -64,7 +64,7 @@ export {
   Column3D,
   Analytics,
   DashboardNav,
-  ProfileSummary,
+  UserInfo,
   Profile,
   MenuIcon,
   DashboardIcon,
@@ -73,7 +73,7 @@ export {
   StockIcon,
   AverageSales,
   TotalSales,
-  NewCustomers,
+  UserItem,
   PrivateRoute,
   LoginButton,
   LogoutButton,

@@ -9,9 +9,9 @@ import { NotificationIcon, CartIcon } from "../Icons";
 
 const Header = ({ itemCount, history }) => {
   return (
-    <div className="shadow-md fixed w-full top-0 z-10 bg-white">
-      <header className="main-header container sm:px-4 h-16 flex justify-around items-center text-gray-700">
-        <div>
+    <div className="shadow-md relative w-screen top-0 z-10 bg-white">
+      <header className="main-header container sm:px-4 h-16 flex justify-between items-center text-gray-700">
+        <div className="flex">
           <NavLink to="/shop" className="flex px-2 py-4">
             <span>
               <h1 className="font-semibold hover:text-yellow-500 transition-all duration-200 md:text-lg">
@@ -19,9 +19,16 @@ const Header = ({ itemCount, history }) => {
               </h1>
             </span>
           </NavLink>
+          <NavLink to="/dashboard" className="flex px-2 py-4">
+            <span>
+              <h1 className="font-semibold hover:text-yellow-500 transition-all duration-200 md:text-lg">
+                Dashboard
+              </h1>
+            </span>
+          </NavLink>
         </div>
 
-        <div className="font-bold capitalize">Groceasy</div>
+        <div className="font-bold capitalize">Logo</div>
         <div className="flex relative">
           <NavLink
             to="/notifications"

@@ -1,0 +1,45 @@
+.landing {
+  background: linear-gradient(
+      to right bottom,
+      rgba(63, 222, 116, 0.3),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url(../../assets/img/hero-sm.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+@media screen and (min-width: 640px) {
+  .landing {
+    background: linear-gradient(
+        to right bottom,
+        rgba(63, 222, 116, 0.3),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url(../../assets/img/hero-md.jpg);
+  }
+}
+@media screen and (min-width: 900px) {
+  .landing {
+    background: linear-gradient(
+        to right bottom,
+        rgba(63, 222, 116, 0.3),
+        rgba(255, 255, 255, 0.5)
+      ),
+      url(../../assets/img/hero-lg.jpg);
+  }
+}
+
+.cta {
+  /* background: #3fde74; */
+  background: #00ebc7;
+
+  cursor: pointer;
+  font-size: 1.125rem;
+  color: #00214d;
+}
+
+.cta:hover {
+  background: #2e382e;
+  color: #fff;
+}
