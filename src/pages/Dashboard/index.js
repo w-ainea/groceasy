@@ -6,7 +6,6 @@ const Dashboard = () => {
     <div className="bg-gray-100">
       <div className="grid pt-4 container mx-auto">
         <Profile />
-
         <UserInfo />
         <div className="flex shadow-sm">
           <Analytics />

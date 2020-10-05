@@ -4,6 +4,7 @@ const initialState = {
   cartItems: [],
   categories: [],
   hidden: true,
+  sales: [],
 };
 
 export default initialState;

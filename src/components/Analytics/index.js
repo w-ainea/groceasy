@@ -1,27 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Pie3D } from "..";
+import { Pie3D, Bar3D } from "..";
+import * as salesActions from "../../redux/actions/salesActions";
 
-const Analytics = ({ products, categories }) => {
-  /* const chartData = [
-    {
-      label: "Fruits",
-      value: "290",
-    },
-    {
-      label: "Vegetables",
-      value: "260",
-    },
-    {
-      label: "Spices",
-      value: "180",
-    },
-    {
-      label: "Others",
-      value: "140",
-    },
-  ];
- */
+const Analytics = ({ products, categories, sales }) => {
+  useEffect(() => {
+    salesActions.fetchSales();
+  }, []);
+
   let sortedProducts = products.map((product) => ({
     ...product,
     categoryName: categories.find(
@@ -43,11 +29,13 @@ const Analytics = ({ products, categories }) => {
 
     return total;
   }, {});
+
   categoriesData = Object.values(categoriesData);
 
   return (
-    <section className="grid sm:grid-cols-2">
-      <Pie3D data={categoriesData} className="w-40" />
+    <section className="grid gap-10 md:grid-cols-2">
+      <Pie3D data={categoriesData} />
+      <Bar3D data={sales} />
     </section>
   );
 };
@@ -55,6 +43,7 @@ const Analytics = ({ products, categories }) => {
 const mapStateToProps = (state) => ({
   products: state.products,
   categories: state.categories,
+  sales: state.sales,
 });
 
 export default connect(mapStateToProps)(Analytics);

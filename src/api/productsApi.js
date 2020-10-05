@@ -4,6 +4,7 @@ const baseUrl = process.env.REACT_APP_MOCK_API_URL + "/products/";
 export function getProducts() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
+
 export async function saveProduct(product) {
   const response = await fetch(baseUrl + (product.id || ""), {
     method: product.id ? "PUT" : "POST",

@@ -23,6 +23,7 @@ import UserItem from "./UserItem";
 import PrivateRoute from "./PrivateRoute";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
+import Bar3D from "./Bar3D";
 
 import {
   HomeIcon,
@@ -77,4 +78,5 @@ export {
   PrivateRoute,
   LoginButton,
   LogoutButton,
+  Bar3D,
 };

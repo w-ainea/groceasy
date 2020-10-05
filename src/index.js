@@ -11,7 +11,7 @@ import { Provider as ReduxProvider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import Auth0ProviderWithHistory from "./Auth0ProviderWithHistory";
-// import store from "./redux";
+
 
 render(
   <ReduxProvider store={store}>

@@ -12,6 +12,7 @@ import MenuIcon from "./MenuIcon";
 import DashboardIcon from "./DashboardIcon";
 import AnalyticsIcon from "./AnalyticsIcon";
 import StockIcon from "./StockIcon";
+import CurrencyIcon from "./CurrencyIcon";
 
 export {
   AccountIcon,
@@ -28,4 +29,5 @@ export {
   DashboardIcon,
   AnalyticsIcon,
   StockIcon,
+  CurrencyIcon,
 };

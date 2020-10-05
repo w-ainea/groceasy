@@ -4,7 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import * as cartActions from "../../redux/actions/cartActions";
 
-const ShopItem = ({ product, addItemToCart, history, params }) => {
+const ShopItem = ({ product, addItemToCart, history }) => {
   const { name, price, sellerName, imgUrl } = product;
 
   return (
@@ -17,8 +17,7 @@ const ShopItem = ({ product, addItemToCart, history, params }) => {
       <div className="px-2 py-2 cursor-pointer">
         <h1
           onClick={() => {
-            history.push("/shop/:sellerId");
-            console.log(params);
+            history.push("/sellers/:sellerId");
           }}
         >
           Seller: {sellerName}

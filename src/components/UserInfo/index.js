@@ -1,24 +1,24 @@
 import React from "react";
 
 import { UserItem } from "..";
-import { ShopIcon } from "../Icons";
+import {CurrencyIcon , StockIcon, AccountIcon } from "../Icons";
 
 const items = [
   {
     id: 1,
-    icon: <ShopIcon />,
+    icon: <StockIcon />,
     label: "Products",
     value: 20,
   },
   {
     id: 2,
-    icon: <ShopIcon />,
+    icon: <CurrencyIcon />,
     label: "Sales",
     value: 2000,
   },
   {
     id: 3,
-    icon: <ShopIcon />,
+    icon: <AccountIcon />,
     label: "Customers",
     value: 30,
   },

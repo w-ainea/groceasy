@@ -23,7 +23,7 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
-            <PrivateRoute path="/cart" component={Cart} />
+            <Route path="/cart" component={Cart} />
             <PrivateRoute path="/account" component={Accountsettings} />
             <PrivateRoute path="/checkout" component={CheckOutPage} />
             <Route path="/landing" component={LandingPage} />

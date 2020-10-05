@@ -82,5 +82,27 @@ const sellers = [
     id: 4,
   },
 ];
+const sales = [
+  {
+    productId: 1,
+    sales: 400,
+  },
+  {
+    productId: 2,
+    sales: 200,
+  },
+  {
+    productId: 3,
+    sales: 100,
+  },
+  {
+    productId: 4,
+    sales: 500,
+  },
+  {
+    productId: 5,
+    sales: 1000,
+  },
+];
 
-module.exports = { sellers, products, categories };
+module.exports = { sellers, products, categories, sales };

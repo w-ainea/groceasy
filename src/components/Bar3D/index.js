@@ -9,38 +9,55 @@ import ReactFC from "react-fusioncharts";
 import FusionCharts from "fusioncharts";
 
 // Include the chart type
-import Chart from "fusioncharts/fusioncharts.charts";
+import Column2D from "fusioncharts/fusioncharts.charts";
 
 // Include the theme as fusion
 import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
 
 // Adding the chart and theme as dependency to the core fusioncharts
-ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Column2D, FusionTheme);
 
 // STEP 3 - Creating the JSON object to store the chart configurations
 
-const ChartComponent = ({ data }) => {
+const Chart = ({ data }) => {
   const chartConfigs = {
-    type: "pie3d", // The chart type
+    type: "bar3d", // The chart type
     width: "400", // Width of the chart
     height: "400", // Height of the chart
     dataFormat: "json", // Data type
     dataSource: {
       // Chart Configuration
+
       chart: {
-        //Set the chart caption
-        caption: "Products by category",
-        //Set the chart subcaption
-        subCaption: "",
-        //Set the x-axis name
-        xAxisName: "Country",
-        //Set the y-axis name
-        yAxisName: "Reserves (MMbbl)",
-        numberSuffix: "",
-        //Set the theme for your chart
+        caption: "Top 5 Stores by Sales",
+        subCaption: "Last month",
+        yAxisName: "Sales (In USD)",
+        numberPrefix: "$",
         theme: "fusion",
-        // pieRadius: "25%",
       },
+      // data: [
+      //   {
+      //     label: "Bakersfield Central",
+      //     value: "880000",
+      //   },
+      //   {
+      //     label: "Garden Groove harbour",
+      //     value: "730000",
+      //   },
+      //   {
+      //     label: "Los Angeles Topanga",
+      //     value: "590000",
+      //   },
+      //   {
+      //     label: "Compton-Rancho Dom",
+      //     value: "520000",
+      //   },
+      //   {
+      //     label: "Daly City Serramonte",
+      //     value: "330000",
+      //   },
+      // ],
+
       // Chart Data
       data,
     },
@@ -52,4 +69,4 @@ const ChartComponent = ({ data }) => {
   );
 };
 
-export default ChartComponent;
+export default Chart;

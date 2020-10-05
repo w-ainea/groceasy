@@ -7,6 +7,7 @@ import {
   sellerReducer,
   categoryReducer,
   menuReducer,
+  salesReducer,
 } from ".";
 
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   sellers: sellerReducer,
   categories: categoryReducer,
   menu: menuReducer,
+  sales: salesReducer,
 });
 
 export default rootReducer;
