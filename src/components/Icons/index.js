@@ -13,6 +13,8 @@ import DashboardIcon from "./DashboardIcon";
 import AnalyticsIcon from "./AnalyticsIcon";
 import StockIcon from "./StockIcon";
 import CurrencyIcon from "./CurrencyIcon";
+import Delete from "./Delete";
+import Edit from "./Edit";
 
 export {
   AccountIcon,
@@ -30,4 +32,6 @@ export {
   AnalyticsIcon,
   StockIcon,
   CurrencyIcon,
+  Delete,
+  Edit,
 };

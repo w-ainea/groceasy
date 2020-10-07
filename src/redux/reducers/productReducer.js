@@ -6,6 +6,9 @@ const productReducer = (state = initialState.products, action) => {
     case types.RECEIVE_PRODUCTS:
       return action.payload;
 
+    case types.DELETE_PRODUCT:
+      return state.filter((product) => product.id !== action.payload.id);
+
     default:
       return state;
   }

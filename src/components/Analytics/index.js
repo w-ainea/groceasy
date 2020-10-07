@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Pie3D, Bar3D } from "..";
+import { Pie3D, Bar3D, Line2D } from "..";
 import * as salesActions from "../../redux/actions/salesActions";
 
 const Analytics = ({ products, categories, sales }) => {
@@ -33,9 +33,10 @@ const Analytics = ({ products, categories, sales }) => {
   categoriesData = Object.values(categoriesData);
 
   return (
-    <section className="grid gap-10 md:grid-cols-2">
-      <Pie3D data={categoriesData} />
-      <Bar3D data={sales} />
+    <section className="grid gap-10 lg:grid-cols-2">
+      {/* <Pie3D data={categoriesData} /> */}
+      {/* <Bar3D data={sales} /> */}
+      <Line2D />
     </section>
   );
 };

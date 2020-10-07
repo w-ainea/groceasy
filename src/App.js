@@ -25,7 +25,7 @@ class App extends React.Component {
             <Route path="/shop" component={ShopPage} />
             <Route path="/cart" component={Cart} />
             <PrivateRoute path="/account" component={Accountsettings} />
-            <PrivateRoute path="/checkout" component={CheckOutPage} />
+            <Route path="/checkout" component={CheckOutPage} />
             <Route path="/landing" component={LandingPage} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route path="/dashboard/analytics" component={AnalyticsPage} />

@@ -15,10 +15,10 @@ import Pie3D from "./Pie3D";
 import Column3D from "./Column3D";
 import Analytics from "./Analytics";
 import Profile from "./Profile";
-import DashboardNav from "./DashboardNav";
+import Product from "./Product";
 import UserInfo from "./UserInfo";
-import AverageSales from "./AverageSales";
-import TotalSales from "./TotalSales";
+import Line2D from "./Line2D";
+import ProductList from "./ProductList";
 import UserItem from "./UserItem";
 import PrivateRoute from "./PrivateRoute";
 import LoginButton from "./LoginButton";
@@ -64,7 +64,7 @@ export {
   Pie3D,
   Column3D,
   Analytics,
-  DashboardNav,
+  Product,
   UserInfo,
   Profile,
   MenuIcon,
@@ -72,8 +72,8 @@ export {
   AnalyticsIcon,
   CartIcon,
   StockIcon,
-  AverageSales,
-  TotalSales,
+  Line2D,
+  ProductList,
   UserItem,
   PrivateRoute,
   LoginButton,

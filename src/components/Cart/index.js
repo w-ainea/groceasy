@@ -57,6 +57,4 @@ const mapStateToProps = createStructuredSelector({
   total: selectCartTotal,
 });
 
-// const mapDispatchToProps = {};
-
 export default withRouter(connect(mapStateToProps)(Cart));

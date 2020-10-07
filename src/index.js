@@ -5,13 +5,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import "./assets/css/main.css";
 import "typeface-nunito";
+import "./index.css";
 
 import { store, persistor } from "./redux";
 import { Provider as ReduxProvider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
 import Auth0ProviderWithHistory from "./Auth0ProviderWithHistory";
-
 
 render(
   <ReduxProvider store={store}>
