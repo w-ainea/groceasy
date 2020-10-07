@@ -25,8 +25,8 @@ const CartItem = ({ cartItem, removeItem }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  removeItem: (cartItem) => dispatch(removeCartItem(cartItem)),
-});
+const mapDispatchToProps = {
+  removeItem: removeCartItem,
+};
 
 export default connect(null, mapDispatchToProps)(CartItem);

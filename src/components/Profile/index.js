@@ -5,7 +5,7 @@ const Profile = () => {
   const { isAuthenticated, user } = useAuth0();
   return (
     isAuthenticated && (
-      <div className=" profile-container flex justify-center items-center bg-white w-6/12 mx-auto">
+      <div className=" profile-container flex justify-center items-center bg-white w-6/12 mx-auto py-4">
         <div className="profile-img-wrapper w-12 h-12">
           <img src={user.picture} alt="profile" className="rounded-full" />
         </div>

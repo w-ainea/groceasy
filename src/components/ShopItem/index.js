@@ -33,10 +33,8 @@ const ShopItem = ({ product, addItemToCart, history }) => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    addItemToCart: (product) => dispatch(cartActions.addProductToCart(product)),
-  };
+const mapDispatchToProps = {
+  addItemToCart: cartActions.addProductToCart,
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(ShopItem));

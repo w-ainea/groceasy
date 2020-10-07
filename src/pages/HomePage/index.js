@@ -8,17 +8,19 @@ import Fruits from "../../assets/img/fruits.jpg";
 import { allCategoriesSelector } from "../../redux/selectors/categorySelector";
 import * as categoryActions from "../../redux/actions/categoryActions";
 
-const HomePage = ({ fetchCategories, categories }) => {
+function HomePage({ fetchCategories, categories }) {
   useEffect(() => {
-    fetchCategories();
-  }, [fetchCategories]);
+    if (categories.length === 0) {
+      fetchCategories().catch((err) => alert("Loading courses failed", err));
+    }
+  });
 
   return (
     <div className="flex justify-center mt-8 mb-4">
       <Categories categories={categories} />
     </div>
   );
-};
+}
 
 const Categories = ({ categories }) => {
   return (
@@ -50,10 +52,8 @@ const mapStateToProps = createStructuredSelector({
   categories: allCategoriesSelector,
 });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    fetchCategories: () => dispatch(categoryActions.fetchCategories()),
-  };
+const mapDispatchToProps = {
+  fetchCategories: categoryActions.fetchCategories,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage);
