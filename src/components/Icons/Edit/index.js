@@ -1,6 +1,6 @@
 import React from "react";
 
-const Edit = () => {
+const Edit = ({ ...props }) => {
   return (
     <svg
       className="w-6 h-6"
@@ -8,6 +8,7 @@ const Edit = () => {
       stroke="currentColor"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
+      {...props}
     >
       <path
         strokeLinecap="round"

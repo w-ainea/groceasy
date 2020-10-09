@@ -9,9 +9,9 @@ import {
   Accountsettings,
   CheckOutPage,
   LandingPage,
-  AnalyticsPage,
+  ManageProduct,
 } from "./pages/";
-import { Header, Cart, PrivateRoute } from "./components";
+import { Header, Cart, PrivateRoute, ProductList } from "./components";
 
 class App extends React.Component {
   render() {
@@ -28,7 +28,8 @@ class App extends React.Component {
             <Route path="/checkout" component={CheckOutPage} />
             <Route path="/landing" component={LandingPage} />
             <Route exact path="/dashboard" component={Dashboard} />
-            <Route path="/dashboard/analytics" component={AnalyticsPage} />
+            <Route exact path="/products" component={ProductList} />
+            <Route exact path="/product" component={ManageProduct} />
           </Switch>
         </div>
       </>

@@ -9,6 +9,8 @@ import CartItem from "./CartItem";
 import Cart from "./Cart";
 
 import CustomButton from "./CustomButton";
+import CustomInput from "./CustomInput";
+import ProductForm from "./ProductForm";
 import Hero from "./Hero";
 import Chart from "./Chart";
 import Pie3D from "./Pie3D";
@@ -24,6 +26,7 @@ import PrivateRoute from "./PrivateRoute";
 import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Bar3D from "./Bar3D";
+import CustomSelect from "./CustomSelect";
 
 import {
   HomeIcon,
@@ -79,4 +82,7 @@ export {
   LoginButton,
   LogoutButton,
   Bar3D,
+  CustomInput,
+  ProductForm,
+  CustomSelect,
 };

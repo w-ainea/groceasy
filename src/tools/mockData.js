@@ -105,4 +105,10 @@ const sales = [
   },
 ];
 
-module.exports = { sellers, products, categories, sales };
+const newProduct = {
+  name: "",
+  price: "",
+  categoryId: "",
+};
+
+module.exports = { newProduct, sellers, products, categories, sales };
