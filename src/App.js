@@ -27,9 +27,10 @@ class App extends React.Component {
             <PrivateRoute path="/account" component={Accountsettings} />
             <Route path="/checkout" component={CheckOutPage} />
             <Route path="/landing" component={LandingPage} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/products" component={ProductList} />
-            <Route exact path="/product" component={ManageProduct} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route path="/products" component={ProductList} />
+            <Route path="/product" component={ManageProduct} />
+            <Route path="/product/:id" component={ManageProduct} />
           </Switch>
         </div>
       </>

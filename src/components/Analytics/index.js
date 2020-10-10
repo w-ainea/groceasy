@@ -34,8 +34,8 @@ const Analytics = ({ products, categories, sales }) => {
 
   return (
     <section className="grid gap-10 lg:grid-cols-2">
-      {/* <Pie3D data={categoriesData} /> */}
-      {/* <Bar3D data={sales} /> */}
+      <Pie3D data={categoriesData} />
+      <Bar3D data={sales} />
       <Line2D />
     </section>
   );

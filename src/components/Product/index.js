@@ -11,8 +11,14 @@ class Product extends React.Component {
     redirectToEdit: false,
   };
 
+  handleClick = () => {
+    this.props.saveProduct(this.props.product);
+    this.setState({ redirectToEdit: true });
+  };
+
   render() {
     const { product, deleteProduct } = this.props;
+
     return (
       <div className="product flex justify-between items-center py-4 border-b-2">
         {this.state.redirectToEdit && <Redirect to="/product" />}
@@ -32,15 +38,25 @@ class Product extends React.Component {
           <Delete />
         </span>
         <span className="text-green-500 cursor-pointer">
-          <Edit onClick={() => this.setState({ redirectToEdit: true })} />
+          <Edit onClick={this.handleClick} />
         </span>
       </div>
     );
   }
 }
 
+function mapStateToProps(state, ownProps) {
+  console.log(ownProps);
+
+  return {
+    products: state.products,
+    categories: state.categories,
+  };
+}
+
 const mapDispatchToProps = {
   deleteProduct: productActions.deleteProductOptimistic,
+  saveProduct: productActions.saveProduct,
 };
 
-export default connect(null, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

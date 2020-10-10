@@ -50,7 +50,9 @@ const Dashboard = () => {
 
         <div className="tab-content" id="overview-tab">
           <UserInfo />
-          <div className="flex shadow-sm">{/* <Analytics /> */}</div>
+          <div className="flex shadow-sm">
+            <Analytics />
+          </div>
         </div>
         <div className="tab-content hidden" id="products-tab">
           <ProductList />

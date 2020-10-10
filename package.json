@@ -35,8 +35,8 @@
     "eject": "react-scripts eject",
     "build:css": "postcss src/assets/css/tailwind.css -o src/assets/css/main.css",
     "watch:css": "postcss src/assets/css/tailwind.css -o src/assets/css/main.css",
-    "prestart:api": "node tools/createMockDB.js",
-    "start:api": "node tools/apiServer.js"
+    "prestart:api": "node src/tools/createMockDB.js",
+    "start:api": "node src/tools/apiServer.js"
   },
   "eslintConfig": {
     "extends": "react-app"

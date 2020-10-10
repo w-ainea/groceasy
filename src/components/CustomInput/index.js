@@ -1,6 +1,6 @@
 import React from "react";
 
-const CustomInput = ({ name, placeholder, value, onChange, type }) => {
+const CustomInput = ({ name, placeholder, value, onChange }) => {
   return (
     <div className="field">
       <div className="mb-4">
@@ -11,7 +11,7 @@ const CustomInput = ({ name, placeholder, value, onChange, type }) => {
           {name}
         </label>
         <input
-          type={type}
+          type="text"
           name={name}
           value={value}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

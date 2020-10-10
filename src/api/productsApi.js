@@ -5,14 +5,14 @@ export function getProducts() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
 
-export async function saveProduct(product) {
-  const response = await fetch(baseUrl + (product.id || ""), {
+export function saveProduct(product) {
+  return fetch(baseUrl + (product.id || ""), {
     method: product.id ? "PUT" : "POST",
     headers: { "content-type": "application/json" },
     body: JSON.stringify(product),
-  });
-  const err = await response(handleResponse);
-  return err(handleError);
+  })
+    .then(handleResponse)
+    .catch(handleError);
 }
 
 export function deleteProduct(productId) {
