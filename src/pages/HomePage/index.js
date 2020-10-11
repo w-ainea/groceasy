@@ -11,12 +11,14 @@ import * as categoryActions from "../../redux/actions/categoryActions";
 function HomePage({ fetchCategories, categories }) {
   useEffect(() => {
     if (categories.length === 0) {
-      fetchCategories().catch((err) => alert("Loading courses failed", err));
+      fetchCategories().catch((err) =>
+        console.log("Loading products failed", err)
+      );
     }
-  });
+  }, []);
 
   return (
-    <div className="flex justify-center mt-8 mb-4">
+    <div className="flex justify-center mt-8 mb-4 px-10">
       <Categories categories={categories} />
     </div>
   );
@@ -25,7 +27,7 @@ function HomePage({ fetchCategories, categories }) {
 const Categories = ({ categories }) => {
   return (
     <div className="px-10 mx-auto mb-10 sm:mb-0">
-      <h1 className="font-medium text-xl md:font-semibold md:text-2xl mb-4">
+      <h1 className="font-medium text-xl md:font-semibold md:text-2xl mb-4 text-center">
         Categories
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -36,7 +38,7 @@ const Categories = ({ categories }) => {
           >
             <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />
             <div className="text-center my-4">
-              <h1 className="text-xl font-medium">{category.title}</h1>
+              <h1 className="text-xl font-medium">{category.category_name}</h1>
               <Link to="/shop" className="hover:text-yellow-400">
                 Browse
               </Link>

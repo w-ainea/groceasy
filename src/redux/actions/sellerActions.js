@@ -1,13 +1,15 @@
 import * as types from "./actionTypes";
-import * as sellersApi from "../../api/sellersApi";
+
+const baseUrl = process.env.REACT_APP_API_URL + "/sellers";
 
 export function fetchSellers() {
   return function (dispatch) {
-    return sellersApi
-      .getSellers()
-      .then((products) => {
-        dispatch(receiveSellers(products));
+    return fetch(baseUrl + "/list", { method: "GET" })
+      .then((response) => response.json())
+      .then((sellers) => {
+        dispatch(receiveSellers(sellers));
       })
+      .then((sellers) => console.log(sellers))
       .catch((err) => {
         throw err;
       });

@@ -11,7 +11,7 @@ const Analytics = ({ products, categories, sales }) => {
   let sortedProducts = products.map((product) => ({
     ...product,
     categoryName: categories.find(
-      (category) => category.id === product.categoryId
+      (category) => category.category_name === product.category
     ),
   }));
 

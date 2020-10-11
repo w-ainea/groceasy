@@ -20,7 +20,7 @@ function ShopItemList({
     }
 
     if (sellers.length === 0) {
-      fetchSellers().catch((err) => alert(err));
+      fetchSellers().catch((err) => console.log(err));
     }
 
     if (categories.length === 0) {
@@ -28,7 +28,7 @@ function ShopItemList({
         throw err;
       });
     }
-  });
+  }, []);
 
   return (
     <div className="flex justify-center px-10">
@@ -49,8 +49,8 @@ const mapStateToProps = (state) => ({
           return {
             ...product,
             sellerName: state.sellers.find(
-              (seller) => seller.id === product.sellerId
-            ).name,
+              (seller) => seller.id === product.seller_id
+            ).seller_name,
           };
         }),
   sellers: state.sellers,

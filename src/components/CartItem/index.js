@@ -13,7 +13,7 @@ const CartItem = ({ cartItem, removeItem }) => {
           className="w-20 h-20 rounded-full"
         />
       </div>
-      <h4 className="font-semibold">{cartItem.name}</h4>
+      <h4 className="font-semibold">{cartItem.product_name}</h4>
 
       <div>
         {cartItem.quantity} X {cartItem.price}

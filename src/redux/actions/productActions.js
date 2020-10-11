@@ -1,17 +1,24 @@
 import * as types from "./actionTypes";
 import * as productsApi from "../../api/productsApi";
 
+const baseUrl = process.env.REACT_APP_API_URL + "/products/";
+
+export const requestProducts = (products) => ({
+  type: types.REQUEST_PRODUCTS,
+  payload: products,
+});
+
+export const receiveProducts = (products) => ({
+  type: types.RECEIVE_PRODUCTS,
+  payload: products,
+});
+
 export function fetchProductsError(error) {
   return {
     type: types.FETCH_PRODUCTS_ERROR,
     payload: error,
   };
 }
-
-export const receiveProducts = (products) => ({
-  type: types.RECEIVE_PRODUCTS,
-  payload: products,
-});
 
 export const deleteProduct = (product) => ({
   type: types.DELETE_PRODUCT,
@@ -33,13 +40,12 @@ export const updateProduct = (product) => ({
   payload: product,
 });
 
-export function fetchProducts() {
+export function fetchProducts(products) {
   return function (dispatch) {
-    return productsApi
-      .getProducts()
-      .then((products) => {
-        dispatch(receiveProducts(products));
-      })
+    dispatch(requestProducts(products));
+    return fetch(baseUrl + "/list", { method: "GET" })
+      .then((response) => response.json())
+      .then((products) => dispatch(receiveProducts(products)))
       .catch((err) => {
         throw err;
       });
@@ -48,16 +54,13 @@ export function fetchProducts() {
 
 export function saveProduct(product) {
   return function (dispatch) {
-    return productsApi
-      .saveProduct(product)
-      .then((savedProduct) => {
+    return fetch(baseUrl + "/add")
+      .then((response) => response.json())
+      .then((product) =>
         product.id
-          ? dispatch(updateProduct(savedProduct))
-          : dispatch(addNewProduct(savedProduct));
-      })
-      .catch((err) => {
-        throw err;
-      });
+          ? dispatch(updateProduct(product))
+          : dispatch(addNewProduct(product))
+      );
   };
 }
 
