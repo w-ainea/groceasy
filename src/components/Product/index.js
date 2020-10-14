@@ -29,7 +29,7 @@ class Product extends React.Component {
             className="w-12 h-12 rounded-full"
           />
         </div>
-        <h4 className="font-semibold">{product.name}</h4>
+        <h4 className="font-semibold">{product.product_name}</h4>
         <div>{product.price}</div>
         <span
           className="text-green-500 cursor-pointer"

@@ -24,3 +24,7 @@ export const LOAD_CATEGORY_ITEMS = "LOAD_CATEGORY_ITEMS";
 export const TOGGLE_MENU = "TOGGLE_MENU";
 
 export const RECEIVE_SALES_DATA = "RECEIVE_SALES_DATA";
+
+// checkout
+
+export const REQUEST_CHECKOUT = "REQUEST_CHECKOUT";

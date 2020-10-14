@@ -2,12 +2,33 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { Pie3D, Bar3D, Line2D } from "..";
 import * as salesActions from "../../redux/actions/salesActions";
+import * as productActions from "../../redux/actions/productActions";
+import * as categoryActions from "../../redux/actions/categoryActions";
 
-const Analytics = ({ products, categories, sales }) => {
+const Analytics = ({
+  products,
+  categories,
+  sales,
+  fetchProducts,
+  fetchSales,
+  fetchCategories,
+}) => {
   useEffect(() => {
-    salesActions.fetchSales();
+    if (sales.length === 0) {
+      fetchSales().then((err) => alert(err));
+    }
+
+    if (products.length === 0) {
+      fetchProducts().then((err) => alert(err));
+    }
+
+    if (categories.length === 0) {
+      fetchCategories().then((err) => alert(err));
+    }
   }, []);
 
+  // group products by category
+  console.log(products);
   let sortedProducts = products.map((product) => ({
     ...product,
     categoryName: categories.find(
@@ -15,27 +36,19 @@ const Analytics = ({ products, categories, sales }) => {
     ),
   }));
 
-  let categoriesData = Array.from(sortedProducts).reduce((total, current) => {
-    let { categoryName } = current;
-
-    if (!total[categoryName.title]) {
-      total[categoryName.title] = { label: categoryName.title, value: 1 };
-    } else {
-      total[categoryName.title] = {
-        label: categoryName.title,
-        value: total[categoryName.title].value + 1,
-      };
-    }
+  let categoriesData = sortedProducts.reduce((total, current) => {
+    console.log("current", current);
 
     return total;
   }, {});
 
   categoriesData = Object.values(categoriesData);
+  console.log(categoriesData);
 
   return (
     <section className="grid gap-10 lg:grid-cols-2">
-      <Pie3D data={categoriesData} />
-      <Bar3D data={sales} />
+      {/* <Pie3D data={categoriesData} /> */}
+      {/* <Bar3D data={sales} /> */}
       <Line2D />
     </section>
   );
@@ -47,4 +60,10 @@ const mapStateToProps = (state) => ({
   sales: state.sales,
 });
 
-export default connect(mapStateToProps)(Analytics);
+const mapDispatchToProps = {
+  fetchProducts: productActions.fetchProducts,
+  fetchSales: salesActions.fetchSales,
+  fetchCategories: categoryActions.fetchCategories,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Analytics);

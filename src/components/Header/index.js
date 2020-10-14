@@ -1,11 +1,13 @@
 import React from "react";
 
-import { NavLink, withRouter } from "react-router-dom";
+import { Link, NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { selectCartItemsCount } from "../../redux/selectors/cartSelector";
 
 import { NotificationIcon, CartIcon } from "../Icons";
+
+import { ReactComponent as Logo } from "../../assets/img/logo.svg";
 
 const Header = ({ itemCount, history }) => {
   return (
@@ -28,7 +30,9 @@ const Header = ({ itemCount, history }) => {
           </NavLink>
         </div>
 
-        <div className="font-bold capitalize">Logo</div>
+        <Link to="/" className="w-4 h-4 items-center overflow-hidden">
+          <Logo />
+        </Link>
         <div className="flex relative">
           <NavLink
             to="/notifications"
