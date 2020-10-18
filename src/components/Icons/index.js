@@ -15,6 +15,7 @@ import StockIcon from "./StockIcon";
 import CurrencyIcon from "./CurrencyIcon";
 import Delete from "./Delete";
 import Edit from "./Edit";
+import CloseIcon from "./CloseIcon";
 
 export {
   AccountIcon,
@@ -34,4 +35,5 @@ export {
   CurrencyIcon,
   Delete,
   Edit,
+  CloseIcon,
 };

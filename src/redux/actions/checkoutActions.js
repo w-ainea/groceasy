@@ -10,9 +10,8 @@ export const requestCheckout = (amount) => ({
 export const checkout = (amount) => {
   return (dispatch) => {
     dispatch(requestCheckout(amount));
-    return fetch(baseUrl + "/pay", {
-      method: "POST",
-      headers: { Authorization: "auth" },
+    return fetch(baseUrl + "/stk", {
+      method: "GET",
     });
   };
 };

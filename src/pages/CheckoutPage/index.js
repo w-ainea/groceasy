@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 import {
   RemoveIcon,
@@ -6,6 +6,7 @@ import {
   SubtractIcon,
   BackIcon,
   CustomButton,
+  CheckoutForm,
 } from "../../components";
 
 import * as cartActions from "../../redux/actions/cartActions";
@@ -15,6 +16,7 @@ import {
   selectCartTotal,
 } from "../../redux/selectors/cartSelector";
 import { Link } from "react-router-dom";
+import { checkout } from "../../redux/actions/checkoutActions";
 
 const CheckOutPage = ({
   cartItems,
@@ -22,7 +24,18 @@ const CheckOutPage = ({
   total,
   addItem,
   subtractItem,
+  checkout,
 }) => {
+  const [show, setShowModal] = React.useState(false);
+
+  const showModal = () => {
+    return setShowModal(true);
+  };
+
+  const hideModal = () => {
+    return setShowModal(false);
+  };
+
   return (
     <div className="p-10">
       <div className="checkout-header">
@@ -75,7 +88,14 @@ const CheckOutPage = ({
         </div>
       </div>
 
-      <CustomButton>checkout</CustomButton>
+      <CustomButton onClick={showModal}>Checkout</CustomButton>
+
+      <CheckoutForm
+        show={show}
+        total={total}
+        handleClose={() => hideModal()}
+        checkout={checkout}
+      />
     </div>
   );
 };
@@ -91,6 +111,7 @@ const mapDispatchToProps = (dispatch) => {
     addItem: (cartItem) => dispatch(cartActions.addProductToCart(cartItem)),
     subtractItem: (cartItem) =>
       dispatch(cartActions.subtractCartItem(cartItem)),
+    checkout: (total) => dispatch(checkout(total)),
   };
 };
 

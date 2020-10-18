@@ -27,6 +27,7 @@ import LoginButton from "./LoginButton";
 import LogoutButton from "./LogoutButton";
 import Bar3D from "./Bar3D";
 import CustomSelect from "./CustomSelect";
+import CheckoutForm from "./CheckoutForm";
 
 import {
   HomeIcon,
@@ -85,4 +86,5 @@ export {
   CustomInput,
   ProductForm,
   CustomSelect,
+  CheckoutForm,
 };
