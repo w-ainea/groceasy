@@ -10,6 +10,8 @@
     "auth0-js": "^9.14.0",
     "autoprefixer": "^9.8.5",
     "firebase": "^7.17.1",
+    "fontsource-karla": "^3.0.5",
+    "fontsource-montserrat": "^3.0.9",
     "fusioncharts": "^3.15.2",
     "json-server": "^0.16.1",
     "postcss-cli": "^7.1.1",
@@ -24,11 +26,13 @@
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
     "tailwindcss": "^1.8.10",
+    "typeface-karla": "^1.1.13",
+    "typeface-montserrat": "^1.1.13",
     "typeface-nunito": "^1.1.3",
     "typeface-poppins": "0.0.72"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "npm run watch:css && react-scripts start",
     "build": "npm run build:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

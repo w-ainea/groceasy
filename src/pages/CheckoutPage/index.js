@@ -37,11 +37,13 @@ const CheckOutPage = ({
   };
 
   return (
-    <div className="p-10">
+    <div className="max-w-lg mx-auto">
       <div className="checkout-header">
-        <h1 className="py-6 font-semibold">Your Order Summary</h1>
+        <h1 className="py-6 font-headings text-center text-black-coffee">
+          Your Order Summary
+        </h1>
       </div>
-      <div className="checkout-content">
+      <div className="checkout-content text-black-coffee">
         {cartItems.map((cartItem) => {
           const { id, imgUrl, name, quantity, price } = cartItem;
 
@@ -57,13 +59,13 @@ const CheckOutPage = ({
                   alt="item"
                 />
               </div>
-              <h4 className="font-semibold">{name}</h4>
-              <div className="flex items-center">
+              <h4 className="font-light">{name}</h4>
+              <div className="flex items-center font-thin">
                 <SubtractIcon onClick={() => subtractItem(cartItem)} />
                 <span className="px-2 text-sm">{quantity}</span>
                 <AddIcon onClick={() => addItem(cartItem)} />
               </div>
-              <div>{price}</div>
+              <div className="font-thin">{price}</div>
               <span>
                 <RemoveIcon onClick={() => removeItem(cartItem)} />
               </span>
@@ -74,7 +76,7 @@ const CheckOutPage = ({
 
       <div className="checkout-footer top-auto py-6 flex justify-between items-center">
         <div className="footer-link ">
-          <Link to="/shop" className=" flex text-green-500">
+          <Link to="/shop" className=" flex text-yellow-green">
             <span>
               <BackIcon />
             </span>
@@ -82,7 +84,7 @@ const CheckOutPage = ({
           </Link>
         </div>
         <div className="footer-total">
-          <h1 className="capitalize text-right">
+          <h1 className="capitalize text-right  text-black-coffee">
             total: <span className="font-semibold">KES {total}</span>
           </h1>
         </div>
@@ -93,7 +95,7 @@ const CheckOutPage = ({
       <CheckoutForm
         show={show}
         total={total}
-        handleClose={() => hideModal()}
+        handleClose={hideModal}
         checkout={checkout}
       />
     </div>

@@ -24,7 +24,7 @@
 .header-icon {
   @apply absolute;
   @apply text-pink-500;
-  @apply text-xs;
+  @apply text-sm;
 }
 
 .btn-primary {

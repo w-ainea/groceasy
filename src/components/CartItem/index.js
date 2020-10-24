@@ -5,7 +5,7 @@ import { removeCartItem } from "../../redux/actions/cartActions";
 
 const CartItem = ({ cartItem, removeItem }) => {
   return (
-    <div className="cart-item flex justify-between items-center py-4 border-b-2">
+    <div className="cart-item flex justify-between items-center py-4 border-b-2 text-black-coffee">
       <div>
         <img
           src={cartItem.imgUrl}
@@ -13,9 +13,9 @@ const CartItem = ({ cartItem, removeItem }) => {
           className="w-20 h-20 rounded-full"
         />
       </div>
-      <h4 className="font-semibold">{cartItem.product_name}</h4>
+      <h4 className="font-light">{cartItem.product_name}</h4>
 
-      <div>
+      <div className="font-thin">
         {cartItem.quantity} X {cartItem.price}
       </div>
       <span>

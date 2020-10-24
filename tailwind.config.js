@@ -4,11 +4,16 @@ module.exports = {
   purge: [],
   theme: {
     extend: {
-      fontFamily: { display: ["Nunito", "sans-serif"] },
-      backgroundImage: {
-        "hero-lg": "url('/src/assets/img/hero-lg.jpg')",
-        "hero-md": "url('/src/assets/img/hero-md.jpg')",
-        "hero-sm": "url('/src/assets/img/hero-sm.jpg')",
+      colors: {
+        "mandarin-color": "#FA824C",
+        "baby-powder": "#FAFFFD",
+        "yellow-green": "#A2D729",
+        "black-coffee": "#342E37",
+        "tufts-blue": "#3C91E6",
+      },
+      fontFamily: {
+        headings: ["Montserrat", "sans-serif"],
+        display: ["Karla", "sans-serif"],
       },
     },
   },

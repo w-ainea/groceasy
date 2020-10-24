@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 
 import { ProductForm } from "../../components";
 
-import { newProduct } from "../../tools/mockData";
 import * as productActions from "../../redux/actions/productActions";
 import * as caregorytActions from "../../redux/actions/categoryActions";
 
@@ -30,13 +29,14 @@ const ManageProduct = ({
   function handleChange(e) {
     const { name, value } = e.target;
     setProduct(() => ({
-      [name]: [value],
+      [name]: value,
     }));
   }
 
   function handleSave(e) {
     e.preventDefault();
     saveProduct(product);
+    console.log(product);
   }
 
   return (
@@ -57,12 +57,13 @@ const getProductById = (products, id) => {
 };
 
 function mapStateToProps(state, ownProps) {
-  const id = ownProps.match.params.id;
-
+  console.log("own props", ownProps.location.key);
+  const id = ownProps.location.key;
+  console.log(id);
   const product =
     id && state.products.length > 0
       ? getProductById(state.products, id)
-      : newProduct;
+      : { product_name: "", price: "", seller_id: "", category: "" };
 
   return {
     product,

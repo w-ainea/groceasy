@@ -3,7 +3,6 @@ import React from "react";
 import { CustomButton, CustomInput, CustomSelect } from "..";
 
 const ProductForm = ({ product, categories, onChange, onSave }) => {
-  console.log(product);
   return (
     <div className="w-full max-w-xs">
       <form
@@ -11,17 +10,19 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
         onSubmit={onSave}
       >
         <CustomInput
-          name="Product Name"
-          placeholder="product name"
+          name="product_name"
+          placeholder="Product Name"
           value={product.name}
           onChange={onChange}
+          type="text"
         />
 
         <CustomInput
-          name="Price"
+          name="price"
           placeholder="KSH"
           value={product.price}
           onChange={onChange}
+          type="number"
         />
 
         <CustomSelect
@@ -31,8 +32,8 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
           value={product.categoryId}
           defaultOption="Select Category"
           options={categories.map((category) => ({
-            value: category.title,
-            name: category.title,
+            value: category.id,
+            text: category.name,
           }))}
         />
 

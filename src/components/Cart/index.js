@@ -13,28 +13,31 @@ import {
 
 const Cart = ({ cartItems, history, total }) => {
   return (
-    <div className="flex flex-col px-10 justify-center">
+    <div className="flex flex-col px-10 justify-center max-w-lg mx-auto">
       {cartItems.length === 0 ? (
-        <div className="flex justify-center">
+        <div className="flex justify-center text-black-coffee">
           <h1>Your cart is currently empty</h1>
         </div>
       ) : (
         <>
-          <h1 className="text-center font-semibold">Your Cart</h1>
+          <h1 className="text-center font-semibold text-black-coffee">
+            Your Cart
+          </h1>
           {cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} cartItem={cartItem} />
           ))}
         </>
       )}
       <div className="checkout-footer top-auto pt-12 flex justify-between items-center">
-        <Link to="/shop" className=" flex text-green-500">
+        <Link to="/shop" className=" flex text-yellow-green">
           <span>
             <BackIcon />
           </span>
           Continue Shopping
         </Link>
         <h1 className="capitalize text-right">
-          total: <span className="font-semibold">KES {total}</span>
+          total:{" "}
+          <span className="font-semibold text-black-coffee">KES {total}</span>
         </h1>
       </div>
 

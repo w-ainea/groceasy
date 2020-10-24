@@ -22,25 +22,25 @@ const Dashboard = () => {
     <div className="bg-gray-100 px-10 md:px-20">
       <div className="grid">
         <Profile />
-        <div className="overview">
-          <h1 className="dashboard font-bold text-xl text-gray-600">
+        <div className="overview mt-8">
+          <h1 className="dashboard text-lg text-black-coffee font-headings">
             Dashboard
           </h1>
           <div className="dashboard-links max-w-sm flex justify-between py-4">
             <h1
-              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400"
+              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400 text-black-coffee"
               onClick={(event) => handleClick(event, "overview-tab")}
             >
               Overview
             </h1>
             <h1
-              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400"
+              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400 text-black-coffee"
               onClick={(event) => handleClick(event, "products-tab")}
             >
               Products
             </h1>
             <h1
-              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400"
+              className="cursor-pointer tab-link border-b-2 hover:font-semibold hover:border-green-400 text-black-coffee"
               onClick={(event) => handleClick(event, "orders-tab")}
             >
               Orders

@@ -3,8 +3,10 @@ import { render } from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 
 import App from "./App";
+import "typeface-karla";
+import "typeface-montserrat";
+
 import "./assets/css/main.css";
-import "typeface-nunito";
 import "./index.css";
 
 import { store, persistor } from "./redux";

@@ -1,7 +1,7 @@
 import * as types from "./actionTypes";
 import * as productsApi from "../../api/productsApi";
 
-const baseUrl = process.env.REACT_APP_API_URL + "/products/";
+const baseUrl = process.env.REACT_APP_API_URL + "/products";
 
 export const requestProducts = (products) => ({
   type: types.REQUEST_PRODUCTS,
@@ -54,8 +54,19 @@ export function fetchProducts(products) {
 
 export function saveProduct(product) {
   return function (dispatch) {
-    return fetch(baseUrl + "/add")
-      .then((response) => response.json())
+    return fetch(baseUrl + "/add/", {
+      method: "POST",
+      body: JSON.stringify({
+        product_name: product.product_name,
+        price: product.price,
+        category: product.category,
+        seller_id: "",
+      }),
+    })
+      .then((response) => {
+        console.log(response);
+        return response.json();
+      })
       .then((product) =>
         product.id
           ? dispatch(updateProduct(product))

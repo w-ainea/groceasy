@@ -8,8 +8,8 @@ const ShopItem = ({ product, addItemToCart, history }) => {
   const { product_name, price, sellerName, imgUrl } = product;
 
   return (
-    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-40 md:w-48 xl:w-64 flex flex-col">
-      <img src={imgUrl} alt="fruits" className="w-100 bg-cover" />
+    <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-40 md:w-56 xl:w-64 flex flex-col text-black-coffee">
+      <img src={imgUrl} alt={product.category} className="w-100 bg-cover" />
       <div className="flex justify-between mt-4 px-2">
         <h1 className="text-base font-medium">{product_name}</h1>
         <h1 className="text-base font-medium">{price}</h1>
@@ -25,7 +25,7 @@ const ShopItem = ({ product, addItemToCart, history }) => {
       </div>
       <button
         onClick={() => addItemToCart(product)}
-        className="btn-primary hover:border-yellow-400 hover:bg-white hover:text-gray-700"
+        className="btn-primary hover:border-green-400 hover:bg-white hover:text-gray-700"
       >
         buy
       </button>
