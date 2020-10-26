@@ -1,7 +1,4 @@
 import Input from "./Input";
-
-import SignIn from "./SignIn";
-import SignUp from "./SignUp";
 import ShopItem from "./ShopItem";
 import ShopItemList from "./ShopItemList";
 import Header from "./Header";
@@ -28,6 +25,9 @@ import LogoutButton from "./LogoutButton";
 import Bar3D from "./Bar3D";
 import CustomSelect from "./CustomSelect";
 import CheckoutForm from "./CheckoutForm";
+import Loading from "./Loading";
+import MainNav from "./Main-Nav";
+import AuthenticationButton from "./AuthenticationButton";
 
 import {
   HomeIcon,
@@ -47,8 +47,7 @@ import {
 
 export {
   Input,
-  SignIn,
-  SignUp,
+
   ShopItem,
   ShopItemList,
   Header,
@@ -87,4 +86,7 @@ export {
   ProductForm,
   CustomSelect,
   CheckoutForm,
+  Loading,
+  MainNav,
+  AuthenticationButton
 };

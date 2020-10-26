@@ -6,38 +6,18 @@ import { connect } from "react-redux";
 import { selectCartItemsCount } from "../../redux/selectors/cartSelector";
 
 import { NotificationIcon, CartIcon } from "../Icons";
-
-import { ReactComponent as Logo } from "../../assets/img/logo.svg";
+import { MainNav } from "..";
 
 const Header = ({ itemCount, history }) => {
   return (
     <div className="shadow-md relative w-screen top-0 z-10 bg-white">
       <header className="main-header container sm:px-4 h-16 text-gray-700">
-        <div className="flex items-center">
-          <NavLink to="/shop" className="flex px-2 py-4">
-            <span>
-              <h1 className="hover:text-green-500 transition-all duration-200 md:text-lg">
-                Shop
-              </h1>
-            </span>
-          </NavLink>
-          <NavLink to="/dashboard" className="flex px-2 py-4">
-            <span>
-              <h1 className="hover:text-green-500 transition-all duration-200 md:text-lg">
-                Dashboard
-              </h1>
-            </span>
-          </NavLink>
-        </div>
-
-        {/* <div>
-          <Link
-            to="/"
-            className="w-4 h-4 items-center text-mandarin-color font-semibold"
-          >
+        <MainNav />
+        <div className="flex">
+          <Link to="/" className="text-mandarin-color font-semibold w-4/12">
             GROCEASY
           </Link>
-        </div> */}
+        </div>
 
         <div className="flex relative">
           <NavLink
