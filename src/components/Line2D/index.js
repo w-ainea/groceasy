@@ -58,10 +58,10 @@ const chartConfigs = {
   dataFormat: "json",
   dataSource: {
     chart: {
-      caption: "Total footfall in Bakersfield Central",
+      caption: "Total sales",
       subCaption: "Last week",
       xAxisName: "Day",
-      yAxisName: "No. of Visitors",
+      yAxisName: "Amount sold",
       lineThickness: "2",
       theme: "fusion",
     },
@@ -72,7 +72,7 @@ const chartConfigs = {
           {
             startvalue: "18500",
             color: "#1aaf5d",
-            displayvalue: "Average{br}weekly{br}footfall",
+            displayvalue: "Average{br}daily{br}sales",
             valueOnRight: "1",
             thickness: "2",
           },

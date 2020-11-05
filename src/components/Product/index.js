@@ -18,6 +18,7 @@ class Product extends React.Component {
 
   render() {
     const { product, deleteProduct } = this.props;
+    
 
     return (
       <div className="product flex justify-between items-center py-4 border-b-2">
@@ -45,9 +46,7 @@ class Product extends React.Component {
   }
 }
 
-function mapStateToProps(state, ownProps) {
-  console.log(ownProps);
-
+function mapStateToProps(state) {
   return {
     products: state.products,
     categories: state.categories,

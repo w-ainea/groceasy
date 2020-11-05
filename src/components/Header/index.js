@@ -8,10 +8,10 @@ import { selectCartItemsCount } from "../../redux/selectors/cartSelector";
 import { NotificationIcon, CartIcon } from "../Icons";
 import { MainNav } from "..";
 
-const Header = ({ itemCount, history }) => {
+const Header = ({ itemCount }) => {
   return (
     <div className="shadow-md relative w-screen top-0 z-10 bg-white">
-      <header className="main-header container sm:px-4 h-16 text-gray-700">
+      <header className="main-header container sm:px-4 h-12 sm:h-16 text-gray-700">
         <MainNav />
         <div className="flex">
           <Link to="/" className="text-mandarin-color font-semibold w-4/12">

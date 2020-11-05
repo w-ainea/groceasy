@@ -25,6 +25,9 @@ export const TOGGLE_MENU = "TOGGLE_MENU";
 
 export const RECEIVE_SALES_DATA = "RECEIVE_SALES_DATA";
 
+// place order
+export const PLACE_ORDER = "PLACE_ORDER";
+
 // checkout
 
 export const REQUEST_CHECKOUT = "REQUEST_CHECKOUT";

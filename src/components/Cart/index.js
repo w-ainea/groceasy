@@ -6,6 +6,8 @@ import { createStructuredSelector } from "reselect";
 import { CartItem, CustomButton } from "..";
 import { BackIcon } from "..";
 
+import * as orderActions from "../../redux/actions/orderActions";
+
 import {
   selectCartItems,
   selectCartTotal,
@@ -44,10 +46,7 @@ const Cart = ({ cartItems, history, total }) => {
       {cartItems.length === 0 ? (
         " "
       ) : (
-        <CustomButton
-          onClick={() => history.push("/checkout")}
-          className="top-auto flex"
-        >
+        <CustomButton onClick={handleOrder} className="top-auto flex">
           Place Order
         </CustomButton>
       )}
@@ -55,9 +54,21 @@ const Cart = ({ cartItems, history, total }) => {
   );
 };
 
+function handleOrder() {
+  // populate the orders table => async action
+  // placeOrder(order);
+  // redirect to checkout
+  console.log("working!!!");
+  // () => history.push("/checkout")
+}
+
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
 });
 
-export default withRouter(connect(mapStateToProps)(Cart));
+const mapDispatchToProps = {
+  placeOrder: orderActions.placeOrder,
+};
+
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));

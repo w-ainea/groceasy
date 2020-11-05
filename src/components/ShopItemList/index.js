@@ -30,6 +30,20 @@ function ShopItemList({
     }
   });
 
+  let groupByCategory = products.reduce((acc, current) => {
+    if (!current.category) return acc;
+
+    if (!acc[current.category]) {
+      acc[current.category] = [];
+    }
+
+    acc[current.category].push(current);
+
+    return acc;
+  }, {});
+
+  console.log("grouped by category", groupByCategory);
+
   return (
     <div className="flex justify-center px-4 md:px-10">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-10">
@@ -43,16 +57,6 @@ function ShopItemList({
 
 const mapStateToProps = (state) => ({
   products: state.products,
-  // state.sellers.length === 0
-  //   ? []
-  //   : state.products.map((product) => {
-  //       return {
-  //         ...product,
-  //         sellerName: state.sellers.find(
-  //           (seller) => seller.id === product.seller_id
-  //         ).seller_name,
-  //       };
-  //     }),
   sellers: state.sellers,
   categories: state.categories,
 });

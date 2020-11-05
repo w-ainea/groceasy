@@ -8,6 +8,7 @@ import {
   categoryReducer,
   menuReducer,
   salesReducer,
+  ordersReducer
 } from ".";
 
 const rootReducer = combineReducers({
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   menu: menuReducer,
   sales: salesReducer,
+  orders: ordersReducer
 });
 
 export default rootReducer;

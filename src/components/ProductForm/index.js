@@ -10,7 +10,8 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
         onSubmit={onSave}
       >
         <CustomInput
-          name="product_name"
+          label="Product Name"
+          name="name"
           placeholder="Product Name"
           value={product.name}
           onChange={onChange}
@@ -18,9 +19,19 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
         />
 
         <CustomInput
+          label="Product Price"
           name="price"
           placeholder="KSH"
           value={product.price}
+          onChange={onChange}
+          type="number"
+        />
+
+        <CustomInput
+          label="Quantity"
+          name="quantity"
+          placeholder="1, 2, 3 ..."
+          value={product.quantiry}
           onChange={onChange}
           type="number"
         />
@@ -32,7 +43,8 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
           value={product.categoryId}
           defaultOption="Select Category"
           options={categories.map((category) => ({
-            value: category.id,
+            key: category.id,
+            value: category.name,
             text: category.name,
           }))}
         />

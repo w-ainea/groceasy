@@ -6,3 +6,5 @@ export const allProductsSelector = createSelector(
   productsSelector,
   (products) => products
 );
+
+export const groupProductsSelector = createSelector

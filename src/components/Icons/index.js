@@ -16,6 +16,8 @@ import CurrencyIcon from "./CurrencyIcon";
 import Delete from "./Delete";
 import Edit from "./Edit";
 import CloseIcon from "./CloseIcon";
+import LoginIcon from "./LoginIcon";
+import LogoutIcon from "./LogoutIcon";
 
 export {
   AccountIcon,
@@ -36,4 +38,6 @@ export {
   Delete,
   Edit,
   CloseIcon,
+  LoginIcon,
+  LogoutIcon,
 };

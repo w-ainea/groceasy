@@ -28,7 +28,8 @@ const ManageProduct = ({
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setProduct(() => ({
+    setProduct((currentProduct) => ({
+      ...currentProduct,
       [name]: value,
     }));
   }
@@ -52,18 +53,8 @@ const ManageProduct = ({
   );
 };
 
-const getProductById = (products, id) => {
-  return products.find((product) => product.id === id) || null;
-};
-
-function mapStateToProps(state, ownProps) {
-  console.log("own props", ownProps.location.key);
-  const id = ownProps.location.key;
-  console.log(id);
-  const product =
-    id && state.products.length > 0
-      ? getProductById(state.products, id)
-      : { product_name: "", price: "", seller_id: "", category: "" };
+function mapStateToProps(state) {
+  const product = { name: "", price: '', category: "", quantity: '' };
 
   return {
     product,

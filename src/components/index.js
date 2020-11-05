@@ -12,6 +12,8 @@ import Hero from "./Hero";
 import Chart from "./Chart";
 import Pie3D from "./Pie3D";
 import Column3D from "./Column3D";
+import Doughnut3D from "./Doughnut3D";
+
 import Analytics from "./Analytics";
 import Profile from "./Profile";
 import Product from "./Product";
@@ -88,5 +90,6 @@ export {
   CheckoutForm,
   Loading,
   MainNav,
-  AuthenticationButton
+  AuthenticationButton,
+  Doughnut3D
 };

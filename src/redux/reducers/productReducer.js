@@ -20,6 +20,7 @@ const productReducer = (state = initialState.products, action) => {
       return state.map((product) =>
         product.id === action.payload.id ? action.payload : product
       );
+
     default:
       return state;
   }

@@ -5,6 +5,7 @@ const initialState = {
   categories: [],
   hidden: true,
   sales: [],
+  orders: []
 };
 
 export default initialState;

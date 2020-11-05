@@ -54,24 +54,26 @@ export function fetchProducts(products) {
 
 export function saveProduct(product) {
   return function (dispatch) {
-    return fetch(baseUrl + "/add/", {
+    return fetch(baseUrl + "/add", {
       method: "POST",
       body: JSON.stringify({
-        product_name: product.product_name,
+        product_name: product.name,
         price: product.price,
         category: product.category,
-        seller_id: "",
+        quantity: product.quantity,
       }),
     })
       .then((response) => {
-        console.log(response);
-        return response.json();
+        return response.text();
       })
       .then((product) =>
         product.id
           ? dispatch(updateProduct(product))
           : dispatch(addNewProduct(product))
-      );
+      )
+      .catch((err) => {
+        throw err;
+      });
   };
 }
 
