@@ -6,6 +6,7 @@ import { createStructuredSelector } from "reselect";
 import { CartItem, CustomButton } from "..";
 import { BackIcon } from "..";
 
+import * as cartActions from "../../redux/actions/cartActions";
 import * as orderActions from "../../redux/actions/orderActions";
 
 import {
@@ -13,7 +14,18 @@ import {
   selectCartTotal,
 } from "../../redux/selectors/cartSelector";
 
-const Cart = ({ cartItems, history, total }) => {
+const Cart = ({
+  cartItems,
+  history,
+  total,
+  saveOrder,
+  addItem,
+  subtractItem,
+}) => {
+  function handleOrder() {
+    console.log(saveOrder);
+    // history.push("/checkout");
+  }
   return (
     <div className="flex flex-col px-10 justify-center max-w-lg mx-auto">
       {cartItems.length === 0 ? (
@@ -21,14 +33,19 @@ const Cart = ({ cartItems, history, total }) => {
           <h1>Your cart is currently empty</h1>
         </div>
       ) : (
-        <>
+        <div>
           <h1 className="text-center font-semibold text-black-coffee">
             Your Cart
           </h1>
           {cartItems.map((cartItem) => (
-            <CartItem key={cartItem.id} cartItem={cartItem} />
+            <CartItem
+              key={cartItem.id}
+              cartItem={cartItem}
+              addItem={addItem}
+              subtractItem={subtractItem}
+            />
           ))}
-        </>
+        </div>
       )}
       <div className="checkout-footer top-auto pt-12 flex justify-between items-center">
         <Link to="/shop" className=" flex text-yellow-green">
@@ -46,7 +63,10 @@ const Cart = ({ cartItems, history, total }) => {
       {cartItems.length === 0 ? (
         " "
       ) : (
-        <CustomButton onClick={handleOrder} className="top-auto flex">
+        <CustomButton
+          onClick={() => saveOrder(cartItems)}
+          className="top-auto flex"
+        >
           Place Order
         </CustomButton>
       )}
@@ -54,21 +74,15 @@ const Cart = ({ cartItems, history, total }) => {
   );
 };
 
-function handleOrder() {
-  // populate the orders table => async action
-  // placeOrder(order);
-  // redirect to checkout
-  console.log("working!!!");
-  // () => history.push("/checkout")
-}
-
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
   total: selectCartTotal,
 });
 
 const mapDispatchToProps = {
-  placeOrder: orderActions.placeOrder,
+  addItem: cartActions.addProductToCart,
+  subtractItem: cartActions.subtractCartItem,
+  saveOrder: orderActions.saveOrder,
 };
 
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Cart));

@@ -9,11 +9,11 @@ export const placeOrder = (order) => ({
 });
 
 export const saveOrder = (order) => (dispatch) =>
-  fetch(baseUrl + "/orders", {
+  fetch(baseUrl + "/add", {
     method: "POST",
     body: JSON.stringify({
       order,
-    })
-      .then((response) => response.text())
-      .then((order) => dispatch(placeOrder(order))),
-  });
+    }),
+  })
+    .then((response) => response.text())
+    .then((order) => dispatch(placeOrder(order)));

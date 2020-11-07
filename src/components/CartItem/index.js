@@ -3,7 +3,9 @@ import { RemoveIcon } from "..";
 import { connect } from "react-redux";
 import { removeCartItem } from "../../redux/actions/cartActions";
 
-const CartItem = ({ cartItem, removeItem }) => {
+import { AddIcon, SubtractIcon } from "../Icons";
+
+const CartItem = ({ cartItem, removeItem, addItem, subtractItem }) => {
   return (
     <div className="cart-item flex justify-between items-center py-4 border-b-2 text-black-coffee">
       <div>
@@ -15,9 +17,13 @@ const CartItem = ({ cartItem, removeItem }) => {
       </div>
       <h4 className="font-light">{cartItem.product_name}</h4>
 
-      <div className="font-thin">
-        {cartItem.quantity} X {cartItem.price}
+      <div className="flex items-center font-thin">
+        <SubtractIcon onClick={() => subtractItem(cartItem)} />
+        <span className="px-2 text-sm">{cartItem.quantity}</span>
+        <AddIcon onClick={() => addItem(cartItem)} />
       </div>
+
+      <div className="font-thin">{cartItem.price * cartItem.quantity}</div>
       <span>
         <RemoveIcon onClick={() => removeItem(cartItem)} />
       </span>

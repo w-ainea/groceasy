@@ -1,13 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import {
-  RemoveIcon,
-  AddIcon,
-  SubtractIcon,
-  BackIcon,
-  CustomButton,
-  CheckoutForm,
-} from "../../components";
+import { BackIcon, CustomButton, CheckoutForm } from "../../components";
 
 import * as cartActions from "../../redux/actions/cartActions";
 import { createStructuredSelector } from "reselect";
@@ -18,14 +11,7 @@ import {
 import { Link } from "react-router-dom";
 import { checkout } from "../../redux/actions/checkoutActions";
 
-const CheckOutPage = ({
-  cartItems,
-  removeItem,
-  total,
-  addItem,
-  subtractItem,
-  checkout,
-}) => {
+function CheckOutPage({ cartItems, total, checkout }) {
   const [show, setShowModal] = React.useState(false);
 
   const showModal = () => {
@@ -45,7 +31,7 @@ const CheckOutPage = ({
       </div>
       <div className="checkout-content text-black-coffee">
         {cartItems.map((cartItem) => {
-          const { id, imgUrl, name, quantity, price } = cartItem;
+          const { id, imgUrl, product_name, quantity, price } = cartItem;
 
           return (
             <div
@@ -59,16 +45,11 @@ const CheckOutPage = ({
                   alt="item"
                 />
               </div>
-              <h4 className="font-light">{name}</h4>
+              <h4 className="font-light">{product_name}</h4>
               <div className="flex items-center font-thin">
-                <SubtractIcon onClick={() => subtractItem(cartItem)} />
                 <span className="px-2 text-sm">{quantity}</span>
-                <AddIcon onClick={() => addItem(cartItem)} />
               </div>
-              <div className="font-thin">{price}</div>
-              <span>
-                <RemoveIcon onClick={() => removeItem(cartItem)} />
-              </span>
+              <div className="font-thin">{quantity * price}</div>
             </div>
           );
         })}
@@ -100,7 +81,7 @@ const CheckOutPage = ({
       />
     </div>
   );
-};
+}
 
 const mapStateToProps = createStructuredSelector({
   cartItems: selectCartItems,
