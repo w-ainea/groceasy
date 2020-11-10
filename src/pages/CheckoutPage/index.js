@@ -94,7 +94,7 @@ const mapDispatchToProps = (dispatch) => {
     addItem: (cartItem) => dispatch(cartActions.addProductToCart(cartItem)),
     subtractItem: (cartItem) =>
       dispatch(cartActions.subtractCartItem(cartItem)),
-    checkout: (total) => dispatch(checkout(total)),
+    checkout: (total, phone) => dispatch(checkout(total, phone)),
   };
 };
 

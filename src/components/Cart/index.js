@@ -23,8 +23,8 @@ const Cart = ({
   subtractItem,
 }) => {
   function handleOrder() {
-    console.log(saveOrder);
-    // history.push("/checkout");
+    saveOrder(cartItems);
+    history.push("/checkout");
   }
   return (
     <div className="flex flex-col px-10 justify-center max-w-lg mx-auto">
@@ -63,10 +63,7 @@ const Cart = ({
       {cartItems.length === 0 ? (
         " "
       ) : (
-        <CustomButton
-          onClick={() => saveOrder(cartItems)}
-          className="top-auto flex"
-        >
+        <CustomButton onClick={handleOrder} className="top-auto flex">
           Place Order
         </CustomButton>
       )}

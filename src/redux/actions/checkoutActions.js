@@ -13,6 +13,7 @@ export const checkout = (amount, phone) => {
     dispatch(requestCheckout(amount, phone));
     return fetch(baseUrl + "/stk", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         Amount: amount,
         PartyA: phone,

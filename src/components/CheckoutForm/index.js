@@ -9,9 +9,14 @@ class CheckoutForm extends React.Component {
     phone: "",
   };
 
+  handleInput = (e) => {
+    return this.setState({ phone: e.target.value });
+  };
+
   handleCheckout = () => {
     this.props.checkout(this.props.total, this.state.phone);
     this.props.handleClose();
+    console.log(this.state.phone);
   };
 
   render() {
@@ -41,7 +46,8 @@ class CheckoutForm extends React.Component {
                 id="username"
                 type="tel"
                 placeholder="0712345678"
-                onChange={(e) => this.setState({ phone: e.target.value })}
+                onChange={this.handleInput}
+                data-parse="parsePhone"
               />
             </div>
             <p className="text-gray-700">Your total is: {total}</p>

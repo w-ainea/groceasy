@@ -37,7 +37,6 @@ const ManageProduct = ({
   function handleSave(e) {
     e.preventDefault();
     saveProduct(product);
-    console.log(product);
   }
 
   return (
@@ -54,7 +53,7 @@ const ManageProduct = ({
 };
 
 function mapStateToProps(state) {
-  const product = { name: "", price: '', category: "", quantity: '' };
+  const product = { name: "", price: "", category: "", quantity: "" };
 
   return {
     product,

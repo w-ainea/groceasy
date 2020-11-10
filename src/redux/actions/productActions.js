@@ -1,5 +1,4 @@
 import * as types from "./actionTypes";
-import * as productsApi from "../../api/productsApi";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/products";
 
@@ -56,6 +55,7 @@ export function saveProduct(product) {
   return function (dispatch) {
     return fetch(baseUrl + "/add", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         product_name: product.name,
         price: product.price,
@@ -77,14 +77,18 @@ export function saveProduct(product) {
   };
 }
 
-export function deleteProductOptimistic() {
+export function deleteProductOptimistic(product) {
   return function (dispatch) {
-    return productsApi
-      .deleteProduct()
-      .then(function (product) {
-        dispatch(deleteProduct(product));
-      })
-      .catch(function (err) {
+    return fetch(baseUrl + "/delete", {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        product,
+      }),
+    })
+      .deleteProduct(product)
+      .then((product) => dispatch(deleteProduct(product)))
+      .catch((err) => {
         throw err;
       });
   };

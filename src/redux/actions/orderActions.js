@@ -11,6 +11,7 @@ export const placeOrder = (order) => ({
 export const saveOrder = (order) => (dispatch) =>
   fetch(baseUrl + "/add", {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       order,
     }),

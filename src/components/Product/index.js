@@ -18,7 +18,6 @@ class Product extends React.Component {
 
   render() {
     const { product, deleteProduct } = this.props;
-    
 
     return (
       <div className="product flex justify-between items-center py-4 border-b-2">
@@ -54,7 +53,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = {
-  deleteProduct: productActions.deleteProductOptimistic,
+  deleteProduct: productActions.deleteProductOptimistic(),
   saveProduct: productActions.saveProduct,
 };
 
