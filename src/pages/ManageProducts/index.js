@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { toast } from "react-toastify";
 
 import { ProductForm } from "../../components";
 
@@ -16,6 +17,7 @@ const ManageProduct = ({
 }) => {
   // local component state
   const [product, setProduct] = React.useState({ ...props.product });
+  const [saving, setSaving] = React.useState(false);
 
   React.useEffect(() => {
     if (products.length === 0) {
@@ -36,7 +38,9 @@ const ManageProduct = ({
 
   function handleSave(e) {
     e.preventDefault();
-    saveProduct(product);
+    setSaving(true);
+    toast.success('product saved')
+    saveProduct(product).then(() => props.history.push("/products"));
   }
 
   return (
@@ -47,6 +51,7 @@ const ManageProduct = ({
         onChange={handleChange}
         saveProduct={saveProduct}
         onSave={handleSave}
+        saving={saving}
       />
     </div>
   );

@@ -13,6 +13,9 @@ import {
 import { Header, Cart, PrivateRoute, ProductList, Loading } from "./components";
 
 import { useAuth0 } from "@auth0/auth0-react";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -37,6 +40,8 @@ const App = () => {
           <Route path="/product" component={ManageProduct} />
           <Route path="/product/:id" component={ManageProduct} />
         </Switch>
+
+        <ToastContainer autoClose={3000} />
       </div>
     </>
   );

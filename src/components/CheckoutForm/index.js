@@ -7,6 +7,7 @@ import "./index.css";
 class CheckoutForm extends React.Component {
   state = {
     phone: "",
+    paid: false,
   };
 
   handleInput = (e) => {
@@ -14,9 +15,20 @@ class CheckoutForm extends React.Component {
   };
 
   handleCheckout = () => {
-    this.props.checkout(this.props.total, this.state.phone);
-    this.props.handleClose();
-    console.log(this.state.phone);
+    this.props
+      .checkout(this.props.total, this.state.phone)
+      .then(() => {
+        this.setState({ paid: true });
+      })
+      .then(() => {
+        this.setState({ phone: "", paid: false });
+      })
+      .then(() => {
+        this.props.handleClose();
+      })
+      .catch((err) => {
+        throw err;
+      });
   };
 
   render() {
@@ -47,12 +59,18 @@ class CheckoutForm extends React.Component {
                 type="tel"
                 placeholder="0712345678"
                 onChange={this.handleInput}
-                data-parse="parsePhone"
+                required
               />
             </div>
             <p className="text-gray-700">Your total is: {total}</p>
+
             <div className="flex items-center justify-between">
-              <CustomButton onClick={this.handleCheckout}>Pay Now</CustomButton>
+              <CustomButton
+                onClick={this.handleCheckout}
+                disabled={this.state.paid}
+              >
+                {this.state.paid ? "Paying..." : "Lipa Na MPESA"}
+              </CustomButton>
             </div>
           </form>
         </div>

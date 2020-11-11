@@ -8,6 +8,7 @@ export const placeOrder = (order) => ({
   payload: order,
 });
 
+// save order to the database
 export const saveOrder = (order) => (dispatch) =>
   fetch(baseUrl + "/add", {
     method: "POST",

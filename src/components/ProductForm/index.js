@@ -2,7 +2,7 @@ import React from "react";
 
 import { CustomButton, CustomInput, CustomSelect } from "..";
 
-const ProductForm = ({ product, categories, onChange, onSave }) => {
+const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
   return (
     <div className="w-full max-w-xs">
       <form
@@ -50,7 +50,9 @@ const ProductForm = ({ product, categories, onChange, onSave }) => {
         />
 
         <div className="flex items-center justify-between">
-          <CustomButton>Save</CustomButton>
+          <CustomButton disabled={saving}>
+            {saving ? "Saving..." : "Save"}
+          </CustomButton>
         </div>
       </form>
     </div>
