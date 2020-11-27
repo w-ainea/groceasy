@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import _ from "lodash";
 
 import { Pie3D, Line2D, Doughnut3D } from "..";
 import * as productActions from "../../redux/actions/productActions";
@@ -21,11 +20,6 @@ const Analytics = ({
       fetchCategories().then((err) => alert(err));
     }
   });
-
-  // group products by category
-  // let sortedProducts = _.groupBy(products, (product) => {
-  //   return product.category;
-  // });
 
   let sortedProducts = products.reduce(function (acc, product) {
     const { category } = product;

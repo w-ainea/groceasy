@@ -30,6 +30,7 @@ import CheckoutForm from "./CheckoutForm";
 import Loading from "./Loading";
 import MainNav from "./Main-Nav";
 import AuthenticationButton from "./AuthenticationButton";
+import FileUpload from "./FileUpload";
 
 import {
   HomeIcon,
@@ -49,7 +50,6 @@ import {
 
 export {
   Input,
-
   ShopItem,
   ShopItemList,
   Header,
@@ -91,5 +91,6 @@ export {
   Loading,
   MainNav,
   AuthenticationButton,
-  Doughnut3D
+  Doughnut3D,
+  FileUpload,
 };
