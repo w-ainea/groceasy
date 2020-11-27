@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import _ from "lodash";
+
 import { Pie3D, Line2D, Doughnut3D } from "..";
 import * as productActions from "../../redux/actions/productActions";
 import * as categoryActions from "../../redux/actions/categoryActions";
@@ -21,31 +23,31 @@ const Analytics = ({
   });
 
   // group products by category
-  let sortedProducts = products.map((product) => ({
-    ...product,
-    categoryName: categories.find(
-      (category) => category.name === product.category
-    ),
-  }));
+  // let sortedProducts = _.groupBy(products, (product) => {
+  //   return product.category;
+  // });
 
-  let categoriesData = sortedProducts.reduce((total, current) => {
-    const { category } = current;
+  let sortedProducts = products.reduce(function (acc, product) {
+    const { category } = product;
 
-    if (!category) return total;
-    if (!total[category]) {
-      total[category] = { label: category, value: 1 };
+    if (!acc[category]) {
+      acc[category] = { label: category, value: 1 };
     } else {
-      total[category] = { ...total, value: total[category].length + 1 };
+      acc[category] = { ...acc[category], value: acc[category].value + 1 };
     }
 
-    return total;
+    return acc;
   }, {});
 
-  console.log("categories data", categoriesData);
+  sortedProducts = Object.values(sortedProducts)
+    .sort((a, b) => {
+      return b.value - a.value;
+    })
+    .slice(0, 6);
 
   return (
     <section className="grid gap-10 lg:grid-cols-2">
-      <Pie3D data={categoriesData} />
+      <Pie3D data={sortedProducts} />
       <Line2D />
       <Doughnut3D />
     </section>
