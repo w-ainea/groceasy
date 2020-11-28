@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 
-import { ProductForm } from "../../components";
+import { ImageUploadForm, ProductForm } from "../../components";
 
 import * as productActions from "../../redux/actions/productActions";
 import * as caregorytActions from "../../redux/actions/categoryActions";
@@ -52,7 +52,15 @@ const ManageProduct = ({
 
     if (file && types.includes(file.type)) {
       setFile(file);
+      console.log(file);
       setError("");
+      fetch(process.env.REACT_APP_API_URL + "/products/image-upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ image: file }),
+      })
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err));
     } else {
       setFile(null);
       setError("Please select the correct file type (.png or .jpeg)");
@@ -60,18 +68,19 @@ const ManageProduct = ({
   }
 
   return (
-    <div className="flex justify-center mt-8">
-      <ProductForm
-        product={product}
-        categories={categories}
-        onChange={handleChange}
-        saveProduct={saveProduct}
-        onSave={handleSave}
-        saving={saving}
-        imgUpload={imgUpload}
-        file={file}
-        error={error}
-      />
+    <div className="grid justify-center mt-8">
+      <ImageUploadForm imgUpload={imgUpload} file={file} error={error} />
+
+      <div className="hidden">
+        <ProductForm
+          product={product}
+          categories={categories}
+          onChange={handleChange}
+          saveProduct={saveProduct}
+          onSave={handleSave}
+          saving={saving}
+        />
+      </div>
     </div>
   );
 };

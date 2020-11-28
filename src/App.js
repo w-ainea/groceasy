@@ -10,7 +10,14 @@ import {
   LandingPage,
   ManageProduct,
 } from "./pages/";
-import { Header, Cart, PrivateRoute, ProductList, Loading } from "./components";
+import {
+  Header,
+  Cart,
+  PrivateRoute,
+  ProductList,
+  Loading,
+  ProductForm,
+} from "./components";
 
 import { useAuth0 } from "@auth0/auth0-react";
 import { ToastContainer } from "react-toastify";
@@ -37,6 +44,7 @@ const App = () => {
           <Route path="/landing" component={LandingPage} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <Route path="/products" component={ProductList} />
+          <Route path="/product-upload" component={ProductForm} />
           <Route path="/product" component={ManageProduct} />
           <Route path="/product/:id" component={ManageProduct} />
         </Switch>

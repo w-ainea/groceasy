@@ -31,6 +31,7 @@ import Loading from "./Loading";
 import MainNav from "./Main-Nav";
 import AuthenticationButton from "./AuthenticationButton";
 import FileUpload from "./FileUpload";
+import ImageUploadForm from "./ImageUploadForm";
 
 import {
   HomeIcon,
@@ -93,4 +94,5 @@ export {
   AuthenticationButton,
   Doughnut3D,
   FileUpload,
+  ImageUploadForm,
 };

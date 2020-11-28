@@ -1,25 +1,14 @@
 import React from "react";
 
-import { CustomButton, CustomInput, CustomSelect, FileUpload } from "..";
+import { CustomButton, CustomInput, CustomSelect } from "..";
 
-const ProductForm = ({
-  product,
-  categories,
-  onChange,
-  onSave,
-  saving,
-  imgUpload,
-  file,
-  error,
-}) => {
+const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
   return (
     <div className="w-full max-w-xs">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
         onSubmit={onSave}
       >
-        <FileUpload imgUpload={imgUpload} file={file} error={error} />
-
         <CustomInput
           label="Product Name"
           name="name"
