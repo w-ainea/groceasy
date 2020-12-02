@@ -1,7 +1,7 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+/client/node_modules
 /.pnp
 .pnp.js
 
@@ -24,11 +24,17 @@ yarn-debug.log*
 yarn-error.log*
 
 # the mock api
-/src/api
+/client/src/api
 
 # tailwind css build
-/src/assets/css/main.css
-/src/assets/css/tailwind.css
+/client/src/assets/css/main.css
+/client/src/assets/css/tailwind.css
 
 # mock database
-/tools/db.json
+client/tools/db.json
+
+# server
+/server/.env
+
+/server/node_modules
+node_modules
