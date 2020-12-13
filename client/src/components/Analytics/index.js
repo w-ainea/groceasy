@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 
 import { Pie3D, Line2D, Doughnut3D } from "..";
@@ -11,7 +11,7 @@ const Analytics = ({
   fetchProducts,
   fetchCategories,
 }) => {
-  useEffect(() => {
+  React.useEffect(() => {
     if (products.length === 0) {
       fetchProducts().then((err) => alert(err));
     }

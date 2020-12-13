@@ -39,24 +39,14 @@ const deleteProduct = (id) => {
   return db("products").where(id, "product.id").delete();
 };
 
-const imageUpload = (image, title) => {
-  const data = {
-    image,
-    title,
-  };
-
-  cloudinary.uploader
-    .upload(data.image)
-    .then((image) => {
-      return db("images").returning("*").insert({
-        title: image.title,
-        cloudinary_id: image.public_id,
-        img_url: image.secure_url,
-      });
+const imageUpload = (image) => {
+  return cloudinary.uploader.upload(image).then((result) =>
+    db("images").returning("*").insert({
+      title: result.original_filename,
+      cloudinary_id: result.secure_url,
+      img_url: result.url,
     })
-    .catch((err) => {
-      console.log({ message: "upload failed", err });
-    });
+  );
 };
 
 module.exports = {

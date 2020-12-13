@@ -65,17 +65,7 @@ router.post("/image-upload", (req, res) => {
   const { image } = req.body;
 
   return imageUpload(image)
-    .then((result) => {
-      res.status(201).send({
-        status: "success",
-        data: {
-          message: "Image uploaded successfully",
-          title: result.title,
-          cloudinary_id: result.cloudinary_id,
-          img_url: result.image_url,
-        },
-      });
-    })
+    .then((response) => res.json(response))
     .catch((err) => {
       res.status(500).send("upload failed", err);
     });

@@ -64,7 +64,7 @@ export function saveProduct(product) {
       }),
     })
       .then((response) => {
-        return response.text();
+        return response.json();
       })
       .then((product) =>
         product.id

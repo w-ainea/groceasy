@@ -35,6 +35,7 @@ client/tools/db.json
 
 # server
 /server/.env
+/server/images
 
 /server/node_modules
 node_modules

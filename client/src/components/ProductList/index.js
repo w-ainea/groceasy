@@ -12,7 +12,7 @@ const ProductList = ({ products }) => {
         Add Product
       </Link>
       {products.map((product) => (
-        <Product key={product.id} product={product} />
+        <Product key={product.product_id} product={product} />
       ))}
     </div>
   );
