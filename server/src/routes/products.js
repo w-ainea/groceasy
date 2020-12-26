@@ -11,6 +11,7 @@ const {
   updateProduct,
   deleteProduct,
   imageUpload,
+  getProductById,
 } = require("../actions/products.js");
 
 const router = express.Router();
@@ -61,9 +62,9 @@ router.delete("/delete", (req, res, next) => {
   });
 });
 
-router.post("/image-upload", (req, res) => {
+router.post("/image-upload", jsonParser, (req, res) => {
   const { image } = req.body;
-
+  console.log(image);
   return imageUpload(image)
     .then((response) => res.json(response))
     .catch((err) => {

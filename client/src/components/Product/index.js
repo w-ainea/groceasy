@@ -34,6 +34,7 @@ class Product extends React.Component {
         <span
           className="text-green-500 cursor-pointer"
           onClick={() => deleteProduct(product)}
+          // onClick={() => console.log(product)}
         >
           <Delete />
         </span>

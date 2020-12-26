@@ -42,7 +42,7 @@ const App = () => {
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={CheckOutPage} />
           <Route path="/landing" component={LandingPage} />
-          <PrivateRoute path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
           <Route path="/products" component={ProductList} />
           <Route path="/product-upload" component={ProductForm} />
           <Route path="/product" component={ManageProduct} />

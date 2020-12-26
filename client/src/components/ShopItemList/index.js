@@ -48,7 +48,7 @@ function ShopItemList({
     <div className="flex justify-center px-4 md:px-10">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-10">
         {products.map((product) => (
-          <ShopItem key={product.product_id} product={product} />
+          <ShopItem key={product.id} product={product} />
         ))}
       </div>
     </div>

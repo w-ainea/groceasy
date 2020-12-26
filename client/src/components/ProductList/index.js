@@ -6,13 +6,14 @@ import { Product } from "..";
 import { allProductsSelector } from "../../redux/selectors/productsSelector";
 
 const ProductList = ({ products }) => {
+  console.log(products);
   return (
     <div className="flex flex-col px-10 justify-center">
       <Link to="product" className="btn-primary">
         Add Product
       </Link>
       {products.map((product) => (
-        <Product key={product.product_id} product={product} />
+        <Product key={product.id} product={product} />
       ))}
     </div>
   );

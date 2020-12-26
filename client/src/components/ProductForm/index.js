@@ -6,27 +6,32 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
   const [file, setFile] = React.useState(null);
   const [error, setError] = React.useState(null);
 
-  function imgUpload(e) {
+  const imgUpload = (e) => {
     let file = e.target.files[0];
 
-    const types = ["image/png", "image/jpeg", "image/jpg"];
+    const types = ["image/png", "image/jpeg"];
 
     if (file && types.includes(file.type)) {
       setFile(file);
-      console.log(file);
       setError("");
-      fetch(process.env.REACT_APP_API_URL + "/products/image-upload", {
+      fetch("localhost:8000/products/image-upload", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ image: file }),
       })
-        .then((response) => console.log(response))
+        .then((response) => console.log("RESPONSE", response))
         .catch((err) => console.log(err));
     } else {
       setFile(null);
       setError("Please select the correct file type (.png or .jpeg)");
     }
-  }
+  };
+
+  const checkFormData = () => {
+    let data = new FormData();
+
+    console.log(data);
+  };
 
   return (
     <div className="w-full max-w-xs">
@@ -57,7 +62,7 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
           label="Quantity"
           name="quantity"
           placeholder="1, 2, 3 ..."
-          value={product.quantiry}
+          value={product.quantity}
           onChange={onChange}
           type="number"
         />
@@ -76,7 +81,7 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
         />
 
         <div className="flex items-center justify-between">
-          <CustomButton disabled={saving}>
+          <CustomButton disabled={saving} onClick={checkFormData}>
             {saving ? "Saving..." : "Save"}
           </CustomButton>
         </div>

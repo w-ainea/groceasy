@@ -72,21 +72,24 @@ export function saveProduct(product) {
           : dispatch(addNewProduct(product))
       )
       .catch((err) => {
-        throw err;
+        console.log(err);
       });
   };
 }
 
 export function deleteProductOptimistic(product) {
   return function (dispatch) {
+    console.log(product);
     return fetch(baseUrl + "/delete", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        product,
+        product_name: product.name,
+        price: product.price,
+        category: product.category,
+        quantity: product.quantity,
       }),
     })
-      .deleteProduct(product)
       .then((product) => dispatch(deleteProduct(product)))
       .catch((err) => {
         throw err;

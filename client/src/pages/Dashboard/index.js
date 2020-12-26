@@ -21,7 +21,7 @@ const Dashboard = () => {
   return (
     <div className="bg-gray-100 px-10 md:px-20">
       <div className="grid">
-        <Profile />
+        {/* <Profile /> */}
         <div className="overview mt-8">
           <h1 className="dashboard text-lg text-black-coffee font-headings">
             Dashboard

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 import { Link, withRouter } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
@@ -26,6 +26,10 @@ const Cart = ({
     saveOrder(cartItems);
     history.push("/checkout");
   }
+
+  React.useEffect(() => {
+    console.log(cartItems);
+  });
   return (
     <div className="flex flex-col px-10 justify-center max-w-lg mx-auto">
       {cartItems.length === 0 ? (

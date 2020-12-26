@@ -23,6 +23,7 @@ const addProduct = (product) => {
     product_name: product.product_name,
     price: product.price,
     category: product.category,
+    quantity: product.quantity,
   });
 };
 
@@ -36,7 +37,8 @@ const updateProduct = (product) => {
 };
 
 const deleteProduct = (id) => {
-  return db("products").where(id, "product.id").delete();
+  // return db("products").where(id, "product.id").del();
+  console.log(id);
 };
 
 const imageUpload = (image) => {
