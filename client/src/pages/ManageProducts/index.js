@@ -58,7 +58,13 @@ const ManageProduct = ({
 };
 
 function mapStateToProps(state) {
-  const product = { name: "", price: "", category: "", quantity: "" };
+  const product = {
+    image: null,
+    name: "",
+    price: "",
+    category: "",
+    quantity: "",
+  };
 
   return {
     product,

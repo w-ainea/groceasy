@@ -14,32 +14,43 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
     if (file && types.includes(file.type)) {
       setFile(file);
       setError("");
-      fetch("localhost:8000/products/image-upload", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ image: file }),
-      })
-        .then((response) => console.log("RESPONSE", response))
-        .catch((err) => console.log(err));
     } else {
       setFile(null);
       setError("Please select the correct file type (.png or .jpeg)");
     }
   };
 
-  const checkFormData = () => {
-    let data = new FormData();
+  const submitProductData = (e) => {
+    e.preventDefault();
+    const form = document.getElementById("product-form");
+    // update state
 
-    console.log(data);
+    // submit data
+    console.log(form);
+    fetch(`http://localhost:8000/products/add`, {
+      method: "POST",
+      body: new FormData(form),
+    })
+      .then((response) => console.log(response))
+      .catch((err) => alert(err));
   };
 
   return (
     <div className="w-full max-w-xs">
       <form
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        onSubmit={onSave}
+        onSubmit={submitProductData}
+        id="product-form"
       >
-        <FileUpload imgUpload={imgUpload} file={file} error={error} />
+        <CustomInput
+          label="Product Image"
+          name="image"
+          value={product.image}
+          onChange={imgUpload}
+          file={file}
+          error={error}
+          type="file"
+        />
         <CustomInput
           label="Product Name"
           name="name"
@@ -81,7 +92,7 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
         />
 
         <div className="flex items-center justify-between">
-          <CustomButton disabled={saving} onClick={checkFormData}>
+          <CustomButton disabled={saving}>
             {saving ? "Saving..." : "Save"}
           </CustomButton>
         </div>
