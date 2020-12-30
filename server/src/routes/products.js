@@ -32,30 +32,28 @@ router.post("/add", upload.single("image"), (req, res, next) => {
   console.log(file);
   console.table(req.body);
   //  upload the image
-  // if (file) {
-  //   // if there's an image
-  //   imageUpload(file)
-  //     .then((result) => {
-  //       res.status(200).json({
-  //         status: "success",
-  //         result,
-  //       });
-  //     })
-  //     .catch((err) =>
-  //       res.status(400).json({
-  //         status: "error",
-  //         message: err.message,
-  //       })
-  //     );
-  // } else {
-  //   // if there's no image
-  //   res.status(400).json({
-  //     status: "Failed",
-  //     message: "No image file was selected",
-  //   });
-  // }
-  res.send("working");
-  // imageUpload(file).then((result) => res.json(result));
+  if (file) {
+    // if there's an image
+    imageUpload(file)
+      .then((result) => {
+        res.status(200).json({
+          status: "success",
+          result,
+        });
+      })
+      .catch((err) =>
+        res.status(400).json({
+          status: "error",
+          message: err.message,
+        })
+      );
+  } else {
+    // if there's no image
+    res.status(400).json({
+      status: "Failed",
+      message: "No image file was selected",
+    });
+  }
 });
 
 // update products
@@ -81,15 +79,5 @@ router.delete("/delete", (req, res, next) => {
     }
   });
 });
-
-// router.post("/image-upload", (req, res) => {
-//   const { image } = req.body;
-//   console.log(image);
-//   return imageUpload(image)
-//     .then((response) => res.json(response))
-//     .catch((err) => {
-//       res.status(500).send("upload failed", err);
-//     });
-// });
 
 module.exports = router;

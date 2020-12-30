@@ -1,5 +1,5 @@
-const { response } = require("express");
 const db = require("../../db-config.js");
+const streamifier = require("streamifier");
 
 const cloudinary = require("cloudinary").v2;
 require("dotenv").config();
@@ -41,13 +41,44 @@ const deleteProduct = (id) => {
   console.log(id);
 };
 
+// const imageUpload = (image) => {
+//   return cloudinary.uploader.upload(image).then((result) =>
+//     db("images").returning("*").insert({
+//       title: result.original_filename,
+//       cloudinary_id: result.secure_url,
+//       img_url: result.url,
+//     })
+//   );
+// };
+
 const imageUpload = (image) => {
-  return cloudinary.uploader.upload(image).then((result) =>
-    db("images").returning("*").insert({
-      title: result.original_filename,
-      cloudinary_id: result.secure_url,
-      img_url: result.url,
-    })
+  const cloudinaryOptions = {
+    resource_type: "raw",
+    folder: "",
+  };
+  return new Promise((resolve, reject) => {
+    let upload_stream = cloudinary.uploader.upload_stream(
+      cloudinaryOptions,
+      function (error, result) {
+        if (error) {
+          reject(error);
+        } else {
+          resolve(result);
+        }
+      }
+    );
+    streamifier.createReadStream(image.buffer).pipe(upload_stream);
+  }).then((result) =>
+    db("images")
+      .returning("*")
+      .insert({
+        title: result.original_filename,
+        cloudinary_id: result.secure_url,
+        img_url: result.url,
+      })
+      .catch((error) => {
+        throw new Error(error);
+      })
   );
 };
 
