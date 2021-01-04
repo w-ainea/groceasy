@@ -23,10 +23,8 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
   const submitProductData = (e) => {
     e.preventDefault();
     const form = document.getElementById("product-form");
-    // update state
 
     // submit data
-    console.log(form);
     fetch(`http://localhost:8000/products/add`, {
       method: "POST",
       body: new FormData(form),

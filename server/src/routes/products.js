@@ -28,32 +28,7 @@ router.get("/list", (req, res, next) => {
 
 // add products
 router.post("/add", upload.single("image"), (req, res, next) => {
-  const { file } = req;
-  console.log(file);
-  console.table(req.body);
-  //  upload the image
-  if (file) {
-    // if there's an image
-    imageUpload(file)
-      .then((result) => {
-        res.status(200).json({
-          status: "success",
-          result,
-        });
-      })
-      .catch((err) =>
-        res.status(400).json({
-          status: "error",
-          message: err.message,
-        })
-      );
-  } else {
-    // if there's no image
-    res.status(400).json({
-      status: "Failed",
-      message: "No image file was selected",
-    });
-  }
+  return imageUpload(req.file).then((result) => res.json({ result }));
 });
 
 // update products

@@ -1,14 +1,6 @@
 const db = require("../../db-config.js");
-const streamifier = require("streamifier");
-
-const cloudinary = require("cloudinary").v2;
-require("dotenv").config();
-
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+const { cloudinaryUpload } = require("../middleware/cloudinary.js");
+const { dataUri } = require("../middleware/datauri.js");
 
 const getProducts = () => {
   return db("products");
@@ -41,45 +33,15 @@ const deleteProduct = (id) => {
   console.log(id);
 };
 
-// const imageUpload = (image) => {
-//   return cloudinary.uploader.upload(image).then((result) =>
-//     db("images").returning("*").insert({
-//       title: result.original_filename,
-//       cloudinary_id: result.secure_url,
-//       img_url: result.url,
-//     })
-//   );
-// };
-
-const imageUpload = (image) => {
-  const cloudinaryOptions = {
-    resource_type: "raw",
-    folder: "",
-  };
-  return new Promise((resolve, reject) => {
-    let upload_stream = cloudinary.uploader.upload_stream(
-      cloudinaryOptions,
-      function (error, result) {
-        if (error) {
-          reject(error);
-        } else {
-          resolve(result);
-        }
-      }
-    );
-    streamifier.createReadStream(image.buffer).pipe(upload_stream);
-  }).then((result) =>
-    db("images")
-      .returning("*")
-      .insert({
-        title: result.original_filename,
-        cloudinary_id: result.secure_url,
-        img_url: result.url,
-      })
-      .catch((error) => {
-        throw new Error(error);
-      })
-  );
+const imageUpload = async (image) => {
+  try {
+    const file64 = dataUri(image);
+    console.log(file64.mimetype);
+    const uploadResponse = await cloudinaryUpload(file64.content);
+    return uploadResponse;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {
