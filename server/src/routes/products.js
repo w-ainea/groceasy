@@ -28,7 +28,11 @@ router.get("/list", (req, res, next) => {
 
 // add products
 router.post("/add", upload.single("image"), (req, res, next) => {
-  return imageUpload(req.file).then((result) => res.json({ result }));
+  return addProduct(req.file, req.body)
+    .then((result) => res.json({ result }))
+    .catch((err) =>
+      res.status(400).json({ err, message: "unable to add product" })
+    );
 });
 
 // update products

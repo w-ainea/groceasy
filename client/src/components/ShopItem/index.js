@@ -1,15 +1,15 @@
-import React from "react";
+import * as React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 import * as cartActions from "../../redux/actions/cartActions";
 
 const ShopItem = ({ product, addItemToCart, history }) => {
-  const { product_name, price, sellerName, imgUrl } = product;
+  const { product_name, price, sellerName, imgurl } = product;
 
   return (
     <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-40 md:w-56 xl:w-64 flex flex-col text-black-coffee relative">
-      <img src={imgUrl} alt={product.category} className="w-100 bg-cover" />
+      <img src={imgurl[0]} alt={product.category} className="w-100 bg-cover" />
       <div className="flex justify-between mt-4 px-2">
         <h1 className="text-base font-medium">{product_name}</h1>
         <h1 className="text-base font-medium">KES: {price}</h1>

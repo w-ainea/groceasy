@@ -31,7 +31,7 @@ function CheckOutPage({ cartItems, total, checkout }) {
       </div>
       <div className="checkout-content text-black-coffee">
         {cartItems.map((cartItem) => {
-          const { id, imgUrl, product_name, quantity, price } = cartItem;
+          const { id, imgurl, product_name, quantity, price } = cartItem;
 
           return (
             <div
@@ -40,7 +40,7 @@ function CheckOutPage({ cartItems, total, checkout }) {
             >
               <div>
                 <img
-                  src={imgUrl}
+                  src={imgurl}
                   className="w-20 h-20 rounded-full"
                   alt="item"
                 />

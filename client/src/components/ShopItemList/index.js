@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import * as React from "react";
 import { ShopItem } from "..";
 
 import { connect } from "react-redux";
@@ -14,7 +14,7 @@ function ShopItemList({
   fetchProducts,
   fetchSellers,
 }) {
-  useEffect(() => {
+  React.useEffect(() => {
     if (products.length === 0) {
       fetchProducts().catch((err) => console.log(err));
     }

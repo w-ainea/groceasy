@@ -10,7 +10,7 @@ const CartItem = ({ cartItem, removeItem, addItem, subtractItem }) => {
     <div className="cart-item flex justify-between items-center py-4 border-b-2 text-black-coffee">
       <div>
         <img
-          src={cartItem.imgUrl}
+          src={cartItem.imgurl}
           alt="item"
           className="w-20 h-20 rounded-full"
         />

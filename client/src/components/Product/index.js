@@ -24,7 +24,7 @@ class Product extends React.Component {
         {this.state.redirectToEdit && <Redirect to="/product" />}
         <div>
           <img
-            src={product.imgUrl}
+            src={product.imgurl}
             alt="item"
             className="w-12 h-12 rounded-full"
           />
