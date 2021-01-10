@@ -9,6 +9,7 @@ import AnalyticsPage from "./AnalyticsPage";
 import InventoryPage from "./InventoryPage";
 import OrdersPage from "./OrdersPage";
 import ManageProduct from "./ManageProducts";
+import AuthPage from "./AuthPage";
 
 export {
   HomePage,
@@ -21,4 +22,5 @@ export {
   InventoryPage,
   OrdersPage,
   ManageProduct,
+  AuthPage,
 };

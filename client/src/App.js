@@ -9,6 +9,7 @@ import {
   CheckOutPage,
   LandingPage,
   ManageProduct,
+  AuthPage,
 } from "./pages/";
 import {
   Header,
@@ -47,6 +48,8 @@ const App = () => {
           <Route path="/product-upload" component={ProductForm} />
           <Route path="/product" component={ManageProduct} />
           <Route path="/product/:id" component={ManageProduct} />
+          <Route path="/admin" component={ManageProduct} />
+          <Route path="/auth" component={AuthPage} />
         </Switch>
 
         <ToastContainer autoClose={3000} />

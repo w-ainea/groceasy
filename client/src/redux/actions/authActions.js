@@ -1,5 +1,7 @@
 import * as types from "./actionTypes";
 
+const baseUrl = process.env.REACT_APP_API_URL + "/auth";
+
 export const requestLogin = (credentials) => ({
   type: types.REQUEST_LOGIN,
   isFetching: true,
@@ -25,5 +27,9 @@ export const loginError = (message) => ({
 export function loginUser(credentials) {
   return function (dispatch) {
     dispatch(requestLogin(credentials));
+    return fetch(baseUrl + "/signin", {
+      method: "POST",
+      body: JSON.stringify(credentials),
+    });
   };
 }

@@ -43,7 +43,7 @@ export function fetchProducts(products) {
   return function (dispatch) {
     dispatch(requestProducts(products));
     return fetch(baseUrl + "/list", { method: "GET" })
-      .then((response) => JSON.parse(response))
+      .then((response) => response.json())
       .then((products) => dispatch(receiveProducts(products)))
       .catch((err) => {
         throw err;

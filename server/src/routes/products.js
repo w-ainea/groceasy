@@ -9,7 +9,6 @@ const {
   addProduct,
   updateProduct,
   deleteProduct,
-  imageUpload,
   getProductById,
 } = require("../actions/products.js");
 
