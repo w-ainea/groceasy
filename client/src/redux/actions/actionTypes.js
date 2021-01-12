@@ -29,5 +29,9 @@ export const RECEIVE_SALES_DATA = "RECEIVE_SALES_DATA";
 export const PLACE_ORDER = "PLACE_ORDER";
 
 // checkout
-
 export const REQUEST_CHECKOUT = "REQUEST_CHECKOUT";
+
+// shop actions
+export const RETRIEVE_SHOP = "RETRIEVE_SHOP";
+export const RECIEVE_SHOP = "RECIEVE_SHOP";
+export const ADD_SHOP = "ADD_SHOP";

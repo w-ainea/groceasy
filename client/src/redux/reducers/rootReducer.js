@@ -1,5 +1,4 @@
 // the root reducer
-
 import { combineReducers } from "redux";
 import {
   productReducer,
@@ -8,7 +7,8 @@ import {
   categoryReducer,
   menuReducer,
   salesReducer,
-  ordersReducer
+  ordersReducer,
+  shopReducer,
 } from ".";
 
 const rootReducer = combineReducers({
@@ -18,7 +18,8 @@ const rootReducer = combineReducers({
   categories: categoryReducer,
   menu: menuReducer,
   sales: salesReducer,
-  orders: ordersReducer
+  orders: ordersReducer,
+  shops: shopReducer,
 });
 
 export default rootReducer;

@@ -16,11 +16,11 @@ function ShopItemList({
 }) {
   React.useEffect(() => {
     if (products.length === 0) {
-      fetchProducts().catch((err) => console.log(err));
+      fetchProducts().catch((err) => alert(err));
     }
 
     if (sellers.length === 0) {
-      fetchSellers().catch((err) => console.log(err));
+      fetchSellers().catch((err) => alert(err));
     }
 
     if (categories.length === 0) {

@@ -9,7 +9,12 @@ const ShopItem = ({ product, addItemToCart, history }) => {
 
   return (
     <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-40 md:w-56 xl:w-64 flex flex-col text-black-coffee relative">
-      <img src={imgurl[0]} alt={product.category} className="w-100 bg-cover" />
+      <img
+        src={imgurl}
+        alt={product.category}
+        className="w-100 bg-cover"
+        height="200px"
+      />
       <div className="flex justify-between mt-4 px-2">
         <h1 className="text-base font-medium">{product_name}</h1>
         <h1 className="text-base font-medium">KES: {price}</h1>
