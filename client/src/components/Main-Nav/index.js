@@ -30,7 +30,17 @@ const MainNav = () => {
             </h1>
           </div>
         </NavLink>
-        {isAuthenticated && (
+        <NavLink to="/auth" className="flex px-2 py-4 justify-center">
+          <div className="grid">
+            <span className="sm:hidden">
+              <ShopIcon />
+            </span>
+            <h1 className="hover:text-green-500 transition-all duration-200 md:text-lg">
+              Sell
+            </h1>
+          </div>
+        </NavLink>
+        {/* {isAuthenticated && (
           <NavLink to="/dashboard" className="flex px-2 py-4 justify-center">
             <div className="grid">
               <span className="sm:hidden">
@@ -41,8 +51,8 @@ const MainNav = () => {
               </h1>
             </div>
           </NavLink>
-        )}
-        <AuthenticationButton />
+        )} */}
+        {/* <AuthenticationButton /> */}
       </div>
     </div>
   );

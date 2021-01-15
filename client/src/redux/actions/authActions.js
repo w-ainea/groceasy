@@ -2,18 +2,22 @@ import * as types from "./actionTypes";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/auth";
 
-export const requestLogin = (credentials) => ({
+export const requestLogin = (email, password) => ({
   type: types.REQUEST_LOGIN,
   isFetching: true,
   isAuthenticated: false,
-  credentials,
+  paylod: {
+    email,
+    password,
+  },
 });
 
 export const receiveLogin = (user) => ({
   type: types.LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-  id_token: user.id_token,
+  // id_token: user.id_token,
+  user,
 });
 
 export const loginError = (message) => ({
@@ -23,13 +27,68 @@ export const loginError = (message) => ({
   message,
 });
 
-// async function
-export function loginUser(credentials) {
+// sign up
+
+export const requestSignUp = (username, email, password) => ({
+  type: types.REQUEST_REGISTER,
+  isFetching: true,
+  isAuthenticated: false,
+  payload: {
+    username,
+    email,
+    password,
+  },
+});
+
+export const registerSuccess = (user) => ({
+  type: types.REGISTER_SUCCESS,
+  isFetching: false,
+  isAuthenticated: true,
+  payload: user,
+});
+
+export const registerError = (message) => ({
+  type: types.REGISTER_ERROR,
+  isFetching: false,
+  isAuthenticated: false,
+  message,
+});
+
+// async functions
+
+// login
+export function loginUser(email, password) {
   return function (dispatch) {
-    dispatch(requestLogin(credentials));
+    dispatch(requestLogin(email, password));
     return fetch(baseUrl + "/signin", {
       method: "POST",
-      body: JSON.stringify(credentials),
-    });
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    })
+      .then((result) => result.json())
+      .then((response) => dispatch(receiveLogin(response)))
+      .catch((err) => dispatch(loginError(err)));
+  };
+}
+
+// signup
+export function registerUser(username, email, password) {
+  return function (dispatch) {
+    dispatch(requestSignUp(username, email, password));
+    return fetch(baseUrl + "/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        username,
+        email,
+        password,
+      }),
+    })
+      .then((result) => result.json())
+      .then((response) => dispatch(registerSuccess(response)))
+      .catch((err) => dispatch(registerError(err)));
   };
 }

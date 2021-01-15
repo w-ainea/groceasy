@@ -1,41 +1,42 @@
 import * as React from "react";
+import { connect } from "react-redux";
+
+import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
 
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = ({ login }) => {
   const [email, setEmail] = React.useState("");
-  const [password, setPassord] = React.useState("");
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "email" && value !== "") {
-      setEmail(value);
-    } else {
-      setPassord(value);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const [password, setPassword] = React.useState("");
 
   return (
-    <form className="login-form" onSubmit={onSubmit}>
+    <form
+      className="login-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        login(email, password);
+      }}
+    >
       <CustomInput
         label="Enter your email"
         name="email"
         value={email}
-        onChange={handleChange}
+        onChange={(e) => setEmail(e.target.value)}
         type="email"
       />
       <CustomInput
         label="Enter your password"
         name="password"
         value={password}
-        onChange={handleChange}
+        onChange={(e) => setPassword(e.target.value)}
         type="password"
       />
       <CustomButton>Log In</CustomButton>
     </form>
   );
 };
-export default LoginForm;
+
+const mapDispatchToProps = {
+  login: authActions.loginUser,
+};
+
+export default connect(null, mapDispatchToProps)(LoginForm);

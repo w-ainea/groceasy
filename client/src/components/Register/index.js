@@ -1,79 +1,70 @@
 import * as React from "react";
+import { connect } from "react-redux";
+
+import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
 
-const Register = () => {
-  const [firstName, setFirstName] = React.useState("");
-  const [lastName, setLastName] = React.useState("");
+const Register = ({ register }) => {
+  const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
   const [error, setError] = React.useState("");
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    console.log("name: ", name, "value: ", value);
-    if (name === "firstName" && value !== "") {
-      setFirstName(value);
-    } else if (name === "lastName" && value !== "") {
-      setLastName(value);
-    } else if (name === "email" && value !== "") {
-      setEmail(value);
-    } else if (name === "password" && value !== "") {
-      setPassword(value);
-    } else if (name === "confirmPassword" && value !== "") {
-      // if (password === confirmPassword) {
-      setConfirmPassword(value);
-      /* } else {
-        alert("The passwords you entered don't match");
-      } */
-    } else {
-      setError(error);
-    }
-  }
   function handleSubmit(e) {
     e.preventDefault();
+
+    // confirm passwords
+    if (password !== confirmPassword) {
+      setError("passwords do not match");
+    }
   }
 
   return (
-    <form className="register-form" onSubmit={handleSubmit}>
+    <form
+      className="register-form"
+      onSubmit={(e) => {
+        e.preventDefault();
+        register(username, email, password);
+      }}
+    >
       <CustomInput
-        label="First Name"
-        name="firstName"
-        onChange={handleChange}
-        value={firstName}
-        type="text"
-      />
-      <CustomInput
-        label="Last Name"
-        name="lastName"
-        onChange={handleChange}
-        value={lastName}
+        label="Username"
+        name="username"
+        onChange={(e) => setUsername(e.target.value)}
+        value={username}
         type="text"
       />
       <CustomInput
         label="Email"
         name="email"
-        onChange={handleChange}
+        onChange={(e) => setEmail(e.target.value)}
         value={email}
         type="email"
       />
       <CustomInput
         label="Password"
         name="password"
-        onChange={handleChange}
+        onChange={(e) => setPassword(e.target.value)}
         value={password}
         type="password"
       />
+
       <CustomInput
         label="Confirm password"
         name="confirmPassword"
-        onChange={handleChange}
+        onChange={(e) => setConfirmPassword(e.target.value)}
         value={confirmPassword}
         type="password"
       />
+      {error && <div>passwords do not match</div>}
       <CustomButton>Register</CustomButton>
     </form>
   );
 };
 
-export default Register;
+const mapDispatchToProps = {
+  register: authActions.registerUser,
+};
+
+export default connect(null, mapDispatchToProps)(Register);
