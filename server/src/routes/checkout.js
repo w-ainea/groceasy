@@ -7,27 +7,34 @@ const router = express.Router();
 
 const { authenticate } = require("../actions/checkout");
 
+/* function formatedDate(n) {
+  return n < 10 ? "0" + n : n;
+}
+
+// var date = new Date();
+
+date.getFullYear().toString() +
+  formatedDate(date.getMonth() + 1) +
+  formatedDate(date.getDate()) +
+  formatedDate(date.getHours()) +
+  formatedDate(date.getMinutes()) +
+  formatedDate(date.getSeconds()); */
+
+const formatedDate = (n) => {
+  return n < 10 ? "0" + n : n;
+};
+
 router.post("/stk", authenticate, (req, res, next) => {
   let url = "https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest",
     auth = "Bearer " + req.access_token,
     date = new Date(),
     timestamp =
       date.getFullYear() +
-      "" +
-      "" +
-      date.getMonth() +
-      "" +
-      "" +
-      date.getDate() +
-      "" +
-      "0" +
-      date.getHours() +
-      "" +
-      "" +
-      date.getMinutes() +
-      "" +
-      "" +
-      date.getSeconds();
+      formatedDate(date.getMonth() + 1) +
+      formatedDate(date.getDate()) +
+      formatedDate(date.getHours()) +
+      formatedDate(date.getMinutes()) +
+      formatedDate(date.getSeconds());
 
   console.log(timestamp);
 
