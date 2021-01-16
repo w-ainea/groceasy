@@ -6,7 +6,7 @@ export const requestLogin = (email, password) => ({
   type: types.REQUEST_LOGIN,
   isFetching: true,
   isAuthenticated: false,
-  paylod: {
+  payload: {
     email,
     password,
   },
@@ -16,8 +16,8 @@ export const receiveLogin = (user) => ({
   type: types.LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-  // id_token: user.id_token,
-  user,
+
+  payload: user,
 });
 
 export const loginError = (message) => ({
@@ -53,6 +53,23 @@ export const registerError = (message) => ({
   isAuthenticated: false,
   message,
 });
+
+// logout
+export const requestLogout = () => {
+  return {
+    type: types.LOGOUT_REQUEST,
+    isFetching: true,
+    isAuthenticated: true,
+  };
+};
+
+export const receiveLogout = () => {
+  return {
+    type: types.LOGOUT_SUCCESS,
+    isFetching: false,
+    isAuthenticated: false,
+  };
+};
 
 // async functions
 
@@ -92,3 +109,11 @@ export function registerUser(username, email, password) {
       .catch((err) => dispatch(registerError(err)));
   };
 }
+
+// logout
+export const logout = () => {
+  return function (dispatch) {
+    dispatch(requestLogout());
+    dispatch(receiveLogout());
+  };
+};

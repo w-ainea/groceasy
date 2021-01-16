@@ -1,10 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
 
-const Register = ({ register }) => {
+const Register = ({ register, history }) => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -14,20 +15,11 @@ const Register = ({ register }) => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // confirm passwords
-    if (password !== confirmPassword) {
-      setError("passwords do not match");
-    }
+    register(username, email, password).then(() => history.push("/admin"));
   }
 
   return (
-    <form
-      className="register-form"
-      onSubmit={(e) => {
-        e.preventDefault();
-        register(username, email, password);
-      }}
-    >
+    <form className="register-form" onSubmit={handleSubmit}>
       <CustomInput
         label="Username"
         name="username"
@@ -67,4 +59,4 @@ const mapDispatchToProps = {
   register: authActions.registerUser,
 };
 
-export default connect(null, mapDispatchToProps)(Register);
+export default withRouter(connect(null, mapDispatchToProps)(Register));

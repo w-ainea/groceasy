@@ -7,6 +7,10 @@ const initialState = {
   sales: [],
   orders: [],
   shops: [],
+  user: {
+    isAuthenticated: false,
+    isFetching: true,
+  },
 };
 
 export default initialState;

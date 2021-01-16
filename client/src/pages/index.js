@@ -1,6 +1,6 @@
 import HomePage from "./HomePage";
 import ShopPage from "./ShopPage";
-import LandingPage from "./LandingPage";
+
 import CheckOutPage from "./CheckoutPage";
 import Accountsettings from "./Accountsettings";
 
@@ -14,7 +14,6 @@ import AuthPage from "./AuthPage";
 export {
   HomePage,
   ShopPage,
-  LandingPage,
   CheckOutPage,
   Accountsettings,
   Dashboard,

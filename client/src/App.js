@@ -7,7 +7,6 @@ import {
   ShopPage,
   Dashboard,
   CheckOutPage,
-  LandingPage,
   ManageProduct,
   AuthPage,
 } from "./pages/";
@@ -42,14 +41,14 @@ const App = () => {
           <Route exact path="/shop" component={ShopPage} />
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={CheckOutPage} />
-          <Route path="/landing" component={LandingPage} />
-          <Route path="/dashboard" component={Dashboard} />
-          <Route path="/products" component={ProductList} />
-          <Route path="/product-upload" component={ProductForm} />
+          <Route exact path="/admin" component={Dashboard} />
+          <Route exact path="/admin/manage" component={ManageProduct} />
+          <Route path="/admin/product-upload" component={ProductForm} />
+          <Route exact path="/admin/products" component={ProductList} />
           <Route path="/product" component={ManageProduct} />
           <Route path="/product/:id" component={ManageProduct} />
-          <Route path="/admin" component={ManageProduct} />
-          <Route path="/auth" component={AuthPage} />
+          <Route path="/signin" component={AuthPage} />
+          <Route path="/signup" component={AuthPage} />
         </Switch>
 
         <ToastContainer autoClose={3000} />

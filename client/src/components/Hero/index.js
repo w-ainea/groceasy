@@ -1,23 +1,48 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { CustomButton } from "..";
+import background from "../../assets/img/hero-bcg.jpg";
 
-const Hero = ({ history }) => {
-  return (
-    <div className="px-10 pt-8">
-      <h1 className="text-xl font-medium md:tracking-wide md:text-2xl md:font-semibold">
-        Get groceries from your local supplier
-      </h1>
-      <span className="capitalize">in 5 minutes daily</span>
-
-      <CustomButton
-        onClick={() => history.push("/shop")}
-        className="block rounded-full border bg-green-500 text-white hover:border-green-500 text-center w-32 mt-3 py-1 md:mt-6 md:py-2 hover:bg-white hover:text-green-500"
+const Hero = ({ history }) => (
+  <section
+    style={{
+      backgroundImage: `url(${background})`,
+      backgroundPosition: "center",
+      backgroundSize: "cover",
+      backgroundAttachment: "scroll",
+      height: "30rem",
+    }}
+  >
+    <div className="h-64 relative">
+      <div
+        className="hero-content mt-24 sm:mt-16 pb-10"
+        style={{
+          position: "absolute",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "center",
+          backgroundColor: "#fff",
+          opacity: "0.9",
+          maxWidth: "40rem",
+          minWidth: "20rem",
+        }}
       >
-        Shop Now
-      </CustomButton>
+        <h1 className="font-bold text-4xl text-gray-700 sm:text-5xl font-headings tracking-tight z-10 px-4">
+          Easy online stores for grocery retailers
+        </h1>
+
+        <p className="px-4 text-lg text-gray-700">
+          We make it simple to build an online store, sell your products and
+          grow your business{" "}
+        </p>
+
+        <CustomButton onClick={() => history.push("/signin")}>
+          Open your store
+        </CustomButton>
+      </div>
     </div>
-  );
-};
+  </section>
+);
 
 export default withRouter(Hero);
