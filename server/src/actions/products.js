@@ -6,8 +6,14 @@ const getProducts = () => {
   return db("products");
 };
 
-const getProductById = (id) => {
-  return db("products").returning("*").where(id, "product.id");
+const getProductById = async (id) => {
+  try {
+    let res = await db("products").returning("*").where("id", "=", id);
+    return res[0];
+  } catch (error) {
+    console.log(error);
+  }
+  return db("products").returning("*").where("id", "=", id);
 };
 
 const imageUpload = async (image) => {
@@ -60,9 +66,19 @@ const updateProduct = (product) => {
   });
 };
 
-const deleteProduct = (id) => {
-  // return db("products").where(id, "product.id").del();
-  console.log(id);
+const deleteProduct = async (id) => {
+  try {
+    const product = await db("products").where("id", id).del();
+    if (product) {
+      let db = await getProducts();
+      return db;
+    } else {
+      let response = "could not delete product";
+      return response;
+    }
+  } catch (err) {
+    throw err;
+  }
 };
 
 module.exports = {

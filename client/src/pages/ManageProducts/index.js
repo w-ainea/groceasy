@@ -26,7 +26,7 @@ const ManageProduct = ({
     if (categories.length === 0) {
       fetchCategories().catch((err) => alert(err));
     }
-  });
+  }, []);
 
   function handleChange(e) {
     const { name, value } = e.target;
@@ -57,14 +57,19 @@ const ManageProduct = ({
   );
 };
 
-function mapStateToProps(state) {
-  const product = {
+function mapStateToProps(state, ownProps) {
+  const newProduct = {
     image: null,
     name: "",
     price: "",
     category: "",
     quantity: "",
   };
+
+  const id = ownProps.match.params.id;
+  const product = id
+    ? state.products.find((product) => product.id === 11)
+    : newProduct;
 
   return {
     product,

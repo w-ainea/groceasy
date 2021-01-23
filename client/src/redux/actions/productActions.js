@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/products";
 
@@ -78,21 +79,8 @@ export function saveProduct(product) {
 }
 
 export function deleteProductOptimistic(product) {
-  return function (dispatch) {
-    console.log(product);
-    return fetch(baseUrl + "/delete", {
-      method: "DELETE",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        product_name: product.name,
-        price: product.price,
-        category: product.category,
-        quantity: product.quantity,
-      }),
-    })
-      .then((product) => dispatch(deleteProduct(product)))
-      .catch((err) => {
-        throw err;
-      });
+  return async function (dispatch) {
+    let resp = await axios.delete(`${baseUrl}/delete/${product.id}`);
+    dispatch(receiveProducts(resp.data));
   };
 }

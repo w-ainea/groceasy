@@ -25,6 +25,16 @@ router.get("/list", (req, res, next) => {
     .catch((err) => next(err));
 });
 
+router.get("/list/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    let response = await getProductById(id);
+    res.json({ response });
+  } catch (error) {
+    res.status(400).json({ error, message: "couldn't retrieve item" });
+  }
+});
+
 // add products
 router.post("/add", upload.single("image"), (req, res, next) => {
   return addProduct(req.file, req.body)
@@ -41,21 +51,14 @@ router.put("/update", (req, res, next) => {
     .catch((err) => next(err));
 });
 
-router.delete("/delete", (req, res, next) => {
-  const { id } = req.body.product.id;
-  return getProductById(id).then((product) => {
-    if (product) {
-      console.log(product);
-      deleteProduct(product)
-        .then(() => res.json({ msg: "product deleted successfully" }))
-        .catch((err) => {
-          // res.status(400).json("Could not delete product");
-          console.log(err);
-        });
-    } else {
-      res.status(404).send({ message: "product not found" });
-    }
-  });
+router.delete("/delete/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    let deleteResponse = await deleteProduct(id);
+    res.send(deleteResponse);
+  } catch (error) {
+    res.status(400).json({ error, message: "could not delete product" });
+  }
 });
 
 module.exports = router;

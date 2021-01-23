@@ -19,7 +19,7 @@ const Analytics = ({
     if (categories.length === 0) {
       fetchCategories().then((err) => alert(err));
     }
-  });
+  }, []);
 
   let sortedProducts = products.reduce(function (acc, product) {
     const { category } = product;

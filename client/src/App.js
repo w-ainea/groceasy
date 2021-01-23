@@ -20,9 +20,8 @@ import {
 } from "./components";
 
 import { useAuth0 } from "@auth0/auth0-react";
-import { ToastContainer } from "react-toastify";
-
-import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "material-react-toastify";
+import "material-react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   const { isLoading } = useAuth0();
@@ -44,10 +43,11 @@ const App = () => {
           <Route exact path="/admin" component={Dashboard} />
           <Route exact path="/admin/manage" component={ManageProduct} />
           <Route path="/admin/product-upload" component={ProductForm} />
-          <Route exact path="/admin/products" component={ProductList} />
-          <Route path="/product" component={ManageProduct} />
-          <Route path="/product/:id" component={ManageProduct} />
-          <Route path="/signin" component={AuthPage} />
+          {/* <Route exact path="/admin/products" component={ProductList} /> */}
+          <Route path="/admin/products/new" component={ManageProduct} />
+          <Route path="/admin/products/product/:id" component={ManageProduct} />
+          <Route path="/auth" component={AuthPage} />
+          <Route path="/signup" component={AuthPage} />
           <Route path="/signup" component={AuthPage} />
         </Switch>
 

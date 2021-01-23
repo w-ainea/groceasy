@@ -1,10 +1,15 @@
 import * as React from "react";
+import { toast } from "material-react-toastify";
+import { useHistory } from "react-router-dom";
 
-import { CustomButton, CustomInput, CustomSelect, FileUpload } from "..";
+import { CustomButton, CustomInput, CustomSelect } from "..";
 
-const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
+const ProductForm = ({ product, categories, onChange, saving }) => {
   const [file, setFile] = React.useState(null);
   const [error, setError] = React.useState(null);
+  const history = useHistory();
+
+  React.useEffect(() => console.log(product));
 
   const imgUpload = (e) => {
     let file = e.target.files[0];
@@ -20,17 +25,24 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
     }
   };
 
-  const submitProductData = (e) => {
-    e.preventDefault();
-    const form = document.getElementById("product-form");
+  const submitProductData = async (e) => {
+    try {
+      e.preventDefault();
+      const form = document.getElementById("product-form");
 
-    // submit data
-    fetch(`http://localhost:8000/products/add`, {
-      method: "POST",
-      body: new FormData(form),
-    })
-      .then((response) => console.log(response))
-      .catch((err) => alert(err));
+      // submit data
+      let resp = await fetch(`http://localhost:8000/products/add`, {
+        method: "POST",
+        body: new FormData(form),
+      });
+
+      if (resp.status === 200) {
+        toast.success("product saved!");
+        history.goBack();
+      }
+    } catch (error) {
+      alert(error);
+    }
   };
 
   return (
@@ -53,7 +65,7 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
           label="Product Name"
           name="name"
           placeholder="Product Name"
-          value={product.name}
+          value={product.product_name}
           onChange={onChange}
           type="text"
         />
@@ -80,7 +92,7 @@ const ProductForm = ({ product, categories, onChange, onSave, saving }) => {
           name="category"
           label="Category"
           onChange={onChange}
-          value={product.categoryId}
+          value={product.category}
           defaultOption="Select Category"
           options={categories.map((category) => ({
             key: category.id,
