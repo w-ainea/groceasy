@@ -17,7 +17,8 @@ const LoginForm = ({ login, history, loadUser }) => {
     e.preventDefault();
     const loginData = await login(email, password);
     let response = loginData.payload.response;
-    console.log(response);
+
+    let userData = await loadUser(response.id, response.token);
     saveTokenInSession(response.token);
     history.push("/admin");
   };
@@ -36,7 +37,7 @@ const LoginForm = ({ login, history, loadUser }) => {
         .then((resp) => resp.json())
         .then((data) => {
           if (data && data.id) {
-            loadUser(data.id).then(() => history.push("/admin"));
+            // loadUser(data.id).then(() => history.push("/admin"));
           }
         })
         .catch(console.log);
