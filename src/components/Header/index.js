@@ -10,7 +10,7 @@ import { MainNav } from "..";
 
 const Header = ({ itemCount }) => {
   return (
-    <div className="shadow-md relative w-screen top-0 z-10 bg-white">
+    <div className="shadow-md top-0 z-10 bg-white">
       <header className="main-header container sm:px-4 h-12 sm:h-16 text-gray-700">
         <MainNav />
         <div className="flex">
@@ -22,19 +22,16 @@ const Header = ({ itemCount }) => {
         <div className="flex relative">
           <NavLink
             to="/notifications"
-            className="header-link relative mx-12 hover:text-green-400"
+            className="header-link mx-12 hover:text-green-400"
           >
-            <span className="header-icon absolute text-gray-800 rounded-full pl-2 right-0">
+            <span className="header-icon absolute text-gray-800 rounded-full pl-2 top-0 left-0 text-mandarin-color">
               0
             </span>
 
             <NotificationIcon />
           </NavLink>
-          <NavLink
-            to="/cart"
-            className="header-link relative hover:text-green-400"
-          >
-            <span className="header-icon absolute text-gray-800 rounded-full pl-2 pb-1 top-0 right-0">
+          <NavLink to="/cart" className="header-link hover:text-green-400">
+            <span className="header-icon absolute text-gray-800 rounded-full pl-2 pb-1 top-0 left-0 text-mandarin-color">
               {itemCount}
             </span>
             <CartIcon />

@@ -13,11 +13,11 @@ const Analytics = ({
 }) => {
   React.useEffect(() => {
     if (products.length === 0) {
-      fetchProducts().then((err) => alert(err));
+      fetchProducts().then((err) => console.log(err));
     }
 
     if (categories.length === 0) {
-      fetchCategories().then((err) => alert(err));
+      fetchCategories().then((err) => console.log(err));
     }
   }, []);
 

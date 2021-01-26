@@ -5,14 +5,43 @@ import { withRouter } from "react-router-dom";
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
 
-const LoginForm = ({ login, history }) => {
+const LoginForm = ({ login, history, loadUser }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    login(email, password).then(history.push("/admin"));
+  const saveTokenInSession = (token) => {
+    window.sessionStorage.setItem("token", token);
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const loginData = await login(email, password);
+    let response = loginData.payload.response;
+    console.log(response);
+    saveTokenInSession(response.token);
+    // loadUser(response.id);
+    history.push("/admin");
+  };
+  React.useEffect(() => {
+    const token = window.sessionStorage.getItem("token");
+
+    if (token) {
+      fetch(process.env.REACT_APP_API_URL + "/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: "Bearer" + token,
+        },
+      })
+        .then((resp) => resp.json())
+        .then((data) => {
+          if (data && data.id) {
+            console.log(data);
+          }
+        })
+        .catch(console.log);
+    }
+  });
 
   return (
     <form className="login-form" onSubmit={handleSubmit}>
@@ -37,6 +66,7 @@ const LoginForm = ({ login, history }) => {
 
 const mapDispatchToProps = {
   login: authActions.loginUser,
+  loadUser: authActions.fetchUser,
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(LoginForm));

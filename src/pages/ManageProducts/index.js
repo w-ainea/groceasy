@@ -23,10 +23,10 @@ const ManageProduct = ({
     console.log("products:", products);
 
     if (products.length === 0) {
-      fetchProducts().catch((err) => alert(err));
+      fetchProducts().catch((err) => console.log(err));
     }
     if (categories.length === 0) {
-      fetchCategories().catch((err) => alert(err));
+      fetchCategories().catch((err) => console.log(err));
     }
   }, []);
 

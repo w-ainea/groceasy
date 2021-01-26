@@ -71,6 +71,20 @@ export const receiveLogout = () => {
   };
 };
 
+export const requestUser = (id) => {
+  return {
+    type: types.RECEIVE_USER,
+    payload: id,
+  };
+};
+
+export const receiveUser = (user) => {
+  return {
+    type: types.RECEIVE_USER,
+    payload: user,
+  };
+};
+
 // async functions
 
 // login
@@ -115,5 +129,16 @@ export const logout = () => {
   return function (dispatch) {
     dispatch(requestLogout());
     dispatch(receiveLogout());
+  };
+};
+
+// fetch a user by id
+
+export const fetchUser = ({ id }) => {
+  return function (dispatch) {
+    dispatch(requestUser(id));
+    return fetch(`${baseUrl}/user/${id}`, { method: "GET" })
+      .then((resp) => resp.json())
+      .then((user) => dispatch(receiveUser(user)));
   };
 };

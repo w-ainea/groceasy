@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import { Switch, Route } from "react-router-dom";
 
@@ -32,8 +32,6 @@ const App = () => {
 
   return (
     <>
-      {window.location.pathname === "/landing" ? null : <Header />}
-
       <div className="">
         <Switch>
           <Route exact path="/" component={HomePage} />
@@ -43,11 +41,10 @@ const App = () => {
           <Route exact path="/admin" component={Dashboard} />
           <Route exact path="/admin/manage" component={ManageProduct} />
           <Route path="/admin/product-upload" component={ProductForm} />
-          {/* <Route exact path="/admin/products" component={ProductList} /> */}
           <Route path="/admin/products/new" component={ManageProduct} />
           <Route path="/admin/products/product/:id" component={ManageProduct} />
           <Route path="/auth" component={AuthPage} />
-          <Route path="/signup" component={AuthPage} />
+          <Route path="/signin" component={AuthPage} />
           <Route path="/signup" component={AuthPage} />
         </Switch>
 

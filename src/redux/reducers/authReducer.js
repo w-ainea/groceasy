@@ -24,6 +24,9 @@ export const authReducer = (state = initialState.user, action) => {
         errorMessage: action.message,
       });
 
+    case types.RECEIVE_USER:
+      return Object.assign({}, state, { username: action.payload.username });
+
     case LOGOUT_SUCCESS:
       return Object.assign({}, state, {
         isFetching: true,

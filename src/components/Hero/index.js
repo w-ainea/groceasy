@@ -15,7 +15,7 @@ const Hero = ({ history }) => (
   >
     <div className="h-64 relative">
       <div
-        className="hero-content mt-24 sm:mt-16 pb-10"
+        className="hero-content mt-24 md:mt-32 pb-10 sm:pt-2 min-w-0"
         style={{
           position: "absolute",
           left: "50%",
@@ -24,7 +24,7 @@ const Hero = ({ history }) => (
           textAlign: "center",
           backgroundColor: "#fff",
           opacity: "0.9",
-          maxWidth: "40rem",
+          // maxWidth: "40rem",
           minWidth: "20rem",
         }}
       >
