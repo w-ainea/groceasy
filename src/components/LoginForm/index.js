@@ -19,9 +19,9 @@ const LoginForm = ({ login, history, loadUser }) => {
     let response = loginData.payload.response;
     console.log(response);
     saveTokenInSession(response.token);
-    // loadUser(response.id);
     history.push("/admin");
   };
+
   React.useEffect(() => {
     const token = window.sessionStorage.getItem("token");
 
@@ -30,13 +30,13 @@ const LoginForm = ({ login, history, loadUser }) => {
         method: "POST",
         headers: {
           "Content-type": "application/json",
-          Authorization: "Bearer" + token,
+          Authorization: token,
         },
       })
         .then((resp) => resp.json())
         .then((data) => {
           if (data && data.id) {
-            console.log(data);
+            loadUser(data.id).then(() => history.push("/admin"));
           }
         })
         .catch(console.log);

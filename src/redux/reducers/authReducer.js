@@ -7,7 +7,7 @@ export const authReducer = (state = initialState.user, action) => {
       return Object.assign({}, state, {
         isFetching: true,
         isAuthenticated: false,
-        user: action.creds,
+        credentials: action.creds,
       });
 
     case types.LOGIN_SUCCESS:
@@ -25,9 +25,13 @@ export const authReducer = (state = initialState.user, action) => {
       });
 
     case types.RECEIVE_USER:
-      return Object.assign({}, state, { username: action.payload.username });
+      return Object.assign({}, state, {
+        isFetching: false,
+        isAuthenticated: true,
+        credentials: { id: action.payload.response.id },
+      });
 
-    case LOGOUT_SUCCESS:
+    case types.LOGOUT_SUCCESS:
       return Object.assign({}, state, {
         isFetching: true,
         isAuthenticated: false,

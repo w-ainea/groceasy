@@ -134,10 +134,16 @@ export const logout = () => {
 
 // fetch a user by id
 
-export const fetchUser = ({ id }) => {
+export const fetchUser = ({ id, token }) => {
   return function (dispatch) {
     dispatch(requestUser(id));
-    return fetch(`${baseUrl}/user/${id}`, { method: "GET" })
+    return fetch(`${baseUrl}/user/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    })
       .then((resp) => resp.json())
       .then((user) => dispatch(receiveUser(user)));
   };
