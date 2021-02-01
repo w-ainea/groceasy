@@ -15,20 +15,14 @@ function ShopItemList({
   fetchSellers,
 }) {
   React.useEffect(() => {
-    if (products.length === 0) {
-      fetchProducts().catch((err) => alert(err));
-    }
+    fetchProducts().catch((err) => alert(err));
 
-    if (sellers.length === 0) {
-      fetchSellers().catch((err) => alert(err));
-    }
+    fetchSellers().catch((err) => alert(err));
 
-    if (categories.length === 0) {
-      fetchCategories().catch((err) => {
-        throw err;
-      });
-    }
-  });
+    fetchCategories().catch((err) => {
+      throw err;
+    });
+  }, []);
 
   let groupByCategory = products.reduce((acc, current) => {
     if (!current.category) return acc;

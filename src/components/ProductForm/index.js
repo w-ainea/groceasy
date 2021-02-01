@@ -1,15 +1,23 @@
 import * as React from "react";
 import { toast } from "material-react-toastify";
 import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 import { CustomButton, CustomInput, CustomSelect } from "..";
+import { connect } from "react-redux";
+import * as productActions from "../../redux/actions/productActions";
 
-const ProductForm = ({ product, categories, onChange, saving }) => {
+const ProductForm = ({
+  product,
+  categories,
+  onChange,
+  saving,
+  user,
+  saveProduct,
+}) => {
   const [file, setFile] = React.useState(null);
   const [error, setError] = React.useState(null);
   const history = useHistory();
-
-  // React.useEffect(() => console.log(product));
 
   const imgUpload = (e) => {
     let file = e.target.files[0];
@@ -26,14 +34,17 @@ const ProductForm = ({ product, categories, onChange, saving }) => {
   };
 
   const submitProductData = async (e) => {
+    e.preventDefault();
+    console.log(user);
     try {
       e.preventDefault();
       const form = document.getElementById("product-form");
 
       // submit data
-      let resp = await fetch(`http://localhost:8000/products/add`, {
-        method: "POST",
-        body: new FormData(form),
+      let resp = await axios({
+        method: "post",
+        url: process.env.REACT_APP_API_URL + "/products/add",
+        data: new FormData(form),
       });
 
       if (resp.status === 200) {
@@ -111,4 +122,12 @@ const ProductForm = ({ product, categories, onChange, saving }) => {
   );
 };
 
-export default ProductForm;
+const mapStateToProps = (state) => ({
+  user: state.user,
+});
+
+const mapDispatchToProps = {
+  saveProduct: productActions.saveProduct,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);

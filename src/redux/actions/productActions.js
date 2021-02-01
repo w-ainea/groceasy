@@ -52,7 +52,7 @@ export function fetchProducts(products) {
   };
 }
 
-export function saveProduct(product) {
+export function saveProduct(product, user) {
   return function (dispatch) {
     return fetch(baseUrl + "/add", {
       method: "POST",
@@ -62,6 +62,7 @@ export function saveProduct(product) {
         price: product.price,
         category: product.category,
         quantity: product.quantity,
+        userId: user.id,
       }),
     })
       .then((response) => {

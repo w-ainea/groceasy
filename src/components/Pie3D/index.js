@@ -38,7 +38,7 @@ const ChartComponent = ({ data }) => {
         yAxisName: "Reserves (MMbbl)",
         numberSuffix: "",
         //Set the theme for your chart
-        theme: "fusion",
+        theme: "candy",
         // pieRadius: "25%",
       },
       // Chart Data

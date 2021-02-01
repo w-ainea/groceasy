@@ -9,8 +9,9 @@ const Hero = ({ history }) => (
       backgroundImage: `url(${background})`,
       backgroundPosition: "center",
       backgroundSize: "cover",
-      backgroundAttachment: "scroll",
+      // backgroundAttachment: "scroll",
       height: "30rem",
+      width: "100%",
     }}
   >
     <div className="h-64 relative">

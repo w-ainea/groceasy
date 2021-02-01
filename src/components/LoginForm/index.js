@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import axios from "axios";
 
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
@@ -15,20 +16,16 @@ const LoginForm = ({ login, history, loadUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const loginData = await login(email, password);
-    let response = loginData.payload.response;
-
-    let userData = await loadUser(response.id, response.token);
-    saveTokenInSession(response.token);
-    history.push("/admin");
+    return login(email, password).then((response) => console.log(response));
   };
 
   React.useEffect(() => {
     const token = window.sessionStorage.getItem("token");
 
     if (token) {
-      fetch(process.env.REACT_APP_API_URL + "/auth/signin", {
+      axios({
         method: "POST",
+        url: process.env.REACT_APP_API_URL + "/auth/signin",
         headers: {
           "Content-type": "application/json",
           Authorization: token,
@@ -36,8 +33,14 @@ const LoginForm = ({ login, history, loadUser }) => {
       })
         .then((resp) => resp.json())
         .then((data) => {
-          if (data && data.id) {
-            // loadUser(data.id).then(() => history.push("/admin"));
+          const { id } = data.response;
+
+          if (id) {
+            loadUser(id, token)
+              .then((response) => {
+                return response;
+              })
+              .then(() => history.push("/admin"));
           }
         })
         .catch(console.log);

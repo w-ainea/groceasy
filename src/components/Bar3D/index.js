@@ -33,7 +33,7 @@ const Chart = ({ data }) => {
         subCaption: "Last month",
         yAxisName: "Sales (In USD)",
         numberPrefix: "$",
-        theme: "fusion",
+        theme: "candy",
       },
       // data: [
       //   {

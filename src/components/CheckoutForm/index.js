@@ -36,6 +36,7 @@ class CheckoutForm extends React.Component {
     const showHideClassName = show
       ? "modal display-block"
       : "modal display-none";
+
     return (
       <div className={showHideClassName}>
         <div className="max-w-xs modal-main rounded-md shadow-xs">

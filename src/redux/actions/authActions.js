@@ -144,9 +144,6 @@ export const fetchUser = (id, token) => {
       },
     })
       .then((resp) => resp.json())
-      .then((user) => {
-        console.log(user);
-        dispatch(receiveUser(user));
-      });
+      .then((user) => dispatch(receiveUser(user)));
   };
 };
