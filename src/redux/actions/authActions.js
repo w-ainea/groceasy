@@ -16,7 +16,6 @@ export const receiveLogin = (user) => ({
   type: types.LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-
   payload: user,
 });
 
@@ -100,7 +99,7 @@ export function loginUser(email, password) {
       }),
     })
       .then((result) => result.json())
-      .then((response) => dispatch(receiveLogin(response)))
+      .then((user) => dispatch(receiveLogin(user)))
       .catch((err) => dispatch(loginError(err)));
   };
 }

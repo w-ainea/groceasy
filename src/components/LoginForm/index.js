@@ -16,7 +16,8 @@ const LoginForm = ({ login, history, loadUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    return login(email, password).then((response) => console.log(response));
+    const response = await login(email, password);
+    saveTokenInSession(response.payload.response.token);
   };
 
   React.useEffect(() => {
@@ -31,9 +32,8 @@ const LoginForm = ({ login, history, loadUser }) => {
           Authorization: token,
         },
       })
-        .then((resp) => resp.json())
-        .then((data) => {
-          const { id } = data.response;
+        .then((response) => {
+          const { id } = response.data.response;
 
           if (id) {
             loadUser(id, token)
