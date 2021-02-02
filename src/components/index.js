@@ -34,6 +34,9 @@ import FileUpload from "./FileUpload";
 import ImageUploadForm from "./ImageUploadForm";
 import LoginForm from "./LoginForm";
 import Register from "./Register";
+import CreateShopForm from "./CreateShopForm";
+import Order from "./Order";
+import OrderList from "./OrderList";
 
 import {
   HomeIcon,
@@ -99,4 +102,7 @@ export {
   ImageUploadForm,
   LoginForm,
   Register,
+  CreateShopForm,
+  Order,
+  OrderList,
 };

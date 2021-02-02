@@ -5,18 +5,17 @@ import { Switch, Route } from "react-router-dom";
 import {
   HomePage,
   ShopPage,
-  Dashboard,
   CheckOutPage,
   ManageProduct,
   AuthPage,
+  AccountPage,
 } from "./pages/";
 import {
   Header,
   Cart,
-  PrivateRoute,
-  ProductList,
   Loading,
   ProductForm,
+  CreateShopForm,
 } from "./components";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -39,7 +38,8 @@ const App = () => {
           <Route exact path="/shop" component={ShopPage} />
           <Route path="/cart" component={Cart} />
           <Route path="/checkout" component={CheckOutPage} />
-          <Route exact path="/admin" component={Dashboard} />
+          <Route exact path="/admin" component={AccountPage} />
+          <Route exact path="/admin/create-shop" component={CreateShopForm} />
           <Route exact path="/admin/manage" component={ManageProduct} />
           <Route path="/admin/product-upload" component={ProductForm} />
           <Route path="/admin/products/new" component={ManageProduct} />

@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/auth";
 
@@ -135,14 +136,12 @@ export const logout = () => {
 export const fetchUser = (id, token) => {
   return function (dispatch) {
     dispatch(requestUser(id));
-    return fetch(`${baseUrl}/user/${id}`, {
+    return axios(`${baseUrl}/user/${id}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: token,
       },
-    })
-      .then((resp) => resp.json())
-      .then((user) => dispatch(receiveUser(user)));
+    }).then((user) => dispatch(receiveUser(user)));
   };
 };

@@ -32,3 +32,11 @@
   position: relative;
   padding: 1rem;
 }
+
+.nav-link {
+  padding: 1.5rem 3rem;
+  border-bottom: #b9c7e8 1px solid;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
