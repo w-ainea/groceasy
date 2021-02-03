@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import * as cartActions from "../../redux/actions/cartActions";
 
 const ShopItem = ({ product, addItemToCart, history }) => {
-  const { product_name, price, sellerName, imgurl } = product;
+  const { product_name, price, sellerName, imgurl, user_id } = product;
 
   return (
     <div className="shadow-lg rounded-md bg-white object-cover overflow-hidden sm:w-40 md:w-56 xl:w-64 flex flex-col text-black-coffee relative">
@@ -22,7 +22,7 @@ const ShopItem = ({ product, addItemToCart, history }) => {
       <div className="px-2 py-2 cursor-pointer">
         <h1
           onClick={() => {
-            history.push("/sellers/:sellerId");
+            history.push(`/sellers/${user_id}`);
           }}
         >
           Seller: {sellerName}

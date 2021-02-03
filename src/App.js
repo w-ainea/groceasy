@@ -9,6 +9,7 @@ import {
   ManageProduct,
   AuthPage,
   AccountPage,
+  SellersPage,
 } from "./pages/";
 import {
   Header,
@@ -16,6 +17,7 @@ import {
   Loading,
   ProductForm,
   CreateShopForm,
+  Seller,
 } from "./components";
 
 import { useAuth0 } from "@auth0/auth0-react";
@@ -47,6 +49,8 @@ const App = () => {
           <Route path="/auth" component={AuthPage} />
           <Route path="/signin" component={AuthPage} />
           <Route path="/signup" component={AuthPage} />
+          <Route path="/sellers" component={SellersPage} />
+          <Route path="/sellers/:id" component={Seller} />
         </Switch>
 
         <ToastContainer autoClose={3000} />

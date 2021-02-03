@@ -37,6 +37,8 @@ import Register from "./Register";
 import CreateShopForm from "./CreateShopForm";
 import Order from "./Order";
 import OrderList from "./OrderList";
+import SellersList from "./SellersList";
+import Seller from "./Seller";
 
 import {
   HomeIcon,
@@ -105,4 +107,6 @@ export {
   CreateShopForm,
   Order,
   OrderList,
+  SellersList,
+  Seller,
 };

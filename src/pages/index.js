@@ -5,6 +5,7 @@ import AnalyticsPage from "./AnalyticsPage";
 import ManageProduct from "./ManageProducts";
 import AuthPage from "./AuthPage";
 import AccountPage from "./AccountPage";
+import SellersPage from "./SellersPage";
 
 export {
   HomePage,
@@ -14,4 +15,5 @@ export {
   ManageProduct,
   AuthPage,
   AccountPage,
+  SellersPage,
 };

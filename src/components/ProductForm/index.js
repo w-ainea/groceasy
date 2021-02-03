@@ -41,7 +41,7 @@ const ProductForm = ({
       const form = document.getElementById("product-form");
       let { id } = user.credentials;
       const formData = new FormData(form);
-      formData.append("id", id);
+      formData.append("user_id", id);
 
       // submit data
       let resp = await axios({
