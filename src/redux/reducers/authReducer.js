@@ -38,6 +38,13 @@ export const authReducer = (state = initialState.user, action) => {
         // credentials: {},
       });
 
+    case types.REGISTER_SUCCESS:
+      return Object.assign({}, state, {
+        isAuthenticated: true,
+        isFetching: false,
+        credentials: action.payload,
+      });
+
     default:
       return state;
   }

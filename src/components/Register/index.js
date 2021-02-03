@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
+import { toast } from "material-react-toastify";
 
 const Register = ({ register, history, loadUser }) => {
   const [username, setUsername] = React.useState("");
@@ -17,6 +18,7 @@ const Register = ({ register, history, loadUser }) => {
 
     register(username, email, password)
       .then(console.log())
+      .then(() => toast.success("Successfully registered"))
       .then(() => history.push("/admin"));
   }
 

@@ -7,10 +7,7 @@ const initialState = {
   sales: [],
   orders: [],
   shops: [],
-  user: {
-    isAuthenticated: false,
-    isFetching: true,
-  },
+  user: {},
   orders: [],
 };
 

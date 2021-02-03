@@ -70,7 +70,7 @@ const ProductForm = ({
           label="Product Image"
           name="image"
           value={product.imageurl}
-          onChange={(e) => imgUpload(e)}
+          onChange={imgUpload}
           file={file}
           error={error}
           type="file"

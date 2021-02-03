@@ -28,7 +28,6 @@ export const loginError = (message) => ({
 });
 
 // sign up
-
 export const requestSignUp = (username, email, password) => ({
   type: types.REQUEST_REGISTER,
   isFetching: true,
@@ -42,8 +41,6 @@ export const requestSignUp = (username, email, password) => ({
 
 export const registerSuccess = (user) => ({
   type: types.REGISTER_SUCCESS,
-  isFetching: false,
-  isAuthenticated: true,
   payload: user,
 });
 
@@ -107,17 +104,15 @@ export function loginUser(email, password) {
 export function registerUser(username, email, password) {
   return function (dispatch) {
     dispatch(requestSignUp(username, email, password));
-    return fetch(baseUrl + "/signup", {
+    return axios(baseUrl + "/signup", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+      data: {
         username,
         email,
         password,
-      }),
+      },
     })
-      .then((result) => result.json())
-      .then((response) => dispatch(registerSuccess(response)))
+      .then((response) => dispatch(registerSuccess(response.data.response)))
       .catch((err) => dispatch(registerError(err)));
   };
 }
@@ -140,8 +135,6 @@ export const fetchUser = (id, token) => {
         "Content-Type": "application/json",
         Authorization: token,
       },
-    })
-      .then(console.log())
-      .then((user) => dispatch(receiveUser(user)));
+    }).then((user) => dispatch(receiveUser(user)));
   };
 };
