@@ -12,10 +12,10 @@ import FusionCharts from "fusioncharts";
 import Chart from "fusioncharts/fusioncharts.charts";
 
 // Include the theme as fusion
-import FusionTheme from "fusioncharts/themes/fusioncharts.theme.fusion";
+import CandyTheme from "fusioncharts/themes/fusioncharts.theme.candy";
 
 // Adding the chart and theme as dependency to the core fusioncharts
-ReactFC.fcRoot(FusionCharts, Chart, FusionTheme);
+ReactFC.fcRoot(FusionCharts, Chart, CandyTheme);
 
 // STEP 3 - Creating the JSON object to store the chart configurations
 
@@ -46,7 +46,7 @@ const ChartComponent = ({ data }) => {
     },
   };
   return (
-    <div className="w-56">
+    <div className="w-40">
       <ReactFC {...chartConfigs} />
     </div>
   );

@@ -11,6 +11,7 @@ const initialState = {
     isAuthenticated: false,
     isFetching: true,
   },
+  orders: [],
 };
 
 export default initialState;

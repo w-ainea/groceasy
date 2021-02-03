@@ -1,4 +1,5 @@
 import * as types from "./actionTypes";
+import axios from "axios";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/orders";
 
@@ -7,15 +8,10 @@ export const placeOrder = (order) => ({
   type: types.PLACE_ORDER,
   payload: order,
 });
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+
 // save order to the database
 export const saveOrder = (order) => (dispatch) =>
-  fetch(baseUrl + "/add", {
+  axios(baseUrl + "/add", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      order,
-    }),
-  })
-    .then((response) => response.text())
-    .then((order) => dispatch(placeOrder(order)));
+    data: order,
+  }).then((order) => dispatch(placeOrder(order)));

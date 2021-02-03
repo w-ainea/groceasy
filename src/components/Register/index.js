@@ -5,7 +5,7 @@ import { withRouter } from "react-router-dom";
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
 
-const Register = ({ register, history }) => {
+const Register = ({ register, history, loadUser }) => {
   const [username, setUsername] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
@@ -15,7 +15,9 @@ const Register = ({ register, history }) => {
   function handleSubmit(e) {
     e.preventDefault();
 
-    register(username, email, password).then(() => history.push("/admin"));
+    register(username, email, password)
+      .then(console.log())
+      .then(() => history.push("/admin"));
   }
 
   return (
@@ -57,6 +59,7 @@ const Register = ({ register, history }) => {
 
 const mapDispatchToProps = {
   register: authActions.registerUser,
+  loadUser: authActions.fetchUser,
 };
 
 export default withRouter(connect(null, mapDispatchToProps)(Register));

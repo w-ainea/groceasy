@@ -6,8 +6,13 @@ import * as authActions from "../../redux/actions/authActions";
 import Dashboard from "../Dashboard";
 import { OrderList, ProductList } from "../../components";
 
-const AccountPage = ({ user }) => {
+const AccountPage = ({ user, loadUser }) => {
   const history = useHistory();
+  const { isAuthenticated, credentials } = user;
+
+  React.useEffect(() => {
+    console.log(user);
+  });
 
   function handleClick(e, navLink) {
     // display tab content on click
@@ -29,13 +34,15 @@ const AccountPage = ({ user }) => {
 
   return (
     <div className="container">
-      {user.isAuthenticated ? (
+      {isAuthenticated ? (
         <div className="grid grid-cols-3 gap-16">
           <section className="navigation col-span-1">
-            <div className="user-profile grid justify-center my-4">
-              <div className="profile-img w-16 h-16 bg-orange-300 rounded-full"></div>
+            <div className="user-profile flex justify-between my-4 px-10">
+              {/* <div className="profile-img w-16 h-16 bg-orange-300 rounded-full"></div> */}
               <div className="user-name my-4">
-                <h1 className="font-bold text-xl text-gray-700">User name</h1>
+                <h1 className="font-bold text-xl text-gray-700">
+                  Hello, {credentials.username}
+                </h1>
               </div>
             </div>
             <ul className="nav-links text-gray-700">
@@ -50,7 +57,7 @@ const AccountPage = ({ user }) => {
                 className="nav-link"
                 onClick={(e) => handleClick(e, "products")}
               >
-                <span class="material-icons">receipt_long</span>
+                <span className="material-icons">receipt_long</span>
                 <h1 className="nav-link__text">Products</h1>
               </li>
               <li
@@ -76,7 +83,7 @@ const AccountPage = ({ user }) => {
               </li>
             </ul>
           </section>
-          <section className="main-content col-span-2 bg-gray-100">
+          <section className="main-content col-span-2 bg-gray-100 px-8">
             <h1 className="section-header"></h1>
             <div className="section-container">
               <div className="section-content" id="dashboard">
@@ -108,4 +115,4 @@ const mapDispatchToProps = {
   loadUser: authActions.fetchUser,
 };
 
-export default connect(mapStateToProps)(AccountPage);
+export default connect(mapStateToProps, mapDispatchToProps)(AccountPage);

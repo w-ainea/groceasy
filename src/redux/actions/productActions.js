@@ -52,22 +52,12 @@ export function fetchProducts(products) {
   };
 }
 
-export function saveProduct(product, user) {
+export function saveProduct(product) {
   return function (dispatch) {
-    return fetch(baseUrl + "/add", {
+    return axios(baseUrl + "/add", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        product_name: product.name,
-        price: product.price,
-        category: product.category,
-        quantity: product.quantity,
-        userId: user.id,
-      }),
+      data: { product },
     })
-      .then((response) => {
-        return response.json();
-      })
       .then((product) =>
         product.id
           ? dispatch(updateProduct(product))

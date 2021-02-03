@@ -39,12 +39,15 @@ const ProductForm = ({
     try {
       e.preventDefault();
       const form = document.getElementById("product-form");
+      let { id } = user.credentials;
+      const formData = new FormData(form);
+      formData.append("id", id);
 
       // submit data
       let resp = await axios({
         method: "post",
         url: process.env.REACT_APP_API_URL + "/products/add",
-        data: new FormData(form),
+        data: formData,
       });
 
       if (resp.status === 200) {
@@ -67,7 +70,7 @@ const ProductForm = ({
           label="Product Image"
           name="image"
           value={product.imageurl}
-          onChange={imgUpload}
+          onChange={(e) => imgUpload(e)}
           file={file}
           error={error}
           type="file"

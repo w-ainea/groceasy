@@ -17,7 +17,7 @@ export const receiveLogin = (user) => ({
   type: types.LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-  payload: user,
+  payload: user.data.response,
 });
 
 export const loginError = (message) => ({
@@ -71,17 +71,17 @@ export const receiveLogout = () => {
   };
 };
 
-export const requestUser = (id) => {
+export const requestUser = (user) => {
   return {
     type: types.RECEIVE_USER,
-    payload: id,
+    payload: user,
   };
 };
 
 export const receiveUser = (user) => {
   return {
     type: types.RECEIVE_USER,
-    payload: user,
+    payload: user.data[0],
   };
 };
 
@@ -91,15 +91,13 @@ export const receiveUser = (user) => {
 export function loginUser(email, password) {
   return function (dispatch) {
     dispatch(requestLogin(email, password));
-    return fetch(baseUrl + "/signin", {
+    return axios(baseUrl + "/signin", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
+      data: {
         email,
         password,
-      }),
+      },
     })
-      .then((result) => result.json())
       .then((user) => dispatch(receiveLogin(user)))
       .catch((err) => dispatch(loginError(err)));
   };
@@ -142,6 +140,8 @@ export const fetchUser = (id, token) => {
         "Content-Type": "application/json",
         Authorization: token,
       },
-    }).then((user) => dispatch(receiveUser(user)));
+    })
+      .then(console.log())
+      .then((user) => dispatch(receiveUser(user)));
   };
 };
