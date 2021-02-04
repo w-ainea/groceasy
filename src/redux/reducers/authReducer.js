@@ -33,9 +33,7 @@ export const authReducer = (state = initialState.user, action) => {
 
     case types.LOGOUT_SUCCESS:
       return Object.assign({}, state, {
-        isAuthenticated: false,
-        isFetching: false,
-        // credentials: {},
+        state: undefined,
       });
 
     case types.REGISTER_SUCCESS:

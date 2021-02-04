@@ -6,17 +6,8 @@ import * as authActions from "../../redux/actions/authActions";
 import Dashboard from "../Dashboard";
 import { OrderList, ProductList } from "../../components";
 
-const AccountPage = ({ user, loadUser }) => {
-  const history = useHistory();
+const AccountPage = ({ user }) => {
   const { isAuthenticated, credentials } = user;
-
-  React.useEffect(() => {
-    // if (!credentials.username) {
-    //   loadUser(credentials.id, credentials.token).then((user) => {
-    //     return user;
-    //   });
-    // }
-  });
 
   function handleClick(e, navLink) {
     // display tab content on click

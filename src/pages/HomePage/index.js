@@ -40,9 +40,13 @@ const Categories = ({ categories }) => {
         {categories.map((category) => (
           <div
             key={category.id}
-            className="shadow-lg rounded-md bg-white object-cover overflow-hidden text-gray-800"
+            className="shadow-2xl rounded-md bg-white object-cover overflow-hidden text-gray-800 pt-4 px-8"
           >
-            <img src={`${Fruits}`} alt="fruits" className="w-100 bg-cover" />
+            <img
+              src={`${category.imgurl}`}
+              alt="fruits"
+              className="bg-cover object-cover flex mx-auto"
+            />
             <div className="text-center my-4">
               <h1 className="font-medium">{category.name}</h1>
               <Link to="/shop" className="text-green-500 hover:underline">

@@ -21,6 +21,8 @@ import {
   Seller,
 } from "./components";
 
+import CategoryForm from "./components/CategoryForrm";
+
 import { useAuth0 } from "@auth0/auth0-react";
 import { ToastContainer } from "material-react-toastify";
 import "material-react-toastify/dist/ReactToastify.css";
@@ -52,6 +54,7 @@ const App = () => {
           <Route path="/signup" component={AuthPage} />
           <Route path="/sellers" component={SellersPage} />
           <Route path="/sellers/:id" component={Seller} />
+          <Route path="/categories/new" component={CategoryForm} />
         </Switch>
 
         <ToastContainer autoClose={3000} />
