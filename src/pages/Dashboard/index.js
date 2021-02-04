@@ -1,21 +1,44 @@
-import React from "react";
+import * as React from "react";
 import { connect } from "react-redux";
-import { Analytics } from "../../components";
+import { Analytics, Revenue, SalesList } from "../../components";
+
+const userRevenue = [
+  {
+    id: 1,
+    label: "Total Revenue",
+    value: 20000,
+  },
+  {
+    id: 2,
+    label: "Revenue from vegetables",
+    value: 8000,
+  },
+  {
+    id: 3,
+    label: "Revenue from fruits",
+    value: 5000,
+  },
+
+  {
+    id: 4,
+    label: "Revenue from spices",
+    value: 5000,
+  },
+];
 
 const Dashboard = ({ products }) => {
   return (
     <div className="mt-4">
       <h1 className="text-2xl text-mandarin-color">Dashboard</h1>
       <div className="dashboard-header my-4">
-        <ul className="dashboard-tabs flex justify-between w-40 bg-green-400 px-4 py-2 rounded-full text-white">
-          <li className="tab">Today</li>
-          <li className="tab">Week</li>
-          <li className="tab">Year</li>
-        </ul>
-
-        <div className="date"></div>
         <div className="dashboard-content">
-          <Analytics />
+          <div className="grid grid-cols-2 gap-6 mb-8">
+            {userRevenue.map((revenue) => (
+              <Revenue key={revenue.id} {...revenue} />
+            ))}
+          </div>
+          <SalesList />
+          {/* <Analytics /> */}
         </div>
       </div>
     </div>

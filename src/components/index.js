@@ -39,6 +39,9 @@ import Order from "./Order";
 import OrderList from "./OrderList";
 import SellersList from "./SellersList";
 import Seller from "./Seller";
+import Revenue from "./Revenue";
+import SalesList from "./SalesList";
+import Sales from "./Sales";
 
 import {
   HomeIcon,
@@ -109,4 +112,7 @@ export {
   OrderList,
   SellersList,
   Seller,
+  Revenue,
+  SalesList,
+  Sales,
 };

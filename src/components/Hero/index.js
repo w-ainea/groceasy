@@ -12,6 +12,7 @@ const Hero = ({ history }) => (
       backgroundAttachment: "scroll",
       height: "30rem",
       width: "100vw",
+      objectFit: "cover",
     }}
   >
     <div className="h-64 relative">

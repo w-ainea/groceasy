@@ -37,7 +37,7 @@ const AccountPage = ({ user, loadUser }) => {
       {isAuthenticated ? (
         <div className="grid grid-cols-3 gap-16">
           <section className="navigation col-span-1">
-            <div className="user-profile flex justify-between my-4 px-10">
+            <div className="user-profile flex justify-between my-4 px-10 w-40">
               {/* <div className="profile-img w-16 h-16 bg-orange-300 rounded-full"></div> */}
               <div className="user-name my-4">
                 <h1 className="font-bold text-xl text-gray-700">
