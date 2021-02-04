@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 
-import { Pie3D, Line2D, Doughnut3D } from "..";
+import { Pie3D, Line2D, Doughnut3D, Multiseries3D } from "..";
 import * as productActions from "../../redux/actions/productActions";
 import * as categoryActions from "../../redux/actions/categoryActions";
 
@@ -42,8 +42,8 @@ const Analytics = ({
   return (
     <section className="grid gap-10 lg:grid-cols-2">
       <Pie3D data={sortedProducts} />
-      <Line2D />
       <Doughnut3D />
+      <Multiseries3D />
     </section>
   );
 };

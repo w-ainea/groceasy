@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import { AnalyticsIcon, HomeIcon, ShopIcon } from "../Icons";
 
-const MainNav = () => {
+const MainNav = ({ user }) => {
   return (
     <div className="fixed bottom-0 left-0 right-0 h-16 bg-white text-sm shadow-md sm:shadow-none sm:text-base sm:relative sm:items-center">
       <div className="px-10 flex justify-between items-center sm:px-0">
@@ -36,8 +36,8 @@ const MainNav = () => {
             </h1>
           </div>
         </NavLink>
-        {/* {isAuthenticated && (
-          <NavLink to="/dashboard" className="flex px-2 py-4 justify-center">
+        {user.isAuthenticated && (
+          <NavLink to="/admin" className="flex px-2 py-4 justify-center">
             <div className="grid">
               <span className="sm:hidden">
                 <AnalyticsIcon />
@@ -47,8 +47,7 @@ const MainNav = () => {
               </h1>
             </div>
           </NavLink>
-        )} */}
-        {/* <AuthenticationButton /> */}
+        )}
       </div>
     </div>
   );

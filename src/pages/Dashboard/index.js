@@ -38,7 +38,7 @@ const Dashboard = ({ products }) => {
             ))}
           </div>
           <SalesList />
-          {/* <Analytics /> */}
+          <Analytics />
         </div>
       </div>
     </div>

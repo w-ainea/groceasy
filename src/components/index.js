@@ -42,6 +42,7 @@ import Seller from "./Seller";
 import Revenue from "./Revenue";
 import SalesList from "./SalesList";
 import Sales from "./Sales";
+import Multiseries3D from "./Multiseries3D";
 
 import {
   HomeIcon,
@@ -115,4 +116,5 @@ export {
   Revenue,
   SalesList,
   Sales,
+  Multiseries3D,
 };

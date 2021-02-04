@@ -11,7 +11,11 @@ const AccountPage = ({ user, loadUser }) => {
   const { isAuthenticated, credentials } = user;
 
   React.useEffect(() => {
-    console.log(user);
+    // if (!credentials.username) {
+    //   loadUser(credentials.id, credentials.token).then((user) => {
+    //     return user;
+    //   });
+    // }
   });
 
   function handleClick(e, navLink) {

@@ -36,10 +36,10 @@ const SalesList = () => {
           </thead>
           {salesList.map((sales) => (
             <tbody>
-              <tr className="border-b-2 p-8">
-                <td>{sales.name}</td>
-                <td>{sales.revenue}</td>
-                <td>{sales.sold}</td>
+              <tr key={sales.id} className="border-b-2 p-8">
+                <td className="font-hairline">{sales.name}</td>
+                <td className="font-hairline">{sales.revenue}</td>
+                <td className="font-hairline">{sales.sold}</td>
               </tr>
             </tbody>
           ))}
