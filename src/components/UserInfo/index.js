@@ -1,7 +1,7 @@
 import React from "react";
 
 import { UserItem } from "..";
-import { CurrencyIcon, StockIcon, AccountIcon } from "../Icons";
+import { CurrencyIcon, AccountIcon } from "../Icons";
 
 const items = [
   {

@@ -15,36 +15,39 @@ const ProductList = ({ products, loadProducts, deleteProduct }) => {
   }, []);
   return (
     <div className="flex flex-col relative">
-      <table className="table-auto border border-collapse border-gray-200 mb-16 text-gray-800">
+      <table className="table-fixed border border-collapse border-gray-200 mb-16 text-gray-800 mt-8">
         <thead>
-          <tr>
-            <th>Quantity</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Delete</th>
-            <th>Edit</th>
+          <tr className="border-b-2 border-green-300">
+            <th className="w-1/5 text-center py-4">Quantity</th>
+            <th className="w-1/5">Product Name</th>
+            <th className="w-1/5">Price</th>
+            <th className="w-1/5">Delete</th>
+            <th className="w-1/5">Edit</th>
           </tr>
         </thead>
         {products.map((product) => (
           <tbody>
-            <tr className="border-b-2 border-gray-200">
-              <td>{product.quantity}</td>
-              <td>{product.product_name}</td>
-              <td>{product.price}</td>
-              <td>
+            <tr
+              key={product.id}
+              className="border-b-2 border-gray-200 text-center"
+            >
+              <td className="w-1/5 py-4">{product.quantity}</td>
+              <td className="w-1/5">{product.product_name}</td>
+              <td className="w-1/5 text-center">{product.price}</td>
+              <td className="w-1/5 text-center">
                 <span
                   onClick={() => deleteProduct(product)}
-                  class="material-icons cursor-pointer text-green-500"
+                  className="material-icons cursor-pointer text-green-500"
                 >
                   delete
                 </span>
               </td>
-              <td>
+              <td className="w-1/5 text-center">
                 <span
                   onClick={() =>
                     history.push("/admin/products/product/" + product.id)
                   }
-                  class="material-icons cursor-pointer text-green-500"
+                  className="material-icons cursor-pointer text-green-500"
                 >
                   create
                 </span>

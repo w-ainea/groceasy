@@ -11,13 +11,13 @@ const Register = ({ register, history, loadUser }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [confirmPassword, setConfirmPassword] = React.useState("");
+  const [phoneNumber, setPhoneNumber] = React.useState("");
   const [error, setError] = React.useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
 
     register(username, email, password)
-      .then(console.log())
       .then(() => toast.success("Successfully registered"))
       .then(() => history.push("/admin"));
   }
@@ -37,6 +37,13 @@ const Register = ({ register, history, loadUser }) => {
         onChange={(e) => setEmail(e.target.value)}
         value={email}
         type="email"
+      />
+      <CustomInput
+        label="Phone Number"
+        name="phone"
+        onChange={(e) => setPhoneNumber(e.target.value)}
+        value={phoneNumber}
+        type="number"
       />
       <CustomInput
         label="Password"

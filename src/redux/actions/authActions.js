@@ -17,7 +17,7 @@ export const receiveLogin = (user) => ({
   type: types.LOGIN_SUCCESS,
   isFetching: false,
   isAuthenticated: true,
-  payload: user.data.response,
+  payload: user,
 });
 
 export const loginError = (message) => ({
@@ -63,8 +63,6 @@ export const requestLogout = () => {
 export const receiveLogout = () => {
   return {
     type: types.LOGOUT_SUCCESS,
-    isFetching: false,
-    isAuthenticated: false,
   };
 };
 
@@ -95,7 +93,7 @@ export function loginUser(email, password) {
         password,
       },
     })
-      .then((user) => dispatch(receiveLogin(user)))
+      .then((user) => dispatch(receiveLogin(user.data.response)))
       .catch((err) => dispatch(loginError(err)));
   };
 }
@@ -120,7 +118,7 @@ export function registerUser(username, email, password) {
 // logout
 export const logout = () => {
   return function (dispatch) {
-    dispatch(requestLogout());
+    window.sessionStorage.removeItem("token");
     dispatch(receiveLogout());
   };
 };

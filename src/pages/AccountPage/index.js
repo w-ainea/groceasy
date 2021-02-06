@@ -5,9 +5,14 @@ import { Redirect, useHistory } from "react-router-dom";
 import * as authActions from "../../redux/actions/authActions";
 import Dashboard from "../Dashboard";
 import { OrderList, ProductList } from "../../components";
+import MessageList from "../../components/MessageList";
 
-const AccountPage = ({ user }) => {
+const AccountPage = ({ user, logout }) => {
   const { isAuthenticated, credentials } = user;
+
+  React.useEffect(() => {
+    console.log(user);
+  });
 
   function handleClick(e, navLink) {
     // display tab content on click
@@ -32,15 +37,20 @@ const AccountPage = ({ user }) => {
       {isAuthenticated ? (
         <div className="grid grid-cols-3 gap-16">
           <section className="navigation col-span-1">
-            <div className="user-profile flex justify-between my-4 px-10 w-40">
-              {/* <div className="profile-img w-16 h-16 bg-orange-300 rounded-full"></div> */}
+            <div className="user-profile my-4 px-10 relative">
               <div className="user-name my-4">
-                <h1 className="font-bold text-xl text-gray-700">
+                <h1 className="font-bold text-xl text-center text-gray-700">
                   Hello, {credentials.username}
                 </h1>
               </div>
+              <button
+                onClick={logout}
+                className="px-4 py-2 bg-green-400 rounded-full text-white hover:bg-mandarin-color float-right"
+              >
+                Logout
+              </button>
             </div>
-            <ul className="nav-links text-gray-700">
+            <ul className="nav-links text-gray-700 mt-16">
               <li
                 className="nav-link"
                 onClick={(e) => handleClick(e, "dashboard")}
@@ -69,13 +79,13 @@ const AccountPage = ({ user }) => {
                 <span className="material-icons">chat</span>
                 <h1 className="nav-link__text">Messages</h1>
               </li>
-              <li
+              {/* <li
                 className="nav-link"
                 onClick={(e) => handleClick(e, "profile")}
               >
                 <span className="material-icons">account_circle</span>
                 <h1 className="nav-link__text">Profile</h1>
-              </li>
+              </li> */}
             </ul>
           </section>
           <section className="main-content col-span-2 bg-gray-100 px-8">
@@ -90,8 +100,12 @@ const AccountPage = ({ user }) => {
               <div className="section-content" id="orders">
                 <OrderList />
               </div>
-              <div className="section-content" id="messages"></div>
-              <div className="section-content" id="profile"></div>
+              <div className="section-content" id="messages">
+                <MessageList />
+              </div>
+              {/* <div className="section-content" id="profile">
+                <Profile user={user} />
+              </div> */}
             </div>
           </section>
         </div>
@@ -108,6 +122,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   loadUser: authActions.fetchUser,
+  logout: authActions.logout,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AccountPage);

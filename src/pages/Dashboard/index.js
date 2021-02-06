@@ -29,7 +29,7 @@ const userRevenue = [
 const Dashboard = ({ products }) => {
   return (
     <div className="mt-4">
-      <h1 className="text-2xl text-mandarin-color">Dashboard</h1>
+      <h1 className="text-2xl text-mandarin-color font-headings">Dashboard</h1>
       <div className="dashboard-header my-4">
         <div className="dashboard-content">
           <div className="grid grid-cols-2 gap-6 mb-8">
@@ -38,6 +38,10 @@ const Dashboard = ({ products }) => {
             ))}
           </div>
           <SalesList />
+
+          <h1 className="font-headings font-semibold text-gray-700 my-8 text-2xl">
+            Insights
+          </h1>
           <Analytics />
         </div>
       </div>

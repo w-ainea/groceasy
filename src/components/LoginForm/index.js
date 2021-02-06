@@ -5,23 +5,32 @@ import axios from "axios";
 
 import * as authActions from "../../redux/actions/authActions";
 import { CustomButton, CustomInput } from "..";
+import { toast } from "react-toastify";
 
 const LoginForm = ({ login, history, loadUser }) => {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
 
   const saveTokenInSession = (token) => {
-    window.sessionStorage.setItem("token", token);
+    return window.sessionStorage.setItem("token", token);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await login(email, password);
-    saveTokenInSession(response.payload.token);
+    try {
+      const response = await login(email, password);
+      saveTokenInSession(response.payload.token);
+      toast.success("Login Successful");
+      const user = await loadUser(response.payload.id, response.payload.token);
+      return user;
+    } catch (error) {
+      alert(error);
+    }
   };
 
   React.useEffect(() => {
     const token = window.sessionStorage.getItem("token");
+    console.log(token);
 
     if (token) {
       axios({
@@ -34,6 +43,7 @@ const LoginForm = ({ login, history, loadUser }) => {
       })
         .then(console.log())
         .then((response) => {
+          console.log("useEffect response" + response);
           const { id } = response.data.response;
 
           if (id) {
