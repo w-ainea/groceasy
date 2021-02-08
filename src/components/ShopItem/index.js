@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 
 import * as cartActions from "../../redux/actions/cartActions";
 
+// display each product on the shop page
 const ShopItem = ({ product, addItemToCart }) => {
   const { product_name, price, sellerName, imgurl } = product;
 
@@ -22,6 +23,7 @@ const ShopItem = ({ product, addItemToCart }) => {
       <div className="px-2 py-2 cursor-pointer">
         <h1>Seller: {sellerName}</h1>
       </div>
+      {/* add aproduct to the shopping cart to the shopping cart  */}
       <button
         onClick={() => addItemToCart(product)}
         className="hover:border-green-400 hover:bg-mandarin-color hover:text-white uppercase text-sm bg-green-400 py-2 px-4 absolute bottom-0 right-0 rounded-tl-3xl text-white"

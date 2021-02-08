@@ -8,6 +8,7 @@ export const requestCheckout = (amount, phone) => ({
   phone,
 });
 
+// checkout request
 export const checkout = (amount, phone) => {
   return (dispatch) => {
     dispatch(requestCheckout(amount, phone));

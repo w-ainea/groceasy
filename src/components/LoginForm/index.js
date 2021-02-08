@@ -15,15 +15,18 @@ const LoginForm = ({ login, history, loadUser }) => {
     return window.sessionStorage.setItem("token", token);
   };
 
+  // make a request to the server for authentication
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      // if the server responds with a jwt token, save the token in session storage and fetch the user
       const response = await login(email, password);
       saveTokenInSession(response.payload.token);
       toast.success("Login Successful");
       const user = await loadUser(response.payload.id, response.payload.token);
       return user;
     } catch (error) {
+      // if there's a login error, alert the user
       alert(error);
     }
   };

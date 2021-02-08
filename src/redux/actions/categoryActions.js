@@ -1,5 +1,5 @@
+import axios from "axios";
 import * as types from "./actionTypes";
-// import * as categoriesApi from "../../api/categoriesApi";
 
 const baseUrl = process.env.REACT_APP_API_URL + "/categories";
 
@@ -19,11 +19,14 @@ export function loadCategoryItems(items) {
     items,
   };
 }
+
+// get a list of categories
 export function fetchCategories() {
   return function (dispatch) {
-    return fetch(baseUrl + "/list", { method: "GET" })
-      .then((response) => response.json())
-      .then((categories) => dispatch(receiveCategories(categories)))
+    return axios(baseUrl + "/list", { method: "GET" })
+      .then((categories) =>
+        dispatch(receiveCategories(categories.data.categories))
+      )
       .catch((err) => {
         throw err;
       });

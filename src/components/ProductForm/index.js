@@ -19,15 +19,19 @@ const ProductForm = ({
   const [error, setError] = React.useState(null);
   const history = useHistory();
 
+  // image validation
   const imgUpload = (e) => {
     let file = e.target.files[0];
 
+    // only accept images of format .png or .jpg
     const types = ["image/png", "image/jpeg"];
 
     if (file && types.includes(file.type)) {
+      // appropriate image format
       setFile(file);
       setError("");
     } else {
+      // incorrect image format
       setFile(null);
       setError("Please select the correct file type (.png or .jpeg)");
     }

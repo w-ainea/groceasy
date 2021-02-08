@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
-
-import Fruits from "../../assets/img/fruits.jpg";
 
 import { allCategoriesSelector } from "../../redux/selectors/categorySelector";
 import * as categoryActions from "../../redux/actions/categoryActions";
 import { Hero } from "../../components";
 
 function HomePage({ fetchCategories, categories }) {
+  // if there are no categories loaded, fetch from server
+  // in case an error occurs when loading, alert the user
   useEffect(() => {
     if (categories.length === 0) {
-      fetchCategories().catch((err) => alert("Loading products failed", err));
+      fetchCategories().catch((err) => alert("Loading categories failed", err));
     }
   });
 

@@ -4,6 +4,7 @@ import { addItem, removeItem, subtractCartItem } from "./cartUtils";
 
 const cartReducer = (state = initialState, action) => {
   switch (action.type) {
+    // add an item to the cart
     case types.ADD_ITEM_TO_CART:
       return {
         ...state,

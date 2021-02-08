@@ -6,13 +6,22 @@ import { AddIcon } from "..";
 import { allProductsSelector } from "../../redux/selectors/productsSelector";
 
 import * as productActions from "../../redux/actions/productActions";
+import { appUserSelector } from "../../redux/selectors/userSelector";
+import { toast } from "material-react-toastify";
 
-const ProductList = ({ products, loadProducts, deleteProduct }) => {
+const ProductList = ({ products, loadProducts, deleteProduct, user }) => {
   const history = useHistory();
 
   React.useEffect(() => {
     loadProducts();
   }, []);
+
+  const userProducts = products.filter(
+    (product) => product.user_id === user.credentials.id
+  );
+
+  console.log(userProducts);
+
   return (
     <div className="flex flex-col relative">
       <table className="table-fixed border border-collapse border-gray-200 mb-16 text-gray-800 mt-8">
@@ -25,7 +34,7 @@ const ProductList = ({ products, loadProducts, deleteProduct }) => {
             <th className="w-1/5">Edit</th>
           </tr>
         </thead>
-        {products.map((product) => (
+        {userProducts.map((product) => (
           <tbody>
             <tr
               key={product.id}
@@ -36,7 +45,14 @@ const ProductList = ({ products, loadProducts, deleteProduct }) => {
               <td className="w-1/5 text-center">{product.price}</td>
               <td className="w-1/5 text-center">
                 <span
-                  onClick={() => deleteProduct(product)}
+                  onClick={() =>
+                    deleteProduct(product)
+                      .then(() => toast.success("Product successfully deleted"))
+                      .catch((err) => {
+                        toast.error(err);
+                      })
+                      
+                  }
                   className="material-icons cursor-pointer text-green-500"
                 >
                   delete
@@ -67,6 +83,7 @@ const ProductList = ({ products, loadProducts, deleteProduct }) => {
 
 const mapStateToProps = createStructuredSelector({
   products: allProductsSelector,
+  user: appUserSelector,
 });
 
 const mapDispatchToProps = {

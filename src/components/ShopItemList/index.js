@@ -14,6 +14,7 @@ function ShopItemList({
   fetchProducts,
   fetchSellers,
 }) {
+  // get products, sellers and categories when the page is first loaded
   React.useEffect(() => {
     fetchProducts().catch((err) => alert(err));
 
@@ -41,6 +42,7 @@ function ShopItemList({
   return (
     <div className="flex justify-center px-4 md:px-10">
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-10">
+        {/* map over the list of products and display each product as an standalone ShopItem component */}
         {products.map((product) => (
           <ShopItem key={product.id} product={product} sellers={sellers} />
         ))}
