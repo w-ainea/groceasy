@@ -21,18 +21,22 @@ const Analytics = ({
     }
   }, []);
 
+  // sort products by category
   let sortedProducts = products.reduce(function (acc, product) {
     const { category } = product;
 
+    // if a category has not yet been loaded, add it to the array, and set its value to 1, and the label to the category name
     if (!acc[category]) {
       acc[category] = { label: category, value: 1 };
     } else {
+      // if the category exists, copy all its data, and increment the value by 1
       acc[category] = { ...acc[category], value: acc[category].value + 1 };
     }
 
     return acc;
   }, {});
 
+  // sort the products from the one with largest quantity to the lowest
   sortedProducts = Object.values(sortedProducts)
     .sort((a, b) => {
       return b.value - a.value;

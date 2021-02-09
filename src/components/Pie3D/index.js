@@ -33,9 +33,9 @@ const ChartComponent = ({ data }) => {
         //Set the chart subcaption
         subCaption: "",
         //Set the x-axis name
-        xAxisName: "Country",
+        xAxisName: "Products",
         //Set the y-axis name
-        yAxisName: "Reserves (MMbbl)",
+        yAxisName: "Quantity",
         numberSuffix: "",
         //Set the theme for your chart
         theme: "candy",

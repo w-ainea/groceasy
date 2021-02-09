@@ -36,6 +36,7 @@ const ManageProduct = ({
       ...currentProduct,
       [name]: value,
     }));
+    console.log(product);
   }
 
   function handleSave(e) {

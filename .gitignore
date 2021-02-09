@@ -27,6 +27,5 @@ yarn-error.log*
 src/assets/css/main.css
 # src/assets/css/tailwind.css
 
-# mock database
-src/tools
+
 
